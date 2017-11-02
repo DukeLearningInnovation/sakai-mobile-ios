@@ -92,7 +92,8 @@ class LogInViewController: UIViewController {
                             print(type)
                             if (type != "project") {
                                 if let props = json["props"]  {
-                                    term = (props["term"] as? String)!
+                                    print(props)
+                                    term = (props["term"] as? String) ?? "Project"
                                 }
                             }
                         }
