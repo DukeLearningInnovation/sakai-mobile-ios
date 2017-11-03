@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -145,9 +146,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="bQC-Iv-4fe" kind="presentation" identifier="toTabBar" id="bnG-KO-7y8"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -163,6 +161,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="kGW-Ke-niu" kind="presentation" identifier="toTabBar" id="Ruc-7Q-3Hk"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFd-qG-heR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -186,25 +187,64 @@
             </objects>
             <point key="canvasLocation" x="971.25" y="130.98591549295776"/>
         </scene>
-        <!--Tab Bar View Controller-->
-        <scene sceneID="j1b-uT-hmx">
+        <!--Ham Menu Controller-->
+        <scene sceneID="VqY-Fd-fFN">
             <objects>
-                <tabBarController id="bQC-Iv-4fe" customClass="TabBarViewController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ASv-Gq-xbN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="24D-8f-hlK" kind="relationship" relationship="viewControllers" id="qAP-Fr-0M4"/>
-                        <segue destination="KAw-BT-coi" kind="relationship" relationship="viewControllers" id="hv8-vG-tbR"/>
-                        <segue destination="fSL-sd-9lQ" kind="relationship" relationship="viewControllers" id="0Nb-H1-QnT"/>
-                        <segue destination="rWZ-R1-04W" kind="relationship" relationship="viewControllers" id="WSK-od-0cn"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jgy-UP-ZJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="5NQ-5p-p0z" customClass="HamMenuController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q70-kP-WJ0"/>
+                        <viewControllerLayoutGuide type="bottom" id="AUw-D3-bTK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rQy-ql-kF7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQD-25-RQg">
+                                <rect key="frame" x="16" y="72" width="112" height="120"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-JV-cBE">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
+                                        <state key="normal" title="Announcements"/>
+                                        <connections>
+                                            <segue destination="JjO-4X-UVi" kind="show" id="R71-Zt-58t"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFg-it-8MM">
+                                        <rect key="frame" x="0.0" y="30" width="112" height="30"/>
+                                        <state key="normal" title="Grade"/>
+                                        <connections>
+                                            <segue destination="KAw-BT-coi" kind="show" identifier="toGrade" id="CwR-XC-Jan"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5V-YN-CQc">
+                                        <rect key="frame" x="0.0" y="60" width="112" height="30"/>
+                                        <state key="normal" title="Assignment"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-9u-YpS">
+                                        <rect key="frame" x="0.0" y="90" width="112" height="30"/>
+                                        <state key="normal" title="Resources"/>
+                                        <connections>
+                                            <segue destination="rWZ-R1-04W" kind="show" identifier="toResources" id="q2L-EJ-v2D"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PQD-25-RQg" firstAttribute="top" secondItem="Q70-kP-WJ0" secondAttribute="bottom" constant="8" symbolic="YES" id="Ggu-j7-uN8"/>
+                            <constraint firstItem="PQD-25-RQg" firstAttribute="leading" secondItem="rQy-ql-kF7" secondAttribute="leadingMargin" id="oEm-bO-HMi"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dhs-zl-IW0">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="hamburger" id="eTL-as-9X0">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0lE-U2-BJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-396" y="1008"/>
+            <point key="canvasLocation" x="268" y="967"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yP-mH-cpt">
@@ -758,7 +798,10 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Assignments" id="zh9-CZ-QDT">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;Courses" id="Kjs-Du-HhN">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="hamburger" id="CCL-I3-JBu">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&lt;Courses" id="Kjs-Du-HhN">
                             <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="fTg-MJ-IgP" kind="unwind" unwindAction="unwindtoMembershipWithSegue:" id="6WE-ha-Nns"/>
@@ -771,26 +814,6 @@
                 <exit id="fTg-MJ-IgP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-907.5" y="1788.3802816901409"/>
-        </scene>
-        <!--Assignment-->
-        <scene sceneID="gp2-FD-cC7">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="24D-8f-hlK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Assignment" image="Page Overview -30.png" selectedImage="Page Overview -30.png" id="YEW-ld-77Z"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="BtU-23-SKf">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.078431372549019607" blue="0.34901960784313724" alpha="1" colorSpace="calibratedRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="JjO-4X-UVi" kind="relationship" relationship="rootViewController" id="nFh-wR-wck"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rcV-3v-vBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1806" y="1790"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VsN-xr-Nri">
@@ -1097,14 +1120,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zt-34-4d9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="967"/>
+            <point key="canvasLocation" x="2070" y="1008"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HjP-bC-BcH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kGW-Ke-niu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="blackTranslucent" id="ZB0-b3-G0P">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.10361593216657639" green="0.1501079797744751" blue="0.270435631275177" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5NQ-5p-p0z" kind="relationship" relationship="rootViewController" id="IHX-P7-6WZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soB-b3-TwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718" y="967"/>
         </scene>
     </scenes>
     <resources>
         <image name="Advertising-30.png" width="30" height="30"/>
         <image name="Book Stack-30.png" width="30" height="30"/>
         <image name="Open Folder-30.png" width="30" height="30"/>
-        <image name="Page Overview -30.png" width="30" height="30"/>
         <image name="Today-30.png" width="30" height="30"/>
+        <image name="hamburger" width="50" height="50"/>
     </resources>
 </document>

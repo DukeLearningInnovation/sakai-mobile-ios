@@ -98,10 +98,11 @@ class MemberShipTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toTabBar") {
             print("hehe")
+
+            let nav = segue.destination as! UINavigationController
+            let addEventViewController = nav.topViewController as! HamMenuController
             
-            let destination = segue.destination as! TabBarViewController
-            destination.siteId = tapSiteId
-            
+            addEventViewController.siteId = tapSiteId
             /*
             var desViewController1 = destination.viewControllers?[0] as! AssignmentTableViewController
             desViewController1.siteId = tapSiteId

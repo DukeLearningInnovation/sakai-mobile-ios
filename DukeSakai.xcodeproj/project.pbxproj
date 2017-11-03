@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1AE932451FABD62800CA5370 /* HamburgerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE932441FABD62800CA5370 /* HamburgerController.swift */; };
+		1AE932471FABD7A700CA5370 /* HamMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE932461FABD7A700CA5370 /* HamMenuController.swift */; };
 		A14A4FE21E89C79F0019C7D0 /* AssDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A4FE11E89C79F0019C7D0 /* AssDetailViewController.swift */; };
 		A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A4FE31E8C54140019C7D0 /* StatusCell.swift */; };
 		A17435371E95CF4F002F9F1C /* Back Filled-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A17435361E95CF4F002F9F1C /* Back Filled-20.png */; };
@@ -48,6 +50,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AE932441FABD62800CA5370 /* HamburgerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerController.swift; sourceTree = "<group>"; };
+		1AE932461FABD7A700CA5370 /* HamMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamMenuController.swift; sourceTree = "<group>"; };
 		A14A4FE11E89C79F0019C7D0 /* AssDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssDetailViewController.swift; sourceTree = "<group>"; };
 		A14A4FE31E8C54140019C7D0 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		A17435361E95CF4F002F9F1C /* Back Filled-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back Filled-20.png"; sourceTree = "<group>"; };
@@ -101,6 +105,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1AE932431FABD56200CA5370 /* NavigationController */ = {
+			isa = PBXGroup;
+			children = (
+				1AE932441FABD62800CA5370 /* HamburgerController.swift */,
+				1AE932461FABD7A700CA5370 /* HamMenuController.swift */,
+			);
+			path = NavigationController;
+			sourceTree = "<group>";
+		};
 		A14A4FDF1E89A5700019C7D0 /* Grade */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +173,7 @@
 		A1B8AE061E7C7DE300228E0B /* DukeSakai */ = {
 			isa = PBXGroup;
 			children = (
+				1AE932431FABD56200CA5370 /* NavigationController */,
 				A187694F1E9EF14D00E0E70D /* Segue */,
 				A4342F4E1E91C40A00939B9B /* Calendar */,
 				A1745DEB1E8F367800502F22 /* Announce */,
@@ -346,12 +360,14 @@
 				A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */,
 				A1B8AE201E7C7EB300228E0B /* GradeTableViewController.swift in Sources */,
 				A14A4FE21E89C79F0019C7D0 /* AssDetailViewController.swift in Sources */,
+				1AE932451FABD62800CA5370 /* HamburgerController.swift in Sources */,
 				A1B8AE081E7C7DE300228E0B /* AppDelegate.swift in Sources */,
 				A1B8AE1F1E7C7EB300228E0B /* AssignmentTableViewController.swift in Sources */,
 				A174353B1E95D508002F9F1C /* AnnTableViewController.swift in Sources */,
 				A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */,
 				A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */,
 				A1AD3AFA1E81BED700A44A02 /* ResourceCell.swift in Sources */,
+				1AE932471FABD7A700CA5370 /* HamMenuController.swift in Sources */,
 				A404FB791E8C48B700F9A585 /* UrlViewController.swift in Sources */,
 				A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */,
 				A1B8AE221E7C7EB300228E0B /* RecourceTableViewController.swift in Sources */,
