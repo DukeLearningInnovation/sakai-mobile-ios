@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1A33FD471FB1633600233BDF /* SiteIdDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A33FD461FB1633600233BDF /* SiteIdDelegate.swift */; };
+		1A8B7A4E1FC66F67000733FA /* DismissMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7A4C1FC66F67000733FA /* DismissMenuAnimator.swift */; };
+		1A8B7A4F1FC66F67000733FA /* PresentMenuAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7A4D1FC66F67000733FA /* PresentMenuAnimator.swift */; };
+		1A8B7A511FC66F81000733FA /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7A501FC66F81000733FA /* Interactor.swift */; };
+		1A8B7A531FC66F89000733FA /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7A521FC66F88000733FA /* MenuHelper.swift */; };
+		1A8B7A551FC66FEC000733FA /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8B7A541FC66FEC000733FA /* MenuViewController.swift */; };
 		1AE932451FABD62800CA5370 /* HamburgerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE932441FABD62800CA5370 /* HamburgerController.swift */; };
 		1AE932471FABD7A700CA5370 /* HamMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE932461FABD7A700CA5370 /* HamMenuController.swift */; };
 		A14A4FE21E89C79F0019C7D0 /* AssDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A4FE11E89C79F0019C7D0 /* AssDetailViewController.swift */; };
@@ -52,6 +57,11 @@
 
 /* Begin PBXFileReference section */
 		1A33FD461FB1633600233BDF /* SiteIdDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteIdDelegate.swift; sourceTree = "<group>"; };
+		1A8B7A4C1FC66F67000733FA /* DismissMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMenuAnimator.swift; sourceTree = "<group>"; };
+		1A8B7A4D1FC66F67000733FA /* PresentMenuAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentMenuAnimator.swift; sourceTree = "<group>"; };
+		1A8B7A501FC66F81000733FA /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		1A8B7A521FC66F88000733FA /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
+		1A8B7A541FC66FEC000733FA /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		1AE932441FABD62800CA5370 /* HamburgerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerController.swift; sourceTree = "<group>"; };
 		1AE932461FABD7A700CA5370 /* HamMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamMenuController.swift; sourceTree = "<group>"; };
 		A14A4FE11E89C79F0019C7D0 /* AssDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssDetailViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +122,11 @@
 			children = (
 				1AE932441FABD62800CA5370 /* HamburgerController.swift */,
 				1AE932461FABD7A700CA5370 /* HamMenuController.swift */,
+				1A8B7A541FC66FEC000733FA /* MenuViewController.swift */,
+				1A8B7A521FC66F88000733FA /* MenuHelper.swift */,
+				1A8B7A501FC66F81000733FA /* Interactor.swift */,
+				1A8B7A4C1FC66F67000733FA /* DismissMenuAnimator.swift */,
+				1A8B7A4D1FC66F67000733FA /* PresentMenuAnimator.swift */,
 			);
 			path = NavigationController;
 			sourceTree = "<group>";
@@ -355,12 +370,14 @@
 				A404FB721E882A4000F9A585 /* TabBarViewController.swift in Sources */,
 				A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */,
 				A4342F4C1E91C40300939B9B /* CalendarView.swift in Sources */,
+				1A8B7A4F1FC66F67000733FA /* PresentMenuAnimator.swift in Sources */,
 				A174353D1E95D5F5002F9F1C /* AnnCell.swift in Sources */,
 				A190D7521E876593008A0D96 /* TermCell.swift in Sources */,
 				A4342F4B1E91C40300939B9B /* CalendarTool.swift in Sources */,
 				A19B7F991E9530DD00BBFBB4 /* Segue1.swift in Sources */,
 				E447C8631E86FE0E00BBB26E /* commonfunctions.swift in Sources */,
 				A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */,
+				1A8B7A531FC66F89000733FA /* MenuHelper.swift in Sources */,
 				A1B8AE201E7C7EB300228E0B /* GradeTableViewController.swift in Sources */,
 				A14A4FE21E89C79F0019C7D0 /* AssDetailViewController.swift in Sources */,
 				1AE932451FABD62800CA5370 /* HamburgerController.swift in Sources */,
@@ -373,10 +390,13 @@
 				1A33FD471FB1633600233BDF /* SiteIdDelegate.swift in Sources */,
 				1AE932471FABD7A700CA5370 /* HamMenuController.swift in Sources */,
 				A404FB791E8C48B700F9A585 /* UrlViewController.swift in Sources */,
+				1A8B7A511FC66F81000733FA /* Interactor.swift in Sources */,
 				A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */,
+				1A8B7A4E1FC66F67000733FA /* DismissMenuAnimator.swift in Sources */,
 				A1B8AE221E7C7EB300228E0B /* RecourceTableViewController.swift in Sources */,
 				A1AD3AFE1E81BEFF00A44A02 /* AssignmentCell.swift in Sources */,
 				A1B8AE211E7C7EB300228E0B /* MemberShipTableViewController.swift in Sources */,
+				1A8B7A551FC66FEC000733FA /* MenuViewController.swift in Sources */,
 				A1745DED1E8F369B00502F22 /* AnnDetailViewController.swift in Sources */,
 				A190D7501E871640008A0D96 /* commonClass.swift in Sources */,
 				A1745DE91E8DD45600502F22 /* GradeDetailViewController.swift in Sources */,

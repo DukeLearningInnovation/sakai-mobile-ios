@@ -188,10 +188,10 @@
             </objects>
             <point key="canvasLocation" x="971.25" y="130.98591549295776"/>
         </scene>
-        <!--Ham Menu Controller-->
+        <!--Menu View Controller-->
         <scene sceneID="VqY-Fd-fFN">
             <objects>
-                <viewController id="5NQ-5p-p0z" customClass="HamMenuController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5NQ-5p-p0z" customClass="MenuViewController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Q70-kP-WJ0"/>
                         <viewControllerLayoutGuide type="bottom" id="AUw-D3-bTK"/>
@@ -200,78 +200,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PQD-25-RQg">
-                                <rect key="frame" x="16" y="72" width="112" height="120"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoV-JV-cBE">
-                                        <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
-                                        <state key="normal" title="Assignments"/>
-                                        <connections>
-                                            <action selector="toAssignments:" destination="5NQ-5p-p0z" eventType="touchUpInside" id="63X-6x-ksg"/>
-                                            <segue destination="JjO-4X-UVi" kind="show" id="R71-Zt-58t"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFg-it-8MM">
-                                        <rect key="frame" x="0.0" y="30" width="112" height="30"/>
-                                        <state key="normal" title="Grades"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E5V-YN-CQc">
-                                        <rect key="frame" x="0.0" y="60" width="112" height="30"/>
-                                        <state key="normal" title="Announcements"/>
-                                        <connections>
-                                            <action selector="toGrades:" destination="5NQ-5p-p0z" eventType="touchUpInside" id="QQ2-QS-xIt"/>
-                                            <segue destination="IFV-aA-42f" kind="show" identifier="toAnn" id="cdf-nA-6IO"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-9u-YpS">
-                                        <rect key="frame" x="0.0" y="90" width="112" height="30"/>
-                                        <state key="normal" title="Resources"/>
-                                        <connections>
-                                            <segue destination="DjR-ag-x5V" kind="show" identifier="toResources" id="QYa-Vw-3YX"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBe-Jt-AvW">
-                                <rect key="frame" x="0.0" y="64" width="320" height="452"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CX9-qx-XAg">
+                                <rect key="frame" x="0.0" y="66" width="236" height="458"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="yje-fH-cjT">
+                                        <rect key="frame" x="0.0" y="28" width="236" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yje-fH-cjT" id="ZVO-hd-eby">
+                                            <rect key="frame" x="0.0" y="0.0" width="236" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
                                 <connections>
-                                    <segue destination="IFV-aA-42f" kind="embed" identifier="embedded" id="HgA-q6-ffD"/>
+                                    <outlet property="dataSource" destination="5NQ-5p-p0z" id="RW2-k8-WjM"/>
+                                    <outlet property="delegate" destination="5NQ-5p-p0z" id="Yz7-x5-ATi"/>
                                 </connections>
-                            </containerView>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rgq-CJ-xv2">
+                                <rect key="frame" x="234" y="0.0" width="86" height="516"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="m3C-rO-fpu"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="closeMenu:" destination="5NQ-5p-p0z" eventType="touchUpInside" id="0bx-Ar-MuN"/>
+                                    <outletCollection property="gestureRecognizers" destination="uee-3R-fww" appends="YES" id="4Ve-a0-nxZ"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dukeLogo.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="xnn-rT-bdf">
+                                <rect key="frame" x="16" y="20" width="84" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="0de-cD-Ekm"/>
+                                    <constraint firstAttribute="width" constant="84" id="xGS-50-CXA"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1036159322" green="0.15010797980000001" blue="0.27043563129999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="ZBe-Jt-AvW" firstAttribute="top" secondItem="Q70-kP-WJ0" secondAttribute="bottom" id="51g-M2-010"/>
-                            <constraint firstItem="ZBe-Jt-AvW" firstAttribute="leading" secondItem="rQy-ql-kF7" secondAttribute="leading" id="AGl-Ok-QJG"/>
-                            <constraint firstItem="PQD-25-RQg" firstAttribute="top" secondItem="Q70-kP-WJ0" secondAttribute="bottom" constant="8" symbolic="YES" id="Ggu-j7-uN8"/>
-                            <constraint firstItem="AUw-D3-bTK" firstAttribute="top" secondItem="ZBe-Jt-AvW" secondAttribute="bottom" constant="8" symbolic="YES" id="Ohj-1l-5An"/>
-                            <constraint firstItem="PQD-25-RQg" firstAttribute="leading" secondItem="rQy-ql-kF7" secondAttribute="leadingMargin" id="oEm-bO-HMi"/>
-                            <constraint firstAttribute="trailing" secondItem="ZBe-Jt-AvW" secondAttribute="trailing" id="qY2-ox-kol"/>
+                            <constraint firstItem="xnn-rT-bdf" firstAttribute="leading" secondItem="rQy-ql-kF7" secondAttribute="leadingMargin" id="1gg-06-fVU"/>
+                            <constraint firstAttribute="trailing" secondItem="Rgq-CJ-xv2" secondAttribute="trailing" id="45r-WY-5jK"/>
+                            <constraint firstItem="xnn-rT-bdf" firstAttribute="top" secondItem="Q70-kP-WJ0" secondAttribute="bottom" id="5b1-Vn-DHw"/>
+                            <constraint firstItem="CX9-qx-XAg" firstAttribute="top" secondItem="xnn-rT-bdf" secondAttribute="bottom" constant="8" symbolic="YES" id="5qU-Ln-Eyx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="CX9-qx-XAg" secondAttribute="trailing" constant="68" id="9z7-rU-nyc"/>
+                            <constraint firstItem="CX9-qx-XAg" firstAttribute="leading" secondItem="rQy-ql-kF7" secondAttribute="leading" id="I12-Ll-W1b"/>
+                            <constraint firstItem="AUw-D3-bTK" firstAttribute="top" secondItem="Rgq-CJ-xv2" secondAttribute="bottom" constant="8" symbolic="YES" id="f4j-KQ-fVo"/>
+                            <constraint firstItem="CX9-qx-XAg" firstAttribute="bottom" secondItem="AUw-D3-bTK" secondAttribute="top" id="kK0-xq-ajM"/>
+                            <constraint firstItem="Rgq-CJ-xv2" firstAttribute="top" secondItem="rQy-ql-kF7" secondAttribute="top" id="vze-Tp-ZKw"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uee-3R-fww" appends="YES" id="d36-zL-SbI"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Dhs-zl-IW0">
-                        <barButtonItem key="leftBarButtonItem" title="hamburger" image="hamburger" id="eTL-as-9X0">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="hamburgerBtnTapped:" destination="5NQ-5p-p0z" id="0cL-jG-bkH"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="&lt;Courses" id="CnO-fJ-dg7">
                             <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="hamView" destination="ZBe-Jt-AvW" id="sz2-5O-Qqp"/>
-                        <outlet property="leading" destination="AGl-Ok-QJG" id="ysL-dd-hKK"/>
-                        <outlet property="trailing" destination="qY2-ox-kol" id="eZp-QQ-AZD"/>
+                        <outlet property="tableView" destination="CX9-qx-XAg" id="NR1-t2-cgQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lE-U2-BJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Tgd-5O-VVG" userLabel="Exit" sceneMemberID="exit"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="uee-3R-fww">
+                    <connections>
+                        <action selector="handleThisGesture:" destination="5NQ-5p-p0z" id="28B-6p-SJF"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="266.25" y="966.54929577464793"/>
+            <point key="canvasLocation" x="969.375" y="860.91549295774644"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3yP-mH-cpt">
@@ -302,7 +304,7 @@
                         <viewControllerLayoutGuide type="bottom" id="HDe-4M-CcS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Pqh-p9-aAl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3P5-i0-22C">
@@ -423,7 +425,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNV-eB-AQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="230-oD-YsS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1089.375" y="1788.3802816901409"/>
+            <point key="canvasLocation" x="-169" y="1861"/>
         </scene>
         <!--Resources-->
         <scene sceneID="mJ4-dI-ZCh">
@@ -479,12 +481,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Resources" id="efh-SD-7i6">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;Courses" id="daQ-LX-XFF">
-                            <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <segue destination="IQD-18-Stf" kind="unwind" unwindAction="unwindtoMembershipWithSegue:" id="jMn-ge-qK2"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="reply" id="PeH-6J-WWT">
                             <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -776,19 +772,12 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Assignments" id="zh9-CZ-QDT">
-                        <barButtonItem key="leftBarButtonItem" title="hamburger" image="hamburger" id="rwn-yl-dRq">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="hamburgerBtnTapped:" destination="5NQ-5p-p0z" id="YcW-Am-mag"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Assignments" id="zh9-CZ-QDT"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="loO-P3-fyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907.5" y="1788.3802816901409"/>
+            <point key="canvasLocation" x="-1963" y="1862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VsN-xr-Nri">
@@ -807,7 +796,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQM-2G-DBh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="91.875" y="1788.3802816901409"/>
+            <point key="canvasLocation" x="-1110" y="1862"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="q19-XH-psj">
@@ -866,12 +855,65 @@
             </objects>
             <point key="canvasLocation" x="2974" y="998"/>
         </scene>
+        <!--Announcements-->
+        <scene sceneID="SEy-lX-AFh">
+            <objects>
+                <viewController id="cMf-Dc-fGe" customClass="HamMenuController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RLL-8r-yet"/>
+                        <viewControllerLayoutGuide type="bottom" id="DBl-kq-YUa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0If-dD-pht">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54y-ay-mUZ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <segue destination="IFV-aA-42f" kind="embed" identifier="embed" id="AST-Ln-eM6"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="54y-ay-mUZ" firstAttribute="bottom" secondItem="DBl-kq-YUa" secondAttribute="top" id="6NB-Qq-uWQ"/>
+                            <constraint firstItem="54y-ay-mUZ" firstAttribute="leading" secondItem="0If-dD-pht" secondAttribute="leading" id="CPO-On-S2k"/>
+                            <constraint firstAttribute="trailing" secondItem="54y-ay-mUZ" secondAttribute="trailing" id="PD3-M4-mak"/>
+                            <constraint firstItem="54y-ay-mUZ" firstAttribute="top" secondItem="RLL-8r-yet" secondAttribute="bottom" id="lhZ-kR-5bh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Announcements" id="fcd-vl-k5f">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="HMZ-Gr-wM9"/>
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="mRc-dB-Kw1">
+                            <connections>
+                                <action selector="openMenu:" destination="cMf-Dc-fGe" id="PGr-JZ-E6P"/>
+                                <segue destination="5NQ-5p-p0z" kind="modal" identifier="openMenu" id="mZv-M8-iM1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="&lt;Courses" image="Back Filled-20.png" id="daQ-LX-XFF">
+                            <color key="tintColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="IQD-18-Stf" kind="unwind" unwindAction="unwindtoMembershipWithSegue:" id="jMn-ge-qK2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="IFV-aA-42f" kind="show" identifier="openAnn" id="Xzb-lh-92o"/>
+                        <segue destination="JjO-4X-UVi" kind="show" identifier="openAssign" id="kQr-WY-mjY"/>
+                        <segue destination="DjR-ag-x5V" kind="show" identifier="openResources" id="lba-44-IQ9"/>
+                        <segue destination="2Pr-Hx-W1j" kind="show" identifier="openGrades" id="BwC-lG-UBP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nla-wa-ZSq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-613.125" y="900"/>
+        </scene>
         <!--Announcement-->
         <scene sceneID="bhn-Xf-paM">
             <objects>
                 <tableViewController storyboardIdentifier="Ann" id="IFV-aA-42f" customClass="AnnTableViewController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="97" sectionHeaderHeight="28" sectionFooterHeight="28" id="C2Z-70-dFT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1081,7 +1123,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="5NQ-5p-p0z" kind="relationship" relationship="rootViewController" id="IHX-P7-6WZ"/>
+                        <segue destination="cMf-Dc-fGe" kind="relationship" relationship="rootViewController" id="aVc-uQ-7fS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soB-b3-TwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1090,10 +1132,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Back Filled-20.png" width="20" height="20"/>
         <image name="Today-30.png" width="30" height="30"/>
-        <image name="hamburger" width="50" height="50"/>
+        <image name="dukeLogo.jpeg" width="83" height="35"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cdf-nA-6IO"/>
+        <segue reference="AST-Ln-eM6"/>
     </inferredMetricsTieBreakers>
 </document>
