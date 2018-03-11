@@ -20,7 +20,7 @@ class AnnDetailViewController: UIViewController {
     if (currAnn?.body != nil && currAnn?.title != nil) {
         let attrStr = try! NSAttributedString(
             data: (currAnn?.body.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
-            options: [ NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html],
+            options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
 
          detail.attributedText = attrStr

@@ -70,7 +70,7 @@ class EventDetailViewController: UIViewController {
         if (tempString != "") {
             let attrStr = try! NSAttributedString(
                 data: (tempString.data(using: String.Encoding.unicode, allowLossyConversion: true)!),
-                options: [ NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html],
+                options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             detailDis.attributedText = attrStr
         }
