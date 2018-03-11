@@ -51,7 +51,7 @@ class GradeTableViewController: UITableViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 0
             //performSegue(withIdentifier: "gradeToAss", sender: self)

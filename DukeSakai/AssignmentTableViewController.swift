@@ -128,7 +128,7 @@ class AssignmentTableViewController: UITableViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
 
         if (sender.direction == .left) {
             self.tabBarController?.selectedIndex = 1

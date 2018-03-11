@@ -207,7 +207,7 @@ class LogInViewController: UIViewController {
 //    }
     
     
-    func dismissKeyBoard() {
+    @objc func dismissKeyBoard() {
         view.endEditing(true)
     }
 

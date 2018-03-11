@@ -33,7 +33,7 @@ class AssDetailViewController: UIViewController {
         if (currAssign?.instructions != nil) {
         let attrStr = try! NSAttributedString(
             data: (currAssign?.instructions.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
-            options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+            options: [ NSAttributedString.DocumentAttributeKey.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
             instruction.attributedText = attrStr
             Due.text = currAssign?.due
@@ -63,7 +63,7 @@ class AssDetailViewController: UIViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoAss", sender: self)
         }
