@@ -30,7 +30,7 @@ class LogInViewController: UIViewController {
     func setbutton() {
        // enter.layer.cornerRadius = 50
         enter.layer.borderWidth = 1
-        enter.layer.cornerRadius = enter.bounds.size.height / 2
+        enter.layer.cornerRadius = 7 //enter.bounds.size.height / 2
         enter.clipsToBounds = true
         enter.contentMode = .scaleToFill
         
