@@ -16,6 +16,7 @@ class GradeDetailViewController: UIViewController {
     @IBOutlet weak var GradeItem: UITextView!
     @IBOutlet weak var gradeView: UITextView!
     @IBOutlet weak var comment: UITextView!
+    @IBOutlet weak var commentHeader: UILabel!
     let semaphore = DispatchSemaphore(value: 0)
     var grade:String = ""
     var points:Int = 0
@@ -34,8 +35,10 @@ class GradeDetailViewController: UIViewController {
 //        print(itemName)
 //        print(grade)
 //        print(points)
+
         initialComment()
 //        print(commentText)
+        commentHeader.text = "Additional instructor's comments about your submission"
         comment.text = commentText
         gradeView.text = grade + " / " + String(points)  + toPercent(grade: grade, points: points)
         GradeItem.text = itemName

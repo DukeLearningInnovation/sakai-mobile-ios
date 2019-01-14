@@ -65,7 +65,7 @@ class AssDetailViewController: UIViewController {
     //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
-            performSegue(withIdentifier: "swipetoAss", sender: self)
+            performSegue(withIdentifier: "swipeToAssignment", sender: self)
         }
     }
 
