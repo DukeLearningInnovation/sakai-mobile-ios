@@ -90,7 +90,8 @@ class AssignmentTableViewController: UITableViewController {
                                 dueTimeString = (mydueTimeString == "" ? "Not Available" : mydueTimeString)
                             }
                             if let tempDue = assignment["dueTime"]  {
-                                dueTime = (tempDue["time"] as? Int64)!
+                                //dueTime will be in epochseconds which can then be converted
+                                dueTime = (tempDue["epochSecond"] as? Int64)!
                             }
                             if let mygradeScaleMaxPoints = assignment["gradeScaleMaxPoints"] as? String {
                                 gradeScaleMaxPoints = (mygradeScaleMaxPoints == "" ? "Not Available" : mygradeScaleMaxPoints)
