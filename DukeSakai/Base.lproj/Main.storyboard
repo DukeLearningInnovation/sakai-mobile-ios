@@ -279,7 +279,7 @@
         <!--Assignment Detail-->
         <scene sceneID="Lnw-Es-58s">
             <objects>
-                <viewController id="dL5-vg-ZhI" customClass="AssDetailViewController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dL5-vg-ZhI" customClass="AssignmentDetailViewController" customModule="DukeSakai" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="taE-zi-fRj"/>
                         <viewControllerLayoutGuide type="bottom" id="2dH-CT-W2i"/>

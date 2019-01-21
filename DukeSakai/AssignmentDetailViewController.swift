@@ -1,5 +1,5 @@
 //
-//  AssDetailViewController.swift
+//  AssignmentDetailViewController.swift
 //  DukeSakai
 //
 //  Created by 毛喆 on 2017-03-27.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AssDetailViewController: UIViewController {
+class AssignmentDetailViewController: UIViewController {
     var currAssign: Assignment? = nil
     
- 
-
+    
+    
     @IBOutlet weak var instruction: UITextView!
     
     @IBOutlet weak var back: UIButton!
@@ -29,32 +29,32 @@ class AssDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //button()
-         swipeEnabled ()
+        swipeEnabled ()
         if (currAssign?.instructions != nil) {
-        let attrStr = try! NSAttributedString(
-            data: (currAssign?.instructions.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
-            options: [.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil)
+            let attrStr = try! NSAttributedString(
+                data: (currAssign?.instructions.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
+                options: [.documentType: NSAttributedString.DocumentType.html],
+                documentAttributes: nil)
             instruction.attributedText = attrStr
             Due.text = currAssign?.due
             assTitle.text = currAssign?.assignmentTitle
         }
         //
         
-       // instruction.text = currAssign?.instructions
+        // instruction.text = currAssign?.instructions
         // Do any additional setup after loading the view.
         
-      /*  if (currAssign?.assignmentTitle != ""){
-            back.title = currAssign?.assignmentTitle
-        }
-        else {
-            back.title = "Back"
-        }
-        */
+        /*  if (currAssign?.assignmentTitle != ""){
+         back.title = currAssign?.assignmentTitle
+         }
+         else {
+         back.title = "Back"
+         }
+         */
     }
     func swipeEnabled () {
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (AssDetailViewController.handleSwipes(sender: )))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (AssDetailViewController.handleSwipes(sender: )))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (AssignmentDetailViewController.handleSwipes(sender: )))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (AssignmentDetailViewController.handleSwipes(sender: )))
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
@@ -68,22 +68,22 @@ class AssDetailViewController: UIViewController {
             performSegue(withIdentifier: "swipeToAssignment", sender: self)
         }
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
