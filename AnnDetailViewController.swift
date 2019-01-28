@@ -24,9 +24,9 @@ class AnnDetailViewController: UIViewController {
             documentAttributes: nil)
 
          detail.attributedText = attrStr
+         detail.font = UIFont(name: "HelveticaNeue", size: 18.5)
          annTitle.text = currAnn?.title
         }
-     
         // Do any additional setup after loading the view.
         swipeEnabled ()
     }
@@ -58,8 +58,6 @@ class AnnDetailViewController: UIViewController {
             performSegue(withIdentifier: "swipetoAnn", sender: self)
         }
     }
-
-
     /*
     // MARK: - Navigation
 
@@ -69,5 +67,4 @@ class AnnDetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

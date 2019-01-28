@@ -10,8 +10,6 @@ import UIKit
 
 class AnnTableViewController: UITableViewController {
     
-    
-    
     var siteId : String = ""
     var announceItems:[(title: String, body: String, createdOn: Int64, author: String)] = []
     var tapAnnounceBody: String? = nil
