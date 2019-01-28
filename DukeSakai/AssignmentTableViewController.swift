@@ -172,7 +172,7 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = openAssignment[indexPath.row - 1].assignmentTitle
                 cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
+                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = openAssignment[indexPath.row - 1].due
                 cell.scale?.text  = openAssignment[indexPath.row - 1].scale
                 return cell
@@ -186,7 +186,7 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
                 cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
+                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = closeAssignment[indexPath.row - 1].due
                 cell.scale?.text  = closeAssignment[indexPath.row - 1].scale
                 return cell
@@ -273,9 +273,9 @@ class AssignmentTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 36;
+            return 50;
         } else {
-            return 95;
+            return 120;
         }
     }
     
