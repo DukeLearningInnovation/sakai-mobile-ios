@@ -27,7 +27,7 @@ class EventDetailViewController: UIViewController {
         view.addGestureRecognizer(rightSwipe)
     }
 
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoCalendar", sender: self)
         }
@@ -70,7 +70,7 @@ class EventDetailViewController: UIViewController {
         if (tempString != "") {
             let attrStr = try! NSAttributedString(
                 data: (tempString.data(using: String.Encoding.unicode, allowLossyConversion: true)!),
-                options: [ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType],
+                options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             detailDis.attributedText = attrStr
         }

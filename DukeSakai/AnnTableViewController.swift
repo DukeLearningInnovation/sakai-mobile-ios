@@ -10,8 +10,6 @@ import UIKit
 
 class AnnTableViewController: UITableViewController {
     
-    
-    
     var siteId : String = ""
     var announceItems:[(title: String, body: String, createdOn: Int64, author: String)] = []
     var tapAnnounceBody: String? = nil
@@ -159,7 +157,7 @@ class AnnTableViewController: UITableViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 1
             //performSegue(withIdentifier: "gradeToAss", sender: self)
