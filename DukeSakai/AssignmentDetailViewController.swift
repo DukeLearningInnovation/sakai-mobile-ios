@@ -36,6 +36,7 @@ class AssignmentDetailViewController: UIViewController {
                 options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             instruction.attributedText = attrStr
+            instruction.font = UIFont(name: "HelveticaNeue", size: 18.5)
             Due.text = currAssign?.due
             assTitle.text = currAssign?.assignmentTitle
         }
@@ -62,7 +63,6 @@ class AssignmentDetailViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipeToAssignment", sender: self)
