@@ -124,9 +124,9 @@ class MemberShipTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         if (indexPath.row == 0) {
-            return 36;
+            return 50;
         } else {
-            return 52;
+            return 85;
         }
     }
 

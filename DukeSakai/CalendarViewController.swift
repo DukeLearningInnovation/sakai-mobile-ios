@@ -29,7 +29,7 @@ class CalenderViewController: UIViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoCourse", sender: self)
         }

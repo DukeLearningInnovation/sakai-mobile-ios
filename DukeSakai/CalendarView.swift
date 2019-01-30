@@ -34,9 +34,7 @@ class CalendarView: UIView {
                         let cal = Calendar.current
                         let time = cal.dateComponents([.year, .month, .day], from: date as Date)
                         let myday = time.day
-                        //print(myday)
                         let daynum = Int(day!)
-                        //print(daynum)
                         if (daynum == myday) {
                             logDate(btn)
                         }
@@ -57,8 +55,8 @@ class CalendarView: UIView {
             }
         }
     }
-    //-----------------------------------------color of title----------------------------------------------------------
-    var weekdayHeaderTextColor = UIColor(red: 0.40, green: 0.40, blue: 0.40, alpha: 1) {                             //Mon to Fri
+    //------------------------------- color of title -------------------------------------
+    var weekdayHeaderTextColor = UIColor(red: 0.70, green: 0.20, blue: 0.10, alpha: 1) {                             //Mon to Fri
         didSet{
             for i in 0..<weekHeaderView.subviews.count{
                 let label = weekHeaderView.subviews[i] as! UILabel
@@ -66,7 +64,7 @@ class CalendarView: UIView {
             }
         }
     }
-    var weekdayHeaderWeekendTextColor = UIColor(red: 0.75, green: 0.25, blue: 0.25, alpha: 1){                     //Sat and Sun
+    var weekdayHeaderWeekendTextColor = UIColor(red: 0.70, green: 0.20, blue: 0.10, alpha: 1){                     //Sat and Sun
         didSet{
             for i in 0..<weekHeaderView.subviews.count{
                 let label = weekHeaderView.subviews[i] as! UILabel
@@ -74,9 +72,9 @@ class CalendarView: UIView {
             }
         }
     }
-    //-----------------------------------------color of calendar----------------------------------------------------------
+    //----------------------------------- color of calendar ----------------------------------------
     //color of month
-    var componentTextColor =  UIColor(red: CGFloat(110.0 / 255.0), green: CGFloat(110.0 / 255.0), blue: CGFloat(110.0 / 255.0), alpha: CGFloat(1.0)){
+    var componentTextColor =  UIColor.black {
         didSet{
             for btn in contentWrapperView.subviews{
                 let bt = btn as! UIButton
@@ -85,7 +83,7 @@ class CalendarView: UIView {
         }
     }
     //color of today
-    var todayIndicatorColor =  UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1)
+    var todayIndicatorColor =  UIColor(red:0.00, green:0.48, blue:1.00, alpha:1.0)
     {
         didSet{
             for btn in contentWrapperView.subviews{
@@ -97,8 +95,9 @@ class CalendarView: UIView {
         }
     }
     
-    var highlightedComponentTextColor = UIColor.white                                        //highlight color
-    var selectedIndicatorColor = UIColor(red: 0.06, green: 0.18, blue: 0.74, alpha: 1)              //background color
+    var highlightedComponentTextColor = UIColor.white
+    //highlight color
+    var selectedIndicatorColor = UIColor(red:0.00, green:0.19, blue:0.53, alpha:1.0)       //background color
     
     //----------------------------------three main part of calendar-------------------------------------------------------
     fileprivate let navigationBar = UIView()                                                                       //title
@@ -539,12 +538,7 @@ extension CalendarView{
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         
-        
-        
-        
     }
-
-    
     
 }
 

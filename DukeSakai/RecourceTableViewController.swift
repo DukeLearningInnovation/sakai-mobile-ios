@@ -40,7 +40,7 @@ class RecourceTableViewController: UITableViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             print ("swipe right")
             if(stackArray.count > 0) {

@@ -32,7 +32,7 @@ extension String {
     }
     func substring(from: Int?, to: Int?) -> String {
         if let start = from {
-            guard start < self.characters.count else {
+            guard start < self.count else {
                 return ""
             }
         }
@@ -57,13 +57,13 @@ extension String {
         }
         
         let endIndex: String.Index
-        if let end = to, end >= 0, end < self.characters.count {
+        if let end = to, end >= 0, end < self.count {
             endIndex = self.index(self.startIndex, offsetBy: end + 1)
         } else {
             endIndex = self.endIndex
         }
         
-        return self[startIndex ..< endIndex]
+        return String(self[startIndex ..< endIndex])
     }
     
     func substring(from: Int) -> String {
@@ -107,7 +107,7 @@ extension String {
 }
 
 func strStr(_ haystack: String, _ needle: String) -> Int {
-    let hChars = Array(haystack.characters), nChars = Array(needle.characters)
+    let hChars = Array(haystack), nChars = Array(needle)
     let hLen = hChars.count, nLen = nChars.count
     
     guard hLen >= nLen else {

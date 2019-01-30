@@ -12,9 +12,9 @@ import UIKit
 
 open class CalendarTool: NSObject {
     /**
-     返回年
-     - parameter date: 数据
-     - returns: 年
+     Returns year
+     - parameter date: data
+     - returns: year
      */
     open class func Year(_ date:Date)->Int{
         let components = (Foundation.Calendar.current as NSCalendar).components(.year, from: date)
@@ -22,9 +22,9 @@ open class CalendarTool: NSObject {
     }
     
     /**
-     返回月
-     - parameter date: 数据
-     - returns: 月
+     Returns month
+     - parameter date: data
+     - returns: month
      */
     open class func Month(_ date:Date)->Int{
         let components = (Foundation.Calendar.current as NSCalendar).components(.month, from: date)
@@ -32,9 +32,9 @@ open class CalendarTool: NSObject {
     }
     
     /**
-     返回日
-     - parameter date: 数据
-     - returns: 日
+     Returns day
+     - parameter date: data
+     - returns: day
      */
     open class func Day(_ date:Date)->Int{
         let components = (Foundation.Calendar.current as NSCalendar).components(.day, from: date)
@@ -44,9 +44,9 @@ open class CalendarTool: NSObject {
     
     
     /**
-     返回这个月的天数
-     - parameter date:数据
-     - returns: 天
+     Returns the number of days in this month
+     - parameter date: data
+     - returns: day
      */
     open class func DaysInMonth(_ date:Date)->Int{
         let days = (Foundation.Calendar.current as NSCalendar).range(of: .day, in: .month, for: date)
@@ -54,9 +54,9 @@ open class CalendarTool: NSObject {
     }
     
     /**
-     获取上一个月
-     - parameter date: 数据
-     - returns: 上一月
+     Returns the last month
+     - parameter date: data
+     - returns: last month
      */
     open class func UpMonth(_ date:Date)->Date{
         var dateComponents = DateComponents()
@@ -67,9 +67,9 @@ open class CalendarTool: NSObject {
     
     
     /**
-     获取下一个月
-     - parameter date: 数据
-     - returns: 下一月
+     Returns the next month
+     - parameter date: data
+     - returns: next month
      */
     open class func NextMonth(_ date:Date)->Date{
         var dateComponents = DateComponents()
@@ -79,9 +79,9 @@ open class CalendarTool: NSObject {
     }
     
     /**
-     获取上一个年
-     - parameter date: 数据
-     - returns: 上一年
+     Returns the previous year
+     - parameter date: data
+     - returns: last year
      */
     open class func UpYear(_ date:Date)->Date{
         var dateComponents = DateComponents()
@@ -90,9 +90,9 @@ open class CalendarTool: NSObject {
         return newDate!
     }
     /**
-     获取下一个年
-     - parameter date: 数据
-     - returns: 下一年
+     Returns the next year
+     - parameter date: data
+     - returns: next year
      */
     open class func NextYear(_ date:Date)->Date{
         var dateComponents = DateComponents()
@@ -104,9 +104,9 @@ open class CalendarTool: NSObject {
     
     
     /**
-     这个月的第一天是星期几
-     - parameter date: 数据
-     - returns: 周几
+     The first day of the month is the day of the week
+     - parameter date: data
+     - returns: day of the week
      */
     open class func DayinWeek(_ date:Date)->Int{
         
@@ -115,12 +115,6 @@ open class CalendarTool: NSObject {
         days =  days - Day(date) + 1
         return (days - 3) % 7;
     }
-    
-    
-    
-    
-    
-    
     
 }
 

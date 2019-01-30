@@ -82,6 +82,7 @@ class AssignmentTableViewController: UITableViewController {
                             
                             if let mytitle = assignment["title"] as? String {
                                 title = (mytitle == "" ? "Not Available" : mytitle)
+                                
                             }
                             if let mystatus = assignment["status"] as? String {
                                 status = (mystatus == "" ? "Not Available" : mystatus)
@@ -128,7 +129,7 @@ class AssignmentTableViewController: UITableViewController {
         view.addGestureRecognizer(rightSwipe)
     }
     //add0331
-    func handleSwipes (sender: UISwipeGestureRecognizer) {
+    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
 
         if (sender.direction == .left) {
             self.tabBarController?.selectedIndex = 1
@@ -160,6 +161,7 @@ class AssignmentTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! StatusCell
@@ -168,6 +170,8 @@ class AssignmentTableViewController: UITableViewController {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = openAssignment[indexPath.row - 1].assignmentTitle
+                cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
+                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = openAssignment[indexPath.row - 1].due
                 cell.scale?.text  = openAssignment[indexPath.row - 1].scale
                 return cell
@@ -180,6 +184,8 @@ class AssignmentTableViewController: UITableViewController {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
+                cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
+                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = closeAssignment[indexPath.row - 1].due
                 cell.scale?.text  = closeAssignment[indexPath.row - 1].scale
                 return cell
@@ -241,7 +247,7 @@ class AssignmentTableViewController: UITableViewController {
         if (segue.identifier == "toAssignmentDetail") {
             
             let destination = segue.destination as! UINavigationController
-            let desination1 = destination.topViewController as! AssDetailViewController
+            let desination1 = destination.topViewController as! AssignmentDetailViewController
             desination1.currAssign = tapAssignment
             
         }
@@ -266,9 +272,9 @@ class AssignmentTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 36;
+            return 50;
         } else {
-            return 95;
+            return 120;
         }
     }
     
