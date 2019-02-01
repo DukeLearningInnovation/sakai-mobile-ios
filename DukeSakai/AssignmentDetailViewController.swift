@@ -36,6 +36,7 @@ class AssignmentDetailViewController: UIViewController {
                 options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
             instruction.attributedText = attrStr
+            instruction.font = UIFont(name: "HelveticaNeue", size: 18.5)
             Due.text = currAssign?.due
             assTitle.text = currAssign?.assignmentTitle
         }
