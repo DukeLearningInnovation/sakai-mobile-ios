@@ -1,10 +1,3 @@
-//
-//  EventDetailViewController.swift
-//  DukeSakai
-//
-//  Created by 马丞章 on 4/4/17.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 
