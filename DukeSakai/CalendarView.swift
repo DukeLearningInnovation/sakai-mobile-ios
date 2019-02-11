@@ -6,9 +6,7 @@ import UIKit
 
 //MARK: - define delegate
 protocol CalendarDelegate{
-    /**
-     delegate
-     */
+
     func CalendarNavClickView(_ calendar:CalendarView,year:Int,month:Int)
 }
 
@@ -92,19 +90,23 @@ class CalendarView: UIView {
     //highlight color
     var selectedIndicatorColor = UIColor(red:0.00, green:0.19, blue:0.53, alpha:1.0)       //background color
     
-    //----------------------------------three main part of calendar-------------------------------------------------------
-    fileprivate let navigationBar = UIView()                                                                       //title
-    fileprivate var textLabel = UILabel()                                                                          //title text
-    fileprivate let weekHeaderView = UIView()                                                                     //weekday
-    fileprivate let contentWrapperView = UIView()                                                                 //days
-    fileprivate var Nowdate = Date()                                                                            //global time
-    //text view to show details
+    //------------------------------------ Three main parts of the calendar --------------------------------------
+    // Title
+    fileprivate let navigationBar = UIView()
+    // Title text
+    fileprivate var textLabel = UILabel()
+    // Weekday
+    fileprivate let weekHeaderView = UIView()
+    // Days
+    fileprivate let contentWrapperView = UIView()
+    // Global time
+    fileprivate var Nowdate = Date()
+    // Text view to show details
     fileprivate var textview = UITextView()
     var eventArray = [CalendarEvent]()
     let semaphore = DispatchSemaphore(value: 0)
     //let semaphore2 = DispatchSemaphore(value: 0)
-    //-----------------------------------------create calendar-------------------------------------------------------
-    
+    //----------------------------------------- Create Calendar --------------------------------------------------
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -146,7 +148,6 @@ class CalendarView: UIView {
         //textView.textAlignment = NSTextAlignment.Center
         textview.textColor = UIColor.blue
         //textview.backgroundColor = UIColor.red
-        //print("add textview")
         self.addSubview(textview)
         
     }
@@ -307,9 +308,6 @@ extension CalendarView{
         }
         
         EventList = presentMonthEvent
-        //print(eventArray)
-        
-        
     }
     /**
      right button
@@ -352,8 +350,6 @@ extension CalendarView{
         }
         
         EventList = presentMonthEvent
-        //print(eventArray)
-
     }
 }
 //MARK:- create weekday attribute
@@ -420,26 +416,21 @@ extension CalendarView{
     }
     
     @objc fileprivate func logDate(_ btn:UIButton){
-        //print((btn.titleLabel?.text)!)
         btn.isSelected = true
         btn.backgroundColor = btn.isSelected ?  selectedIndicatorColor : nil
         btn.setTitleColor(highlightedComponentTextColor, for: .selected)
     }
     
     @objc fileprivate func selectDate(_ btn:UIButton){
-        //print((btn.titleLabel?.text)!)
         selectedEvents = []
         textview.text = ""
         let day = btn.titleLabel?.text!
-        //print(day)
         for event in EventList {
             let date = event.time
             let cal = Calendar.current
             let time = cal.dateComponents([.year, .month, .day], from: date as Date)
             let myday = time.day
-            //print(myday)
             let daynum = Int(day!)
-            //print(daynum)
             if (daynum == myday) {
                 //initialSelectEvent(event: event)
                 textview.text = textview.text + event.title + "\n"
@@ -459,7 +450,6 @@ extension CalendarView{
         }
         let yearCh = String(year)
         let thisurl = "https://sakai.duke.edu/direct/calendar/my.json?firstDate=" + yearCh + "-" + monthCh + "-01&lastDate=" + yearCh +  "-" + monthCh + "-32"
-        //        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -480,9 +470,6 @@ extension CalendarView{
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-                    
-                    //print(json)
-                    
                     
                     if let content_collection = json["calendar_collection"] as? [[String: AnyObject]] {
                         for event in content_collection {
@@ -513,7 +500,6 @@ extension CalendarView{
                             
                             let eventItem = CalendarEvent(title: title, siteId: siteId, eventId: eventId, time: time, ft_display: ft_display)
                             self.eventArray.append(eventItem)
-                            //print(time)
                             
                             let dayPosition = CalendarTool.Day(time as Date) + CalendarTool.DayinWeek(time as Date) - 1
                             eventItem.dayPosition = dayPosition

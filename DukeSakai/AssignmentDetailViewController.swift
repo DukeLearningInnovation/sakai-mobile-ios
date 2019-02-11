@@ -33,7 +33,6 @@ class AssignmentDetailViewController: UIViewController {
             Due.text = currAssign?.due
             assTitle.text = currAssign?.assignmentTitle
         }
-        //
         
         // instruction.text = currAssign?.instructions
         // Do any additional setup after loading the view.

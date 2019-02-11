@@ -21,7 +21,6 @@ class LogInViewController: UIViewController {
 
     
     func setbutton() {
-       // enter.layer.cornerRadius = 50
         enter.layer.borderWidth = 1
         enter.layer.cornerRadius = 7 //enter.bounds.size.height / 2
         enter.clipsToBounds = true
@@ -151,7 +150,6 @@ class LogInViewController: UIViewController {
             let statusCode = httpResponse?.statusCode
             
             if (statusCode == 200) {
-//                print("Everyone is fine, file downloaded successfully.")
                 do{
                     
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
@@ -187,18 +185,6 @@ class LogInViewController: UIViewController {
         performSegue(withIdentifier: "logIn", sender: self)
 
     }
-//    func wait() {
-//        sleep(1)
-//        print("userId")
-//        print(userId)
-//        
-//
-//        
-//        sleep(1)
-//        
-//
-//    }
-    
     
     @objc func dismissKeyBoard() {
         view.endEditing(true)

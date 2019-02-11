@@ -24,13 +24,8 @@ class GradeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
        // button()
-         swipeEnabled ()
-//        print(itemName)
-//        print(grade)
-//        print(points)
-
+        swipeEnabled ()
         initialComment()
-//        print(commentText)
         commentHeader.text = "Additional instructor's comments about your submission"
         comment.text = commentText
         gradeView.text = grade + " / " + String(points)  + toPercent(grade: grade, points: points)
@@ -56,7 +51,6 @@ class GradeDetailViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoGrade", sender: self)
@@ -86,13 +80,10 @@ class GradeDetailViewController: UIViewController {
                 return
             }
             let statusCode = httpResponse?.statusCode
-//            print(statusCode)
             if (statusCode == 200) {
-//                print("Everyone is fine, file downloaded successfully.")
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-//                    print(json)
                     if let mycomment = json["comment"] as? String {
                         self.commentText = (mycomment == "" ? "Not Available" : mycomment)
                     }

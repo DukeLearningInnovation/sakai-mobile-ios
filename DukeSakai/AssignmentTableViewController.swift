@@ -24,7 +24,6 @@ class AssignmentTableViewController: UITableViewController {
         print(siteId)
         swipeEnabled ()
         initialassignmentItems()
-//        print(self.assignmentItems)
         formAssignment()
     }
     
@@ -63,7 +62,6 @@ class AssignmentTableViewController: UITableViewController {
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-//                    print(json)
                     if let assignment_collection = json["assignment_collection"] as? [[String: AnyObject]] {
                         for assignment in assignment_collection {
                             var title:String = "Not Available"
@@ -121,7 +119,6 @@ class AssignmentTableViewController: UITableViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
 
         if (sender.direction == .left) {

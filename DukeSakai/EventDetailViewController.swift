@@ -76,17 +76,12 @@ class EventDetailViewController: UIViewController {
 
         //self.textview.text = self.textview.text + "Date:  " + selectedEvent.ft_display + " - " + lt_display + "\n" + "Description:  " + description + "\n"
         
-
-        
-
-        // Do any additional setup after loading the view.
     }
     @IBOutlet weak var textview: UITextView!
 
     func initialSelectEvent(selectedEvent : CalendarEvent) {
         
         let thisurl = "https://sakai.duke.edu/direct/calendar/event/" + selectedEvent.siteId + "/" + selectedEvent.eventId + ".json"
-        //        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -107,9 +102,6 @@ class EventDetailViewController: UIViewController {
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-                    
-                    //print(json)
-                    
                     var detail:String = "Not Available"
                     var lt_display : String = "Not Available"
                     
@@ -122,13 +114,7 @@ class EventDetailViewController: UIViewController {
                     
                     selectedEvent.detail = detail
                     selectedEvent.lt_display = lt_display
-                  //  self.detailTemp = detail
-                 //   selectedDetail = detail
-                    
-                
-                    
-                    
-                    
+             
                 }catch {
                     print("Error with Json: \(error)")
                 }

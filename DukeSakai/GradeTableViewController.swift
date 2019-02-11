@@ -43,7 +43,6 @@ class GradeTableViewController: UITableViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 0
@@ -64,7 +63,6 @@ class GradeTableViewController: UITableViewController {
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-//            print(123456666)
             
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
@@ -79,7 +77,6 @@ class GradeTableViewController: UITableViewController {
 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-//                    print(json)
                     if let assignments = json["assignments"] as? [[String: AnyObject]] {
                         for assignment in assignments {
                             var itemName:String = "itemName"

@@ -44,7 +44,6 @@ class CalenderViewController: UIViewController {
     }
     
     func setbutton() {
-        // enter.layer.cornerRadius = 50
         Cbutton.layer.borderWidth = 0.0
         Cbutton.layer.cornerRadius = 10
         Cbutton.clipsToBounds = true
@@ -69,7 +68,7 @@ class CalenderViewController: UIViewController {
         setbutton()
         swipeEnabled () 
         
-        calendar.delegate = self        //实现代理
+        calendar.delegate = self
         
         let now = NSDate()
         let cal = Calendar.current
@@ -135,9 +134,6 @@ class CalenderViewController: UIViewController {
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                     
-                    //print(json)
-                    
-                    
                     if let content_collection = json["calendar_collection"] as? [[String: AnyObject]] {
                         for event in content_collection {
                             
@@ -167,7 +163,6 @@ class CalenderViewController: UIViewController {
                             
                             let eventItem = CalendarEvent(title: title, siteId: siteId, eventId: eventId, time: time, ft_display: ft_display)
                             self.eventArray.append(eventItem)
-                            //print(time)
                             
                             let dayPosition = CalendarTool.Day(time as Date) + CalendarTool.DayinWeek(time as Date) - 1
                             eventItem.dayPosition = dayPosition
@@ -184,8 +179,6 @@ class CalenderViewController: UIViewController {
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-
-        //print(eventArray)
     }
     
     @IBAction func unwindtoCalendar(segue: UIStoryboardSegue) {

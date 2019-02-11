@@ -21,7 +21,6 @@ class RecourceTableViewController: UITableViewController {
         courses.clipsToBounds = true
         courses.contentMode = .scaleToFill
     }
-    //add0331
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
@@ -32,7 +31,6 @@ class RecourceTableViewController: UITableViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             print ("swipe right")
@@ -51,7 +49,6 @@ class RecourceTableViewController: UITableViewController {
     
     func initialResourceItems() {
         let thisurl = "https://sakai.duke.edu/direct/content/site/" + siteId + ".json"
-//        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
@@ -96,7 +93,6 @@ class RecourceTableViewController: UITableViewController {
                             let resource_item = Resource(numChildren: numChildren, title: title, type: type, url: url)
                             self.resourceArray.append(resource_item)
                             
-                            //print(resource_item.type)
                             if resource_item.type != "collection" {
                                 print(resource_item.url)
                             }

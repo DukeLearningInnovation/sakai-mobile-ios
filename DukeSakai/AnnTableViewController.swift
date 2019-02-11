@@ -56,7 +56,6 @@ class AnnTableViewController: UITableViewController {
                 
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-                    //                    print(json)
                     if let announcement_collection = json["announcement_collection"] as? [[String: AnyObject]] {
                         for announcement in announcement_collection {
                             var title:String = "Not Available"
@@ -149,7 +148,6 @@ class AnnTableViewController: UITableViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 1

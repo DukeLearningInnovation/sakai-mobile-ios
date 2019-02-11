@@ -33,8 +33,6 @@ class MemberShipTableViewController: UITableViewController {
         self.uniqueTerm = getUniqueTerm(coursesArray: self.currentCourse)
         self.uniqueTerm = self.uniqueTerm.sorted(by: sortTerm)
         self.termArray = getTermArray (uniqueTerm: self.uniqueTerm, courseArray: self.currentCourse)
-        //print("first course is: \(currentCourse[0].name)")
-//        print(courses)
         
     }
     

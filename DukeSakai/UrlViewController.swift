@@ -18,7 +18,6 @@ class UrlViewController: UIViewController {
         back.contentMode = .scaleToFill
     }
     
-    //add 0331
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (UrlViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (UrlViewController.handleSwipes(sender: )))
@@ -29,7 +28,6 @@ class UrlViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipeToResource", sender: self)
