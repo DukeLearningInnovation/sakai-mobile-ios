@@ -42,13 +42,11 @@ class AssignmentTableViewController: UITableViewController {
     
     func initialassignmentItems() {
         let thisurl = "https://sakai.duke.edu/direct/assignment/site/" + siteId + ".json"
-        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print(123456666)
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()

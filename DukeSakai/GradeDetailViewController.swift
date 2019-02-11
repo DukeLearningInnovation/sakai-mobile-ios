@@ -66,7 +66,6 @@ class GradeDetailViewController: UIViewController {
     func initialComment() {
         let theitemName = itemName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
         let thisurl = "https://sakai.duke.edu/direct/gradebook/item/" + siteId + "/" + theitemName + ".json"
-
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared

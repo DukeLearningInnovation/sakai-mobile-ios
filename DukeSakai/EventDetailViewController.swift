@@ -70,8 +70,6 @@ class EventDetailViewController: UIViewController {
         
         
         //to do: display detail
-        
-        
         //self.textview.text = self.textview.text + "Title  " + selectedEvent.title + "\n"
 
         //self.textview.text = self.textview.text + "Date:  " + selectedEvent.ft_display + " - " + lt_display + "\n" + "Description:  " + description + "\n"

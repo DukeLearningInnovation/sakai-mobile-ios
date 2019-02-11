@@ -54,7 +54,6 @@ class RecourceTableViewController: UITableViewController {
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print(123456666)
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()
@@ -64,8 +63,6 @@ class RecourceTableViewController: UITableViewController {
             
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                 
@@ -96,7 +93,6 @@ class RecourceTableViewController: UITableViewController {
                             if resource_item.type != "collection" {
                                 print(resource_item.url)
                             }
-                            
                         }
                     }
                     

@@ -57,13 +57,11 @@ class GradeTableViewController: UITableViewController {
 
     func initialgradeItems() {
         let thisurl = "https://sakai.duke.edu/direct/gradebook/site/" + siteId + ".json"
-        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()

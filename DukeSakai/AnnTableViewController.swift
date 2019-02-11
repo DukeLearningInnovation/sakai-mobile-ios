@@ -36,11 +36,14 @@ class AnnTableViewController: UITableViewController {
     }
     
     func initialAnnounceItems() {
-        let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
-        print(thisurl)
-        let requestURL: NSURL = NSURL(string: thisurl)!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        let session = URLSession.shared
+        //let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
+        //let requestURL: NSURL = NSURL(string: thisurl)!
+        //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
+        //let session = URLSession.shared
+        
+        let URLinfo = getInitialItems(siteId: siteId)
+        let urlRequest = URLinfo.urlRequest
+        let session = URLinfo.session
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
             let httpResponse = response as? HTTPURLResponse
@@ -52,8 +55,6 @@ class AnnTableViewController: UITableViewController {
             
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                     if let announcement_collection = json["announcement_collection"] as? [[String: AnyObject]] {

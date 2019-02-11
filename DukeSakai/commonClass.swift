@@ -71,7 +71,6 @@ class Resource {
     }
 }
 
-
 class CalendarEvent {
     var title : String
     var siteId : String
@@ -89,8 +88,6 @@ class CalendarEvent {
         self.eventId = eventId
         self.ft_display = ft_display
     }
-    
-    
 }
 
 class Announce {
@@ -187,5 +184,15 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
         }
     }
     return s2 > s1
-    
 }
+
+// General function to make URL Request
+func getInitialItems(siteId: String) -> (urlRequest:NSMutableURLRequest, session:URLSession){
+    let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
+    let requestURL: NSURL = NSURL(string: thisurl)!
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
+    let session = URLSession.shared
+    
+    return (urlRequest, session)
+}
+
