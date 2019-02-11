@@ -7,14 +7,10 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(siteId)
         
         let destination4 = (self.viewControllers?[3] as! UINavigationController )
         let des4 =  destination4.topViewController as! RecourceTableViewController
         des4.siteId = self.siteId
-        
-
         
         let destination1 = (self.viewControllers?[0] as! UINavigationController )
         let des1 =  destination1.topViewController as! AssignmentTableViewController

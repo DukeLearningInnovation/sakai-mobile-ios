@@ -36,9 +36,7 @@ class CalendarView: UIView {
                         else{
                             let bt =  contentWrapperView.subviews[i+1] as! UIButton
                             logDate(bt)
-                        }
-
-                        
+                        }                        
                         print(i)
                         print(EventList[j].dayPosition)
                     }

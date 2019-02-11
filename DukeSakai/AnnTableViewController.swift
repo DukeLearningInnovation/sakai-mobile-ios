@@ -23,7 +23,6 @@ class AnnTableViewController: UITableViewController {
         swipeEnabled ()
         print(siteId)
         initialAnnounceItems()
-        print(announceItems)
         formAnnounce()
     }
     

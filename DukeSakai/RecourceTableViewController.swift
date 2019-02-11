@@ -33,7 +33,6 @@ class RecourceTableViewController: UITableViewController {
     }
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
-            print ("swipe right")
             if(stackArray.count > 0) {
                 curArray = stackArray.last!
                 stackArray.removeLast()
@@ -91,7 +90,6 @@ class RecourceTableViewController: UITableViewController {
                             self.resourceArray.append(resource_item)
                             
                             if resource_item.type != "collection" {
-                                print(resource_item.url)
                             }
                         }
                     }

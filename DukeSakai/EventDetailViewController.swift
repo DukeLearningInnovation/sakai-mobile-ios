@@ -59,7 +59,6 @@ class EventDetailViewController: UIViewController {
         }
       // tempString =  "<font size = \"2\">" + tempString + "</font>"
         
-        print(tempString)
         if (tempString != "") {
             let attrStr = try! NSAttributedString(
                 data: (tempString.data(using: String.Encoding.unicode, allowLossyConversion: true)!),

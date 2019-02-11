@@ -22,9 +22,9 @@ class GradeTableViewController: UITableViewController {
         swipeEnabled ()
         print(siteId)
         initialgradeItems()
-        print(self.gradeItems)
         formGrade()
 
+        
     }
     func formGrade() {
         for i in gradeItems {
