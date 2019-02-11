@@ -1,10 +1,3 @@
-//
-//  AssignmentDetailViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-27.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 

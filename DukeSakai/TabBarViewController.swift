@@ -1,10 +1,3 @@
-//
-//  TabBarViewController.swift
-//  DukeSakai
-//
-//  Created by 马丞章 on 3/26/17.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 

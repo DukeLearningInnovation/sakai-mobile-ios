@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-17.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 

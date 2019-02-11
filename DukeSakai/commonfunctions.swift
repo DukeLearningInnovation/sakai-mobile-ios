@@ -1,10 +1,3 @@
-//
-//  commonfunctions.swift
-//  DukeSakai
-//
-//  Created by huangyuxiang on 2017/3/25.
-//  Copyright © 2017年 Zhe Mao. All rights reserved.
-//
 
 import Foundation
 

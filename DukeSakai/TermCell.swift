@@ -1,10 +1,3 @@
-//
-//  TermCell.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-25.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 
