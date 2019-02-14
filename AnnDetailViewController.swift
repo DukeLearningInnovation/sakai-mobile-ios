@@ -4,12 +4,10 @@ import UIKit
 class AnnDetailViewController: UIViewController {
     var currAnn: Announce? = nil
     @IBOutlet weak var detail: UITextView!
-    
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var annTitle: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       // button ()
     if (currAnn?.body != nil && currAnn?.title != nil) {
         let attrStr = try! NSAttributedString(
             data: (currAnn?.body.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
@@ -41,7 +39,6 @@ class AnnDetailViewController: UIViewController {
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
@@ -50,6 +47,7 @@ class AnnDetailViewController: UIViewController {
             performSegue(withIdentifier: "swipetoAnn", sender: self)
         }
     }
+    
     /*
     // MARK: - Navigation
 

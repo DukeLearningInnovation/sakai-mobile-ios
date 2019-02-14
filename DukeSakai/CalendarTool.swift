@@ -13,7 +13,6 @@ open class CalendarTool: NSObject {
         let components = (Foundation.Calendar.current as NSCalendar).components(.year, from: date)
         return components.year!
     }
-    
     /**
      Returns month
      - parameter date: data
@@ -23,7 +22,6 @@ open class CalendarTool: NSObject {
         let components = (Foundation.Calendar.current as NSCalendar).components(.month, from: date)
         return components.month!
     }
-    
     /**
      Returns day
      - parameter date: data
@@ -33,9 +31,6 @@ open class CalendarTool: NSObject {
         let components = (Foundation.Calendar.current as NSCalendar).components(.day, from: date)
         return components.day!
     }
-    
-    
-    
     /**
      Returns the number of days in this month
      - parameter date: data
@@ -45,7 +40,6 @@ open class CalendarTool: NSObject {
         let days = (Foundation.Calendar.current as NSCalendar).range(of: .day, in: .month, for: date)
         return days.length
     }
-    
     /**
      Returns the last month
      - parameter date: data
@@ -57,8 +51,6 @@ open class CalendarTool: NSObject {
         let newDate = (Foundation.Calendar.current as NSCalendar).date(byAdding: dateComponents, to: date, options: .wrapComponents)
         return newDate!
     }
-    
-    
     /**
      Returns the next month
      - parameter date: data
@@ -70,7 +62,6 @@ open class CalendarTool: NSObject {
         let newDate = (Foundation.Calendar.current as NSCalendar).date(byAdding: dateComponents, to: date, options: .wrapComponents)
         return newDate!
     }
-    
     /**
      Returns the previous year
      - parameter date: data
@@ -93,9 +84,6 @@ open class CalendarTool: NSObject {
         let newDate = (Foundation.Calendar.current as NSCalendar).date(byAdding: dateComponents, to: date, options: .wrapComponents)
         return newDate!
     }
-    
-    
-    
     /**
      The first day of the month is the day of the week
      - parameter date: data

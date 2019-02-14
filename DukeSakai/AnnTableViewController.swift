@@ -19,9 +19,7 @@ class AnnTableViewController: UITableViewController {
         //        self.tabBarController?.navigationItem.title="Annoucenments"
         //        self.parent?.title = "Annoucenments"
         
-        // button ()
         swipeEnabled ()
-        print(siteId)
         initialAnnounceItems()
         formAnnounce()
     }
@@ -96,7 +94,6 @@ class AnnTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -107,10 +104,8 @@ class AnnTableViewController: UITableViewController {
         return currAnnouncement.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnnCell", for: indexPath) as! AnnCell
-        
         cell.announce?.text = currAnnouncement[indexPath.row].title
         //cell.time?.text = String(currAnnouncement[indexPath.row].createdOn)
         cell.author?.text = currAnnouncement[indexPath.row].author
@@ -126,11 +121,9 @@ class AnnTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toAnnDetail1") {
-            
             let destination = segue.destination as! UINavigationController
             let desination1 = destination.topViewController as! AnnDetailViewController
             desination1.currAnn = tapAnn
-            
         }
     }
     
@@ -144,7 +137,6 @@ class AnnTableViewController: UITableViewController {
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
@@ -157,7 +149,6 @@ class AnnTableViewController: UITableViewController {
             self.tabBarController?.selectedIndex = 3
             //performSegue(withIdentifier: "gradeToAss", sender: self)
         }
-        
     }
     
     /*
@@ -194,15 +185,4 @@ class AnnTableViewController: UITableViewController {
      return true
      }
      */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

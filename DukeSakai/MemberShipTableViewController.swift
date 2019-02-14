@@ -24,7 +24,6 @@ class MemberShipTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        print(sites)
        // button ()
         super.viewDidLoad()
         //initialCourses()
@@ -39,7 +38,6 @@ class MemberShipTableViewController: UITableViewController {
     func formCourseArray () {
         for i in courses {
             let newCourse = Membership(name: i.name, siteId: i.siteId, term: i.term, instructor: i.instructor, lastModified: i.lastModified);
-            print(i.term)
             currentCourse.append(newCourse);
         }
     }
@@ -88,11 +86,8 @@ class MemberShipTableViewController: UITableViewController {
     //MARK: - prepare the transdata
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toTabBar") {
-            print("hehe")
-            
             let destination = segue.destination as! TabBarViewController
             destination.siteId = tapSiteId
-            
             /*
             var desViewController1 = destination.viewControllers?[0] as! AssignmentTableViewController
             desViewController1.siteId = tapSiteId

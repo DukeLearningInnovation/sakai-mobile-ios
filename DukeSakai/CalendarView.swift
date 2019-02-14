@@ -11,7 +11,6 @@ protocol CalendarDelegate{
 }
 
 class CalendarView: UIView {
-
     var delegate: CalendarDelegate?
     //data to draw
     var EventList = [CalendarEvent](){
@@ -37,8 +36,6 @@ class CalendarView: UIView {
                             let bt =  contentWrapperView.subviews[i+1] as! UIButton
                             logDate(bt)
                         }                        
-                        print(i)
-                        print(EventList[j].dayPosition)
                     }
                 }
             }
@@ -83,10 +80,10 @@ class CalendarView: UIView {
             }
         }
     }
-    
-    var highlightedComponentTextColor = UIColor.white
     //highlight color
-    var selectedIndicatorColor = UIColor(red:0.00, green:0.19, blue:0.53, alpha:1.0)       //background color
+    var highlightedComponentTextColor = UIColor.white
+    //background color
+    var selectedIndicatorColor = UIColor(red:0.00, green:0.19, blue:0.53, alpha:1.0)
     
     //------------------------------------ Three main parts of the calendar --------------------------------------
     // Title
@@ -110,44 +107,34 @@ class CalendarView: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
-    
     /**
      three parts
      */
     fileprivate func commonInit(){
-        
         //navigationBar
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 40)
         self.addSubview(navigationBar)
         CreateNavigationBar()
-        
-        
         //weekHeader
         weekHeaderView.frame = CGRect(x: 10, y: navigationBar.frame.maxY, width: self.frame.width - 20, height: 20)
         self.addSubview(weekHeaderView)
         CreateWeekHeaderView()
-        
-        
         //contentView
-        //contentWrapperView.frame = CGRect(x: 10,y: weekHeaderView.frame.maxY,width: self.frame.width - 20 ,height: self.frame.height - weekHeaderView.frame.maxY)
         contentWrapperView.frame = CGRect(x: 10,y: weekHeaderView.frame.maxY,width: self.frame.width - 20 ,height: 260)
         self.addSubview(contentWrapperView)
         CreatecontentWrapperView(Nowdate)
         
         //add text view
-
         textview.frame = CGRect(x: 10,y: contentWrapperView.frame.maxY,width: self.frame.width - 20 ,height: 100)
         textview.isEditable = false
         //textView.textAlignment = NSTextAlignment.Center
         textview.textColor = UIColor.blue
         //textview.backgroundColor = UIColor.red
         self.addSubview(textview)
-        
     }
 }
 
@@ -162,7 +149,6 @@ extension CalendarView{
         textLabel.textColor = UIColor(red: 0.29, green: 0.29, blue: 0.29, alpha: 1)
         textLabel.font = UIFont.systemFont(ofSize: 16)
         navigationBar.addSubview(textLabel)
-        
         //layout
         self.addConstraint(NSLayoutConstraint(item: textLabel,
                                               attribute: NSLayoutAttribute.centerX,
@@ -185,7 +171,8 @@ extension CalendarView{
         }
         textLabel.text = "\(CalendarTool.Year(Nowdate))." + monthCh
         self.textLabel = textLabel
-        let prevBtn = UIButton(type: .custom)   //left button
+        //left button
+        let prevBtn = UIButton(type: .custom)
         prevBtn.translatesAutoresizingMaskIntoConstraints = false
         prevBtn.tintColor = UIColor.gray
         prevBtn.setBackgroundImage(UIImage(named: "prev")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState())
@@ -199,7 +186,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.centerY,
                                               multiplier: 1.0,
                                               constant: 0))
-        
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
                                               attribute: NSLayoutAttribute.leading,
                                               relatedBy: NSLayoutRelation.equal,
@@ -207,7 +193,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.leading,
                                               multiplier: 1.0,
                                               constant:16))
-        
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
                                               attribute: NSLayoutAttribute.width,
                                               relatedBy: NSLayoutRelation.equal,
@@ -215,7 +200,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
-        
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
                                               attribute: NSLayoutAttribute.height,
                                               relatedBy: NSLayoutRelation.equal,
@@ -224,8 +208,8 @@ extension CalendarView{
                                               multiplier: 1.0,
                                               constant:30))
         
-        
-        let nextBtn = UIButton(type: .custom)   //right button
+        //right button
+        let nextBtn = UIButton(type: .custom)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         nextBtn.tintColor = UIColor.gray
         nextBtn.setBackgroundImage(UIImage(named: "next")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState())
@@ -239,7 +223,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.centerY,
                                               multiplier: 1.0,
                                               constant: 0))
-        
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
                                               attribute: NSLayoutAttribute.trailing,
                                               relatedBy: NSLayoutRelation.equal,
@@ -247,7 +230,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.trailing,
                                               multiplier: 1.0,
                                               constant:-16))
-        
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
                                               attribute: NSLayoutAttribute.width,
                                               relatedBy: NSLayoutRelation.equal,
@@ -255,7 +237,6 @@ extension CalendarView{
                                               attribute: NSLayoutAttribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
-        
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
                                               attribute: NSLayoutAttribute.height,
                                               relatedBy: NSLayoutRelation.equal,
@@ -264,10 +245,8 @@ extension CalendarView{
                                               multiplier: 1.0,
                                               constant:30))
     }
-    
     /**
      left button
-     
      - parameter btn: button
      */
     @objc fileprivate func prevButtonDidTap(_ btn:UIButton){
@@ -279,21 +258,18 @@ extension CalendarView{
         if CalendarTool.Month(Nowdate) == 12{
             Nowdate = CalendarTool.UpYear(Nowdate)
         }
-        
-        CreatecontentWrapperView(Nowdate)           //add month
+        //add month
+        CreatecontentWrapperView(Nowdate)
         let presentMonth = CalendarTool.Month(Nowdate)
         var monthCh = String(presentMonth)
         if (presentMonth < 10) {
             monthCh = "0" + monthCh
         }
         textLabel.text = "\(CalendarTool.Year(Nowdate))." + monthCh
-        
         delegate?.CalendarNavClickView(self, year: CalendarTool.Year(Nowdate), month: CalendarTool.Month(Nowdate))
-        
         month = CalendarTool.Month(Nowdate)
         year = CalendarTool.Year(Nowdate)
         initiaCalendarEvents()
-        
         presentMonthEvent = []
         for event in eventArray {
             let date = event.time
@@ -304,12 +280,10 @@ extension CalendarView{
                 presentMonthEvent.append(event)
             }
         }
-        
         EventList = presentMonthEvent
     }
     /**
      right button
-     
      - parameter btn: button
      */
     @objc fileprivate func nextButtonDidTap(_ btn:UIButton){
@@ -317,24 +291,21 @@ extension CalendarView{
             i.removeFromSuperview()
         }
         Nowdate = CalendarTool.NextMonth(Nowdate)
-        
         if CalendarTool.Month(Nowdate) == 1{
             Nowdate = CalendarTool.NextYear(Nowdate)
         }
-        CreatecontentWrapperView(Nowdate)               //add month
+        //add month
+        CreatecontentWrapperView(Nowdate)
         let presentMonth = CalendarTool.Month(Nowdate)
         var monthCh = String(presentMonth)
         if (presentMonth < 10) {
             monthCh = "0" + monthCh
         }
         textLabel.text = "\(CalendarTool.Year(Nowdate))." + monthCh
-        
         delegate?.CalendarNavClickView(self, year: CalendarTool.Year(Nowdate), month: CalendarTool.Month(Nowdate))
-        
         month = CalendarTool.Month(Nowdate)
         year = CalendarTool.Year(Nowdate)
         initiaCalendarEvents()
-        
         presentMonthEvent = []
         
         for event in eventArray {
@@ -346,7 +317,6 @@ extension CalendarView{
                 presentMonthEvent.append(event)
             }
         }
-        
         EventList = presentMonthEvent
     }
 }
@@ -372,20 +342,18 @@ extension CalendarView{
     fileprivate func  CreatecontentWrapperView(_ date:Date){
         let wid :CGFloat = 5
         let itemWH = (contentWrapperView.frame.width - 8 * wid) / 7
-        
-        
-        let UpMonthdays = CalendarTool.DaysInMonth( CalendarTool.UpMonth(date))        //how many days in last month
-        let monthDays = CalendarTool.DaysInMonth(date)        //total days this month
-        let Weekday    = CalendarTool.DayinWeek(date)          //when is the first day
+        //how many days in last month
+        let UpMonthdays = CalendarTool.DaysInMonth( CalendarTool.UpMonth(date))
+        //total days this month
+        let monthDays = CalendarTool.DaysInMonth(date)
+        //when is the first day
+        let Weekday    = CalendarTool.DayinWeek(date)
         var day = 0
-        
-        
         
         for i in 0..<42{
             let x  = CGFloat(i % 7) * itemWH
             let y  = CGFloat(i / 7) * itemWH
             let spacew = CGFloat(i % 7) * wid + wid
-            
             let btn = UIButton(frame: CGRect(x: x + spacew,  y: y  ,width: itemWH ,height: itemWH))
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
             btn.setTitleColor(componentTextColor, for: UIControlState())
@@ -405,11 +373,9 @@ extension CalendarView{
                 }
                 //push btn
                 btn.addTarget(self, action: #selector(CalendarView.selectDate(_:)), for: .touchUpInside)
-                
             }
             contentWrapperView.addSubview(btn)
             btn.setTitle("\(day)", for: UIControlState())
-            
         }
     }
     
@@ -453,7 +419,6 @@ extension CalendarView{
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print(123456666)
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()
@@ -462,16 +427,12 @@ extension CalendarView{
             }
             
             let statusCode = httpResponse?.statusCode
-
-            if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
+            if (statusCode == 200) {                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                     
                     if let content_collection = json["calendar_collection"] as? [[String: AnyObject]] {
                         for event in content_collection {
-                            
                             var title:String = "Not Available"
                             var eventId : String = "Not Available"
                             var siteId : String = "Not Available"
@@ -484,7 +445,6 @@ extension CalendarView{
                             }
                             if let mytime = (event["firstTime"])?["time"] as? Int64 {
                                 time = NSDate(timeIntervalSince1970: TimeInterval(mytime/1000))
-                                //tempTime = NSDate(timeIntervalSince1970: TimeInterval(mytime/1000 - 18000))
                             }
                             if let myeventId = event["eventId"] as? String {
                                 eventId = (myeventId == "" ? "Not Available" : myeventId)
@@ -498,23 +458,19 @@ extension CalendarView{
                             
                             let eventItem = CalendarEvent(title: title, siteId: siteId, eventId: eventId, time: time, ft_display: ft_display)
                             self.eventArray.append(eventItem)
-                            
                             let dayPosition = CalendarTool.Day(time as Date) + CalendarTool.DayinWeek(time as Date) - 1
                             eventItem.dayPosition = dayPosition
                         }
                     }
-                    
                     
                 }catch {
                     print("Error with Json: \(error)")
                 }
             }
             self.semaphore.signal()
-            
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-        
     }
     
 }

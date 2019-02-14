@@ -44,20 +44,13 @@ class LogInViewController: UIViewController {
     
     func initialCourses() {
         courses = []
-        print(1234)
-        print(sites)
         for site in sites {
-            print(12345)
-            
             let thisurl = "https://sakai.duke.edu/direct/site/" + site + ".json"
-            print(thisurl)
             let requestURL: NSURL = NSURL(string: thisurl)!
             let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
             let session = URLSession.shared
-            
             let task = session.dataTask(with: urlRequest as URLRequest) {
                 (data, response, error) -> Void in
-                print(123456666)
                 let httpResponse = response as? HTTPURLResponse
                 if (httpResponse == nil) {
                     self.semaphore.signal()
@@ -68,7 +61,6 @@ class LogInViewController: UIViewController {
                 let statusCode = httpResponse?.statusCode
                 
                 if (statusCode == 200) {
-                    print("Everyone is fine, file downloaded successfully.")
                     do{
                         
                         let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
@@ -78,10 +70,8 @@ class LogInViewController: UIViewController {
                         var term:String = "Project"
                         if let title = json["title"] as? String {
                             name = title
-                            print(title)
                         }
                         if let type = json["type"] as? String {
-                            print(type)
                             if (type != "project") {
                                 if let props = json["props"]  {
                                     term = (props["term"] as? String)!
@@ -137,11 +127,8 @@ class LogInViewController: UIViewController {
 
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print("11111")
-
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
-                print("haha")
                 sites = []
                 userId = ""
                 self.semaphore1.signal()
@@ -170,10 +157,6 @@ class LogInViewController: UIViewController {
                     print("Error with Json: \(error)")
                 }
             }
-            
-            print(sites)
-            print("userId")
-            print(userId)
             self.semaphore1.signal()
         }
         

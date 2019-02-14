@@ -20,7 +20,6 @@ class GradeTableViewController: UITableViewController {
         super.viewDidLoad()
        // button()
         swipeEnabled ()
-        print(siteId)
         initialgradeItems()
         formGrade()
 
@@ -71,8 +70,6 @@ class GradeTableViewController: UITableViewController {
             
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                     if let assignments = json["assignments"] as? [[String: AnyObject]] {
