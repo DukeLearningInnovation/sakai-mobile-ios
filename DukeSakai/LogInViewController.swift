@@ -10,36 +10,29 @@ class LogInViewController: UIViewController {
     let semaphore = DispatchSemaphore(value: 0)
     let semaphore1 = DispatchSemaphore(value: 0)
     @IBOutlet weak var loginWebView: UIWebView!
-    
     @IBAction func webviewRefresh(_ sender: Any) {
         let url = URL(string:"https://sakai.duke.edu")!
         loginWebView.loadRequest(URLRequest(url: url))
-
     }
     
     @IBOutlet weak var enter: UIButton!
-
     
     func setbutton() {
         enter.layer.borderWidth = 1
         enter.layer.cornerRadius = 7 //enter.bounds.size.height / 2
         enter.clipsToBounds = true
         enter.contentMode = .scaleToFill
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setbutton()
-
         let url = URL(string:"https://sakai.duke.edu")!
         loginWebView.loadRequest(URLRequest(url: url))
-        
         
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogInViewController.dismissKeyBoard))
         view.addGestureRecognizer(tap)
-
     }
     
     func initialCourses() {
@@ -57,12 +50,10 @@ class LogInViewController: UIViewController {
                     courses = []
                     return
                 }
-                
                 let statusCode = httpResponse?.statusCode
                 
                 if (statusCode == 200) {
                     do{
-                        
                         let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                         var name:String = "name"
                         var instructor:String = "instructor"
@@ -88,7 +79,6 @@ class LogInViewController: UIViewController {
                         }
                         let tuple = (name, site, term, instructor, lastModified)
                         courses.append(tuple);
-                        
                     }catch {
                         print("Error with Json: \(error)")
                     }
@@ -98,27 +88,18 @@ class LogInViewController: UIViewController {
             task.resume()
             _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         }
-        
     }
-    
-    /*
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-    }*/
-    
+
     func webViewDidFinishLoad(_ webView: UIWebView) {
         if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
-
     }
-
     
     @IBAction func enterButton(_ sender: Any) {
         if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
-        
         sites = [String]()
         let requestURL: NSURL = NSURL(string: "https://sakai.duke.edu/direct/membership.json")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
@@ -152,21 +133,16 @@ class LogInViewController: UIViewController {
                             }
                         }
                     }
-                    
                 }catch {
                     print("Error with Json: \(error)")
                 }
             }
             self.semaphore1.signal()
         }
-        
         task.resume()
         _ = semaphore1.wait(timeout: DispatchTime.distantFuture)
-        
         initialCourses()
-        
         performSegue(withIdentifier: "logIn", sender: self)
-
     }
     
     @objc func dismissKeyBoard() {
@@ -188,17 +164,5 @@ class LogInViewController: UIViewController {
         let url = URL(string:"https://sakai.duke.edu/portal/logout")!
         loginWebView.loadRequest(URLRequest(url: url))
     }*/
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 

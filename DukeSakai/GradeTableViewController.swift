@@ -10,38 +10,38 @@ class GradeTableViewController: UITableViewController {
     var tapGrade:String = ""
     let semaphore = DispatchSemaphore(value: 0)
     @IBOutlet weak var courses: UIButton!
+    
     func button () {
         courses.layer.borderWidth = 1
         courses.layer.cornerRadius = courses.bounds.size.height / 2
         courses.clipsToBounds = true
         courses.contentMode = .scaleToFill
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // button()
         swipeEnabled ()
         initialgradeItems()
         formGrade()
-
-        
     }
+    
     func formGrade() {
         for i in gradeItems {
             let grade1 = Grade(item: i.itemName, grade: i.grade, point: i.points)
             currGrade.append(grade1)
         }
-        
     }
+    
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeTableViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeTableViewController.handleSwipes(sender: )))
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
+    
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 0
@@ -51,8 +51,7 @@ class GradeTableViewController: UITableViewController {
             self.tabBarController?.selectedIndex = 2
             //performSegue(withIdentifier: "gradeToAss", sender: self)
         }
-
-        }
+    }
 
     func initialgradeItems() {
         let thisurl = "https://sakai.duke.edu/direct/gradebook/site/" + siteId + ".json"
@@ -89,11 +88,8 @@ class GradeTableViewController: UITableViewController {
                             }
                             let tuple = (itemName, points, grade ?? "Not Available")
                             self.gradeItems.append(tuple);
-
                         }
                     }
-                    
-                    
                 }catch {
                     print("Error with Json: \(error)")
                 }
@@ -110,7 +106,6 @@ class GradeTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -121,16 +116,13 @@ class GradeTableViewController: UITableViewController {
         return currGrade.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "grade", for: indexPath) as! GradeCell
-
         cell.grade?.text = currGrade[indexPath.row].grade + " / " + String(currGrade[indexPath.row].point)
         cell.item?.text = currGrade[indexPath.row].item
 
         return cell
     }
-    
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 74
@@ -139,9 +131,9 @@ class GradeTableViewController: UITableViewController {
     @IBAction func unwindtoGrade(segue: UIStoryboardSegue) {
         
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toGradeDetail") {
-            
             let destination = segue.destination as! UINavigationController
             let desination1 = destination.topViewController as! GradeDetailViewController
             desination1.itemName = tapItem
@@ -192,15 +184,4 @@ class GradeTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

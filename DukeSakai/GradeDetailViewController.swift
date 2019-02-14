@@ -21,9 +21,9 @@ class GradeDetailViewController: UIViewController {
         back.clipsToBounds = true
         back.contentMode = .scaleToFill
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // button()
         swipeEnabled ()
         initialComment()
         commentHeader.text = "Additional instructor's comments about your submission"
@@ -39,24 +39,23 @@ class GradeDetailViewController: UIViewController {
         } else {
             return ""
         }
-        
     }
+    
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeDetailViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeDetailViewController.handleSwipes(sender: )))
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
+    
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoGrade", sender: self)
         }
     }
-
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,7 +79,6 @@ class GradeDetailViewController: UIViewController {
             }
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                     if let mycomment = json["comment"] as? String {
@@ -94,17 +92,5 @@ class GradeDetailViewController: UIViewController {
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

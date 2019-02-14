@@ -62,7 +62,6 @@ class Resource {
     var subView = [Resource]()
     var url : String
     
-    
     init (numChildren : Int, title: String, type : String, url : String) {
         self.numChildren = numChildren
         self.title = title
@@ -136,7 +135,6 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
     }
     if (s2 == "Project") {
         return true
-        
     }
     if (s1 != "Project" && s2 != "Project") {
         if(s1.substring(from: 0, to: 4) != s2.substring(from: 0, to: 4)) {
@@ -161,7 +159,6 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
             if(strStr(s1, "Winter") != -1) {
                 s1N = 6
             }
-            
             if(strStr(s2, "Fall") != -1) {
                 s2N = 1
             }

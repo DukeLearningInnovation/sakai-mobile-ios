@@ -4,11 +4,8 @@ import UIKit
 class GradeCell: UITableViewCell {
 
     @IBOutlet weak var grade: UILabel!
-    
     @IBOutlet weak var item: UILabel!
-    
     @IBOutlet weak var percent: UILabel!
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,8 +14,6 @@ class GradeCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }

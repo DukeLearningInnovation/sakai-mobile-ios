@@ -5,7 +5,6 @@ class StatusCell: UITableViewCell {
 
     @IBOutlet weak var status: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -13,8 +12,6 @@ class StatusCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }
