@@ -1,10 +1,3 @@
-//
-//  Segue1.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-04-05.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import Foundation
 import UIKit

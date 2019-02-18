@@ -1,18 +1,9 @@
-//
-//  RecourceTableViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-17.
-//  Copyright © 2017 chengzhang. All rights reserved.
-//
 
 import UIKit
 
 class RecourceTableViewController: UITableViewController {
 
-
     @IBOutlet weak var backLevel: UIBarButtonItem!
-    
     @IBOutlet weak var courses: UIButton!
     var siteId : String = ""
     var resourceArray = [Resource]()
@@ -21,28 +12,24 @@ class RecourceTableViewController: UITableViewController {
     let semaphore = DispatchSemaphore(value: 0)
     var tappedUrl = ""
     var tappedFlag = 0
-    
     func button () {
         courses.layer.borderWidth = 1
         courses.layer.cornerRadius = courses.bounds.size.height / 2
         courses.clipsToBounds = true
         courses.contentMode = .scaleToFill
     }
-    //add0331
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
+    
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
-            print ("swipe right")
             if(stackArray.count > 0) {
                 curArray = stackArray.last!
                 stackArray.removeLast()
@@ -50,21 +37,16 @@ class RecourceTableViewController: UITableViewController {
             } else {
                 self.tabBarController?.selectedIndex = 2
             }
-            
         }
     }
     
-
-    
     func initialResourceItems() {
         let thisurl = "https://sakai.duke.edu/direct/content/site/" + siteId + ".json"
-//        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print(123456666)
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()
@@ -74,15 +56,11 @@ class RecourceTableViewController: UITableViewController {
             
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
                 
-                    
                     if let content_collection = json["content_collection"] as? [[String: AnyObject]] {
                         for resource in content_collection {
-
                             var title:String = "Not Available"
                             var numChildren:Int = 0
                             var type : String = "Not Available"
@@ -103,39 +81,28 @@ class RecourceTableViewController: UITableViewController {
                             let resource_item = Resource(numChildren: numChildren, title: title, type: type, url: url)
                             self.resourceArray.append(resource_item)
                             
-                            //print(resource_item.type)
                             if resource_item.type != "collection" {
-                                print(resource_item.url)
                             }
-                            
                         }
                     }
-                    
-                    
                 }catch {
                     print("Error with Json: \(error)")
                 }
             }
             self.semaphore.signal()
-
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
     }
-    
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         swipeEnabled ()
        // button()
         initialResourceItems()
-        
         if (resourceArray.count > 0){
             resourceArray.remove(at: 0)
         }
-        
-        
         var skip = 0;
         
         for (index, item) in resourceArray.enumerated() {
@@ -164,7 +131,6 @@ class RecourceTableViewController: UITableViewController {
             tableView.reloadData()
         }
     }
-    
     
     func helper(input : Resource, index: Int) -> Int{
         if(input.numChildren == 0){
@@ -196,15 +162,12 @@ class RecourceTableViewController: UITableViewController {
         return ret
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -214,7 +177,6 @@ class RecourceTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return curArray.count
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resource", for: indexPath) as! ResourceCell
@@ -242,7 +204,6 @@ class RecourceTableViewController: UITableViewController {
             curArray = curArray[indexPath.row].subView
             self.tableView.reloadData()
             return
-            
         }
         if (curArray[indexPath.row].type == "text/url") {
             tappedUrl = curArray[indexPath.row].url
@@ -254,12 +215,9 @@ class RecourceTableViewController: UITableViewController {
             tappedFlag = 1
             performSegue(withIdentifier: "toUrlDetail", sender: Any.self)
         }
-        
     }
     
-    
-     // MARK: - Navigation
-    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toUrlDetail") {
             let destination = segue.destination as! UINavigationController
@@ -307,15 +265,4 @@ class RecourceTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-   
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

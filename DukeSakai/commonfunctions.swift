@@ -1,10 +1,3 @@
-//
-//  commonfunctions.swift
-//  DukeSakai
-//
-//  Created by huangyuxiang on 2017/3/25.
-//  Copyright © 2017年 Zhe Mao. All rights reserved.
-//
 
 import Foundation
 
@@ -62,7 +55,6 @@ extension String {
         } else {
             endIndex = self.endIndex
         }
-        
         return String(self[startIndex ..< endIndex])
     }
     
@@ -85,7 +77,6 @@ extension String {
         } else {
             end = length - 1
         }
-        
         return self.substring(from: from, to: end)
     }
     
@@ -100,10 +91,8 @@ extension String {
         } else {
             start = 0
         }
-        
         return self.substring(from: start, to: to)
     }
-    
 }
 
 func strStr(_ haystack: String, _ needle: String) -> Int {
@@ -129,7 +118,6 @@ func strStr(_ haystack: String, _ needle: String) -> Int {
             }
         }
     }
-    
     return -1
 }
 

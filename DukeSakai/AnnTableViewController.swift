@@ -1,10 +1,3 @@
-//
-//  AnnounceTableViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-17.
-//  Copyright © 2017 chengzhang. All rights reserved.
-//
 
 import UIKit
 
@@ -26,11 +19,8 @@ class AnnTableViewController: UITableViewController {
         //        self.tabBarController?.navigationItem.title="Annoucenments"
         //        self.parent?.title = "Annoucenments"
         
-        // button ()
         swipeEnabled ()
-        print(siteId)
         initialAnnounceItems()
-        print(announceItems)
         formAnnounce()
     }
     
@@ -43,11 +33,14 @@ class AnnTableViewController: UITableViewController {
     }
     
     func initialAnnounceItems() {
-        let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
-        print(thisurl)
-        let requestURL: NSURL = NSURL(string: thisurl)!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        let session = URLSession.shared
+        //let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
+        //let requestURL: NSURL = NSURL(string: thisurl)!
+        //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
+        //let session = URLSession.shared
+        
+        let URLinfo = getInitialItems(siteId: siteId)
+        let urlRequest = URLinfo.urlRequest
+        let session = URLinfo.session
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
             let httpResponse = response as? HTTPURLResponse
@@ -59,11 +52,8 @@ class AnnTableViewController: UITableViewController {
             
             let statusCode = httpResponse?.statusCode
             if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-                    //                    print(json)
                     if let announcement_collection = json["announcement_collection"] as? [[String: AnyObject]] {
                         for announcement in announcement_collection {
                             var title:String = "Not Available"
@@ -104,7 +94,6 @@ class AnnTableViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -115,10 +104,8 @@ class AnnTableViewController: UITableViewController {
         return currAnnouncement.count
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AnnCell", for: indexPath) as! AnnCell
-        
         cell.announce?.text = currAnnouncement[indexPath.row].title
         //cell.time?.text = String(currAnnouncement[indexPath.row].createdOn)
         cell.author?.text = currAnnouncement[indexPath.row].author
@@ -134,11 +121,9 @@ class AnnTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toAnnDetail1") {
-            
             let destination = segue.destination as! UINavigationController
             let desination1 = destination.topViewController as! AnnDetailViewController
             desination1.currAnn = tapAnn
-            
         }
     }
     
@@ -152,11 +137,9 @@ class AnnTableViewController: UITableViewController {
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 1
@@ -166,7 +149,6 @@ class AnnTableViewController: UITableViewController {
             self.tabBarController?.selectedIndex = 3
             //performSegue(withIdentifier: "gradeToAss", sender: self)
         }
-        
     }
     
     /*
@@ -203,15 +185,4 @@ class AnnTableViewController: UITableViewController {
      return true
      }
      */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }

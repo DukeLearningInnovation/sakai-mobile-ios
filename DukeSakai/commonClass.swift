@@ -1,10 +1,3 @@
-//
-//  commonClass.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-25.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import Foundation
 
@@ -69,7 +62,6 @@ class Resource {
     var subView = [Resource]()
     var url : String
     
-    
     init (numChildren : Int, title: String, type : String, url : String) {
         self.numChildren = numChildren
         self.title = title
@@ -77,7 +69,6 @@ class Resource {
         self.url = url
     }
 }
-
 
 class CalendarEvent {
     var title : String
@@ -96,8 +87,6 @@ class CalendarEvent {
         self.eventId = eventId
         self.ft_display = ft_display
     }
-    
-    
 }
 
 class Announce {
@@ -146,7 +135,6 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
     }
     if (s2 == "Project") {
         return true
-        
     }
     if (s1 != "Project" && s2 != "Project") {
         if(s1.substring(from: 0, to: 4) != s2.substring(from: 0, to: 4)) {
@@ -171,7 +159,6 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
             if(strStr(s1, "Winter") != -1) {
                 s1N = 6
             }
-            
             if(strStr(s2, "Fall") != -1) {
                 s2N = 1
             }
@@ -194,5 +181,15 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
         }
     }
     return s2 > s1
-    
 }
+
+// General function to make URL Request
+func getInitialItems(siteId: String) -> (urlRequest:NSMutableURLRequest, session:URLSession){
+    let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
+    let requestURL: NSURL = NSURL(string: thisurl)!
+    let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
+    let session = URLSession.shared
+    
+    return (urlRequest, session)
+}
+

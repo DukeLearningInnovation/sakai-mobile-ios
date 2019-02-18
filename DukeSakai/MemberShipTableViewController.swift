@@ -1,10 +1,3 @@
-//
-//  MemberShipTableViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-17.
-//  Copyright © 2017 chengzhang. All rights reserved.
-//
 
 import UIKit
 
@@ -16,7 +9,6 @@ class MemberShipTableViewController: UITableViewController {
     var tapSiteId : String = ""
     @IBOutlet weak var logout: UIButton!
     @IBOutlet weak var calendar: UIButton!
-    
     
     func button () {
         logout.layer.borderWidth = 1
@@ -31,37 +23,27 @@ class MemberShipTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        print(sites)
-       // button ()
         super.viewDidLoad()
-        //initialCourses()
         //start to opreate
         self.formCourseArray();
         self.uniqueTerm = getUniqueTerm(coursesArray: self.currentCourse)
         self.uniqueTerm = self.uniqueTerm.sorted(by: sortTerm)
         self.termArray = getTermArray (uniqueTerm: self.uniqueTerm, courseArray: self.currentCourse)
-        //print("first course is: \(currentCourse[0].name)")
-//        print(courses)
-        
     }
     
     func formCourseArray () {
         for i in courses {
             let newCourse = Membership(name: i.name, siteId: i.siteId, term: i.term, instructor: i.instructor, lastModified: i.lastModified);
-            print(i.term)
             currentCourse.append(newCourse);
         }
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return uniqueTerm.count
@@ -90,18 +72,14 @@ class MemberShipTableViewController: UITableViewController {
         if(indexPath.row > 0){
             self.tapSiteId = termArray[indexPath.section].courses[indexPath.row-1].siteId
             self.performSegue(withIdentifier: "toTabBar", sender: self)
-
         }
     }
     
     //MARK: - prepare the transdata
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toTabBar") {
-            print("hehe")
-            
             let destination = segue.destination as! TabBarViewController
             destination.siteId = tapSiteId
-            
             /*
             var desViewController1 = destination.viewControllers?[0] as! AssignmentTableViewController
             desViewController1.siteId = tapSiteId
@@ -163,16 +141,6 @@ class MemberShipTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
     */
 

@@ -1,22 +1,13 @@
-//
-//  AnnDetailViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-31.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 
 class AnnDetailViewController: UIViewController {
     var currAnn: Announce? = nil
     @IBOutlet weak var detail: UITextView!
-    
     @IBOutlet weak var back: UIButton!
     @IBOutlet weak var annTitle: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-       // button ()
     if (currAnn?.body != nil && currAnn?.title != nil) {
         let attrStr = try! NSAttributedString(
             data: (currAnn?.body.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
@@ -48,16 +39,15 @@ class AnnDetailViewController: UIViewController {
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipetoAnn", sender: self)
         }
     }
+    
     /*
     // MARK: - Navigation
 

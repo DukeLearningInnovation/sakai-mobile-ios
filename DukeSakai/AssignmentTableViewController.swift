@@ -1,10 +1,3 @@
-//
-//  AssignmentTableViewController.swift
-//  DukeSakai
-//
-//  Created by 毛喆 on 2017-03-17.
-//  Copyright © 2017 chengzhang. All rights reserved.
-//
 
 import UIKit
 
@@ -26,12 +19,8 @@ class AssignmentTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-       // button ()
-
-        print(siteId)
         swipeEnabled ()
         initialassignmentItems()
-//        print(self.assignmentItems)
         formAssignment()
     }
     
@@ -50,13 +39,11 @@ class AssignmentTableViewController: UITableViewController {
     
     func initialassignmentItems() {
         let thisurl = "https://sakai.duke.edu/direct/assignment/site/" + siteId + ".json"
-        print(thisurl)
         let requestURL: NSURL = NSURL(string: thisurl)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
-            print(123456666)
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()
@@ -65,12 +52,9 @@ class AssignmentTableViewController: UITableViewController {
             }
 
             let statusCode = httpResponse?.statusCode
-            if (statusCode == 200) {
-                print("Everyone is fine, file downloaded successfully.")
-                
+            if (statusCode == 200) {                
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-//                    print(json)
                     if let assignment_collection = json["assignment_collection"] as? [[String: AnyObject]] {
                         for assignment in assignment_collection {
                             var title:String = "Not Available"
@@ -82,7 +66,6 @@ class AssignmentTableViewController: UITableViewController {
                             
                             if let mytitle = assignment["title"] as? String {
                                 title = (mytitle == "" ? "Not Available" : mytitle)
-                                
                             }
                             if let mystatus = assignment["status"] as? String {
                                 status = (mystatus == "" ? "Not Available" : mystatus)
@@ -99,20 +82,15 @@ class AssignmentTableViewController: UITableViewController {
                             if let myinstructions = assignment["instructions"] as? String {
                                 instructions = (myinstructions == "" ? "<h5>Not Available</h5>" : myinstructions)
                             }
-                            
                             let tuple = (title, status, dueTimeString, gradeScaleMaxPoints, instructions, dueTime)
                             self.assignmentItems.append(tuple);
-                            
                         }
                     }
-                    
-                    
                 }catch {
                     print("Error with Json: \(error)")
                 }
             }
             self.semaphore.signal()
-
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
@@ -124,18 +102,14 @@ class AssignmentTableViewController: UITableViewController {
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
-        
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
-    //add0331
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
-
         if (sender.direction == .left) {
             self.tabBarController?.selectedIndex = 1
             //performSegue(withIdentifier: "gradeToAss", sender: self)
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -144,7 +118,6 @@ class AssignmentTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 2
@@ -161,7 +134,6 @@ class AssignmentTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! StatusCell
@@ -171,7 +143,6 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = openAssignment[indexPath.row - 1].assignmentTitle
                 cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = openAssignment[indexPath.row - 1].due
                 cell.scale?.text  = openAssignment[indexPath.row - 1].scale
                 return cell
@@ -185,13 +156,11 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
                 cell.assignmentTitle?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
                 cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                //cell.assignmentTitle?.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
                 cell.due?.text  = closeAssignment[indexPath.row - 1].due
                 cell.scale?.text  = closeAssignment[indexPath.row - 1].scale
                 return cell
             }
         }
- 
     }
     //unwind
     @IBAction func unwindtoAssignment(segue: UIStoryboardSegue) {
@@ -233,23 +202,12 @@ class AssignmentTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toAssignmentDetail") {
-            
             let destination = segue.destination as! UINavigationController
             let desination1 = destination.topViewController as! AssignmentDetailViewController
             desination1.currAssign = tapAssignment
-            
         }
     }
     
@@ -277,7 +235,4 @@ class AssignmentTableViewController: UITableViewController {
             return 120;
         }
     }
-    
-
-
 }

@@ -1,10 +1,3 @@
-//
-//  TabBarViewController.swift
-//  DukeSakai
-//
-//  Created by 马丞章 on 3/26/17.
-//  Copyright © 2017 Zhe Mao. All rights reserved.
-//
 
 import UIKit
 
@@ -14,14 +7,10 @@ class TabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(siteId)
         
         let destination4 = (self.viewControllers?[3] as! UINavigationController )
         let des4 =  destination4.topViewController as! RecourceTableViewController
         des4.siteId = self.siteId
-        
-
         
         let destination1 = (self.viewControllers?[0] as! UINavigationController )
         let des1 =  destination1.topViewController as! AssignmentTableViewController
@@ -45,16 +34,4 @@ class TabBarViewController: UITabBarController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
