@@ -115,6 +115,9 @@ class CalendarView: UIView {
      three parts
      */
     fileprivate func commonInit(){
+        
+        //TODO:- CALENDAR SIZE MODIFICATIONS
+        
         //navigationBar
         navigationBar.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 40)
         self.addSubview(navigationBar)
@@ -321,6 +324,8 @@ extension CalendarView{
     }
 }
 //MARK:- create weekday attribute
+
+//TODO:- CHANGE CALENDAR SIZE
 extension CalendarView{
     fileprivate func  CreateWeekHeaderView(){
         let array = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
