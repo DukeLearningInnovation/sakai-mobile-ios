@@ -117,9 +117,9 @@ class CalendarView: UIView {
     fileprivate func commonInit(){
         
         //TODO:- CALENDAR SIZE MODIFICATIONS
-        
+        //let screenSize = UIScreen.main.bounds
         //navigationBar
-        navigationBar.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 40)
+        navigationBar.frame = CGRect(x: (self.frame.maxX - self.frame.width)/2, y: 0, width: self.frame.width, height: 40)
         self.addSubview(navigationBar)
         CreateNavigationBar()
         //weekHeader

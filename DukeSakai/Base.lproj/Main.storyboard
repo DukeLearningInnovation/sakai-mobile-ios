@@ -1124,13 +1124,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztB-1s-2Vd" customClass="CalendarView" customModule="DukeSakai" customModuleProvider="target">
-                                <rect key="frame" x="-7.5" y="72" width="335" height="442"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztB-1s-2Vd" customClass="CalendarView" customModule="DukeSakai" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="320" height="442"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="335" id="Orh-bq-vcR"/>
-                                    <constraint firstAttribute="height" constant="442" id="xmj-Ht-9gs" userLabel="height = 490"/>
-                                </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5q-nC-hsy">
                                 <rect key="frame" x="88" y="482" width="144" height="37"/>
@@ -1148,10 +1145,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ztB-1s-2Vd" firstAttribute="top" secondItem="xc0-VQ-g0e" secondAttribute="bottom" constant="8" id="HEu-Z9-JPm"/>
-                            <constraint firstItem="ztB-1s-2Vd" firstAttribute="centerX" secondItem="5yo-Nx-TPL" secondAttribute="centerX" id="dNv-eK-K0a"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Calendar" id="EAP-sP-oaT">
                         <barButtonItem key="leftBarButtonItem" title="&lt;Courses" id="WKk-oV-ym7">
