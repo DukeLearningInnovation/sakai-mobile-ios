@@ -38,11 +38,7 @@ class AssignmentTableViewController: UITableViewController {
     }
     
     func initialassignmentItems() {
-        //let thisurl = "https://sakai.duke.edu/direct/assignment/site/" + siteId + ".json"
-        //let requestURL: NSURL = NSURL(string: thisurl)!
-        //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        //let session = URLSession.shared
-        
+
         let URLinfo = getInitialItems(siteId: siteId, category: "assignment")
         let urlRequest = URLinfo.urlRequest
         let session = URLinfo.session
