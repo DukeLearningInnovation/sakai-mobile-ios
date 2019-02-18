@@ -38,7 +38,7 @@ class AnnTableViewController: UITableViewController {
         //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         //let session = URLSession.shared
         
-        let URLinfo = getInitialItems(siteId: siteId)
+        let URLinfo = getInitialItems(siteId: siteId, category: "announcement")
         let urlRequest = URLinfo.urlRequest
         let session = URLinfo.session
         let task = session.dataTask(with: urlRequest as URLRequest) {

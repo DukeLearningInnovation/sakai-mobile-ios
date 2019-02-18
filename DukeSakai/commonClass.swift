@@ -184,8 +184,12 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
 }
 
 // General function to make URL Request
-func getInitialItems(siteId: String) -> (urlRequest:NSMutableURLRequest, session:URLSession){
-    let thisurl = "https://sakai.duke.edu/direct/announcement/site/" + siteId + ".json?n=100&d=3000"
+func getInitialItems(siteId: String, category: String) -> (urlRequest:NSMutableURLRequest, session:URLSession){
+    let generalUrl = "https://sakai.duke.edu/direct/"
+    var thisurl = generalUrl + category + "/site/" + siteId + ".json"
+    if category == "announcement" {
+        thisurl = thisurl + "?n=100&d=3000"
+    }
     let requestURL: NSURL = NSURL(string: thisurl)!
     let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
     let session = URLSession.shared
