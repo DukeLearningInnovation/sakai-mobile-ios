@@ -6,7 +6,7 @@ import UIKit
 
 //MARK: - define delegate
 protocol CalendarDelegate{
-
+    
     func CalendarNavClickView(_ calendar:CalendarView,year:Int,month:Int)
 }
 
@@ -87,17 +87,17 @@ class CalendarView: UIView {
     
     //------------------------------------ Three main parts of the calendar --------------------------------------
     // Title
-    fileprivate let navigationBar = UIView()
+    let navigationBar = UIView()
     // Title text
-    fileprivate var textLabel = UILabel()
+    var textLabel = UILabel()
     // Weekday
-    fileprivate let weekHeaderView = UIView()
+    let weekHeaderView = UIView()
     // Days
-    fileprivate let contentWrapperView = UIView()
+    let contentWrapperView = UIView()
     // Global time
-    fileprivate var Nowdate = Date()
+    var Nowdate = Date()
     // Text view to show details
-    fileprivate var textview = UITextView()
+    var textview = UITextView()
     var eventArray = [CalendarEvent]()
     let semaphore = DispatchSemaphore(value: 0)
     //let semaphore2 = DispatchSemaphore(value: 0)
@@ -111,28 +111,28 @@ class CalendarView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
+
     /**
      three parts
      */
-    fileprivate func commonInit(){
-        
+    func commonInit(){
         //TODO:- CALENDAR SIZE MODIFICATIONS
         //let screenSize = UIScreen.main.bounds
         //navigationBar
-        navigationBar.frame = CGRect(x: (self.frame.maxX - self.frame.width)/2, y: 0, width: self.frame.width, height: 40)
+        navigationBar.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: 0, width: self.frame.width, height: 40)
         self.addSubview(navigationBar)
         CreateNavigationBar()
         //weekHeader
-        weekHeaderView.frame = CGRect(x: 10, y: navigationBar.frame.maxY, width: self.frame.width - 20, height: 20)
+        weekHeaderView.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: navigationBar.frame.maxY, width: self.frame.width, height: 40)
+        print(navigationBar.frame.maxY)
         self.addSubview(weekHeaderView)
         CreateWeekHeaderView()
         //contentView
-        contentWrapperView.frame = CGRect(x: 10,y: weekHeaderView.frame.maxY,width: self.frame.width - 20 ,height: 260)
+        contentWrapperView.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: weekHeaderView.frame.maxY, width: self.frame.width, height: 600)
         self.addSubview(contentWrapperView)
         CreatecontentWrapperView(Nowdate)
-        
         //add text view
-        textview.frame = CGRect(x: 10,y: contentWrapperView.frame.maxY,width: self.frame.width - 20 ,height: 100)
+        textview.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: contentWrapperView.frame.maxY,width: self.frame.width - 20 ,height: 100)
         textview.isEditable = false
         //textView.textAlignment = NSTextAlignment.Center
         textview.textColor = UIColor.blue
@@ -146,7 +146,7 @@ extension CalendarView{
     /**
      create title view
      */
-    fileprivate func CreateNavigationBar(){
+      func CreateNavigationBar(){
         let textLabel = UILabel()           //mid title
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         textLabel.textColor = UIColor(red: 0.29, green: 0.29, blue: 0.29, alpha: 1)
@@ -252,7 +252,7 @@ extension CalendarView{
      left button
      - parameter btn: button
      */
-    @objc fileprivate func prevButtonDidTap(_ btn:UIButton){
+    @objc func prevButtonDidTap(_ btn:UIButton){
         for i in contentWrapperView.subviews{
             i.removeFromSuperview()
         }
@@ -289,7 +289,7 @@ extension CalendarView{
      right button
      - parameter btn: button
      */
-    @objc fileprivate func nextButtonDidTap(_ btn:UIButton){
+    @objc func nextButtonDidTap(_ btn:UIButton){
         for i in contentWrapperView.subviews{
             i.removeFromSuperview()
         }
@@ -327,7 +327,7 @@ extension CalendarView{
 
 //TODO:- CHANGE CALENDAR SIZE
 extension CalendarView{
-    fileprivate func  CreateWeekHeaderView(){
+      func  CreateWeekHeaderView(){
         let array = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
         let itemW = weekHeaderView.frame.width / 7
         
@@ -344,7 +344,7 @@ extension CalendarView{
 }
 //MARK:- create calendar body
 extension CalendarView{
-    fileprivate func  CreatecontentWrapperView(_ date:Date){
+      func  CreatecontentWrapperView(_ date:Date){
         let wid :CGFloat = 5
         let itemWH = (contentWrapperView.frame.width - 8 * wid) / 7
         //how many days in last month
@@ -384,13 +384,13 @@ extension CalendarView{
         }
     }
     
-    @objc fileprivate func logDate(_ btn:UIButton){
+    @objc func logDate(_ btn:UIButton){
         btn.isSelected = true
         btn.backgroundColor = btn.isSelected ?  selectedIndicatorColor : nil
         btn.setTitleColor(highlightedComponentTextColor, for: .selected)
     }
     
-    @objc fileprivate func selectDate(_ btn:UIButton){
+    @objc   func selectDate(_ btn:UIButton){
         selectedEvents = []
         textview.text = ""
         let day = btn.titleLabel?.text!
@@ -409,7 +409,7 @@ extension CalendarView{
         
     }
     
-    @objc fileprivate func initiaCalendarEvents() {
+    @objc func initiaCalendarEvents() {
         
         eventArray = []
         //let thisurl = "https://sakai.duke.edu/direct/calendar/my.json?firstDate=2017-03-01&lastDate=2017-06-01"
