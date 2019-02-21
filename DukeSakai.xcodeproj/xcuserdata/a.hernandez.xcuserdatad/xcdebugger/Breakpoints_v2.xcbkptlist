@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DukeSakai/CalendarView.swift"
-            timestampString = "572297887.746297"
+            timestampString = "572483393.983624"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "121"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DukeSakai/CalendarView.swift"
-            timestampString = "572297887.747559"
+            timestampString = "572483393.9837331"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "commonInit()"
             landmarkType = "7">
          </BreakpointContent>

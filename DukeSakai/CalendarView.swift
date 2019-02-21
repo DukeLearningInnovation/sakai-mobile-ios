@@ -119,25 +119,49 @@ class CalendarView: UIView {
         //TODO:- CALENDAR SIZE MODIFICATIONS
         //let screenSize = UIScreen.main.bounds
         //navigationBar
-        navigationBar.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: 0, width: self.frame.width, height: 40)
-        self.addSubview(navigationBar)
-        CreateNavigationBar()
-        //weekHeader
-        weekHeaderView.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: navigationBar.frame.maxY, width: self.frame.width, height: 40)
-        print(navigationBar.frame.maxY)
-        self.addSubview(weekHeaderView)
-        CreateWeekHeaderView()
-        //contentView
-        contentWrapperView.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: weekHeaderView.frame.maxY, width: self.frame.width, height: 600)
-        self.addSubview(contentWrapperView)
-        CreatecontentWrapperView(Nowdate)
-        //add text view
-        textview.frame = CGRect(x: (UIScreen.main.bounds.maxX-self.frame.width)/2, y: contentWrapperView.frame.maxY,width: self.frame.width - 20 ,height: 100)
-        textview.isEditable = false
-        //textView.textAlignment = NSTextAlignment.Center
-        textview.textColor = UIColor.blue
-        //textview.backgroundColor = UIColor.red
-        self.addSubview(textview)
+        if UIDevice.current.orientation.isLandscape {
+            navigationBar.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.height))/2, y: 0, width: 0.75*UIScreen.main.bounds.height, height: 40)
+            self.addSubview(navigationBar)
+            CreateNavigationBar()
+            //weekHeader
+            weekHeaderView.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.height))/2, y: navigationBar.frame.maxY, width: 0.75*UIScreen.main.bounds.height, height: 40)
+            print(navigationBar.frame.maxY)
+            self.addSubview(weekHeaderView)
+            CreateWeekHeaderView()
+            //contentView
+            contentWrapperView.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.height))/2, y: weekHeaderView.frame.maxY, width: 0.75*UIScreen.main.bounds.height, height: 0.65*UIScreen.main.bounds.width)
+            self.addSubview(contentWrapperView)
+            CreatecontentWrapperView(Nowdate)
+            //add text view
+            textview.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.height))/2, y: contentWrapperView.frame.maxY - 180,width: 0.70*UIScreen.main.bounds.height, height: 100)
+            print(contentWrapperView.frame.maxY)
+            textview.isEditable = false
+            //textView.textAlignment = NSTextAlignment.Center
+            textview.textColor = UIColor.blue
+            //textview.backgroundColor = UIColor.red
+            self.addSubview(textview)
+        }
+        else{
+            navigationBar.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.width))/2, y: 0, width: 0.75*UIScreen.main.bounds.width, height: 40)
+            self.addSubview(navigationBar)
+            CreateNavigationBar()
+            //weekHeader
+            weekHeaderView.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.width))/2, y: navigationBar.frame.maxY, width: 0.75*UIScreen.main.bounds.width, height: 40)
+            print(navigationBar.frame.maxY)
+            self.addSubview(weekHeaderView)
+            CreateWeekHeaderView()
+            //contentView
+            contentWrapperView.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.width))/2, y: weekHeaderView.frame.maxY, width: 0.75*UIScreen.main.bounds.width, height: 0.65*UIScreen.main.bounds.height)
+            self.addSubview(contentWrapperView)
+            CreatecontentWrapperView(Nowdate)
+            //add text view
+            textview.frame = CGRect(x: (UIScreen.main.bounds.maxX - (0.75*UIScreen.main.bounds.width))/2, y: contentWrapperView.frame.maxY - 180,width: 0.70*UIScreen.main.bounds.width, height: 100)
+            textview.isEditable = false
+            //textView.textAlignment = NSTextAlignment.Center
+            textview.textColor = UIColor.blue
+            //textview.backgroundColor = UIColor.red
+            self.addSubview(textview)
+        }
     }
 }
 

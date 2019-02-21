@@ -42,7 +42,7 @@ class CalenderViewController: UIViewController {
     }
     
     func setbutton() {
-        Cbutton.frame = CGRect(x: UIScreen.main.bounds.minX + 50, y: MyCalendarView.contentWrapperView.frame.maxY, width: 200, height: 50)
+        Cbutton.frame = CGRect(x: UIScreen.main.bounds.minX + 15, y: UIScreen.main.bounds.maxY - 60, width: 150, height: 50)
         Cbutton.layer.borderWidth = 0.0
         Cbutton.layer.cornerRadius = 10
         Cbutton.clipsToBounds = true
