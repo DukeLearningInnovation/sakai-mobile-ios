@@ -12,6 +12,9 @@ class RecourceTableViewController: UITableViewController {
     let semaphore = DispatchSemaphore(value: 0)
     var tappedUrl = ""
     var tappedFlag = 0
+    
+    //let moreVC = MoreTableViewController()
+    
     func button () {
         courses.layer.borderWidth = 1
         courses.layer.cornerRadius = courses.bounds.size.height / 2
@@ -38,6 +41,10 @@ class RecourceTableViewController: UITableViewController {
                 self.tabBarController?.selectedIndex = 2
             }
         }
+    }
+    
+    func giveSiteID() -> String {
+        return self.siteId
     }
     
     func initialResourceItems() {

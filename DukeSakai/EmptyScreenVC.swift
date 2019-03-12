@@ -1,9 +1,11 @@
-//
-//  EmptyScreenVC.swift
-//  DukeSakai
-//
-//  Created by Andres S. Hernandez G. on 2/22/19.
-//  Copyright © 2019 Zhe Mao. All rights reserved.
-//
 
-import Foundation
+import UIKit
+
+class EmptyScreenVC: UIViewController{
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = UIColor.blue
+    }
+}

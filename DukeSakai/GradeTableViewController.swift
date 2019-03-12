@@ -20,7 +20,7 @@ class GradeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        swipeEnabled ()
+        //swipeEnabled ()
         initialgradeItems()
         formGrade()
     }
@@ -32,7 +32,7 @@ class GradeTableViewController: UITableViewController {
         }
     }
     
-    func swipeEnabled () {
+    /*func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeTableViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (GradeTableViewController.handleSwipes(sender: )))
         
@@ -40,9 +40,9 @@ class GradeTableViewController: UITableViewController {
         rightSwipe.direction = .right
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
-    }
+    }*/
     
-    @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
+    /*@objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 0
             //performSegue(withIdentifier: "gradeToAss", sender: self)
@@ -51,7 +51,7 @@ class GradeTableViewController: UITableViewController {
             self.tabBarController?.selectedIndex = 2
             //performSegue(withIdentifier: "gradeToAss", sender: self)
         }
-    }
+    }*/
 
     func initialgradeItems() {
         //let thisurl = "https://sakai.duke.edu/direct/gradebook/site/" + siteId + ".json"
