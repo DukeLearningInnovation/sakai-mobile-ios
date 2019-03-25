@@ -101,6 +101,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		791555FE22492CBF002BA7F5 /* Lessons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Lessons;
+			sourceTree = "<group>";
+		};
 		A14A4FDF1E89A5700019C7D0 /* Grade */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +167,7 @@
 		A1B8AE061E7C7DE300228E0B /* DukeSakai */ = {
 			isa = PBXGroup;
 			children = (
+				791555FE22492CBF002BA7F5 /* Lessons */,
 				A187694F1E9EF14D00E0E70D /* Segue */,
 				A4342F4E1E91C40A00939B9B /* Calendar */,
 				A1745DEB1E8F367800502F22 /* Announce */,
