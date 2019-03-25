@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		790FCA4221F68B820043D7C9 /* AssignmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FCA4121F68B820043D7C9 /* AssignmentDetailViewController.swift */; };
+		79155601224934EC002BA7F5 /* LessonTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79155600224934EC002BA7F5 /* LessonTableVC.swift */; };
 		79215EEC222075A900301B99 /* EmptyScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79215EEB222075A900301B99 /* EmptyScreenVC.swift */; };
 		79CE3D222229F7730000BEA7 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE3D212229F7730000BEA7 /* FeedbackVC.swift */; };
 		79CE3D29222DC3FC0000BEA7 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE3D28222DC3FC0000BEA7 /* MoreTableViewController.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		790FCA4121F68B820043D7C9 /* AssignmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailViewController.swift; sourceTree = "<group>"; };
+		79155600224934EC002BA7F5 /* LessonTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableVC.swift; sourceTree = "<group>"; };
 		79215EEB222075A900301B99 /* EmptyScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenVC.swift; sourceTree = "<group>"; };
 		79CE3D212229F7730000BEA7 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
 		79CE3D28222DC3FC0000BEA7 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		791555FF2249301D002BA7F5 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				79155600224934EC002BA7F5 /* LessonTableVC.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
 		A14A4FDF1E89A5700019C7D0 /* Grade */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		A1B8AE061E7C7DE300228E0B /* DukeSakai */ = {
 			isa = PBXGroup;
 			children = (
+				791555FF2249301D002BA7F5 /* Lesson */,
 				A187694F1E9EF14D00E0E70D /* Segue */,
 				A4342F4E1E91C40A00939B9B /* Calendar */,
 				A1745DEB1E8F367800502F22 /* Announce */,
@@ -348,6 +359,7 @@
 				A4342F4D1E91C40300939B9B /* CalendarViewController.swift in Sources */,
 				A4FCBA9E1E942CDF00EA68B1 /* EventDetailViewController.swift in Sources */,
 				A404FB721E882A4000F9A585 /* TabBarViewController.swift in Sources */,
+				79155601224934EC002BA7F5 /* LessonTableVC.swift in Sources */,
 				A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */,
 				79CE3D29222DC3FC0000BEA7 /* MoreTableViewController.swift in Sources */,
 				A4342F4C1E91C40300939B9B /* CalendarView.swift in Sources */,

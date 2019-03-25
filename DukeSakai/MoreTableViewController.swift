@@ -25,7 +25,7 @@ class MoreTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        allViews = ["Assignments", "Grades", "Announcements", "Resources", "Profile", "Feedback"]
+        allViews = ["Assignments", "Grades", "Announcements", "Resources", "Profile", "Feedback", "Lessons"]
         resourceSiteId = self.siteId
         // siteId = tabBarVC.siteId
         
@@ -90,6 +90,10 @@ class MoreTableViewController: UITableViewController {
         case 5:
             let destination6 = FeedbackVC()
             self.navigationController!.pushViewController(destination6, animated: true)
+            
+        case 6:
+            let destination7 = LessonTableVC()
+            self.navigationController?.pushViewController(destination7, animated: true)
             
         default:
             let destinationHome = MemberShipTableViewController()

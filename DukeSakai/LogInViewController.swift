@@ -38,7 +38,7 @@ class LogInViewController: UIViewController {
     func initialCourses() {
         courses = []
         for site in sites {
-            let thisurl = "https://sakai.duke.edu/direct/site/" + site + ".json"
+            let thisurl = "https://sakai.duke.edu/direct/site/" + site + ".json?n=100&d=3000"
             let requestURL: NSURL = NSURL(string: thisurl)!
             let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
             let session = URLSession.shared
