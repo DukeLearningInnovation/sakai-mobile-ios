@@ -24,10 +24,14 @@ class AssignmentDetailViewController: UIViewController {
                 data: (currAssign?.instructions.data(using: String.Encoding.unicode, allowLossyConversion: true)!)!,
                 options: [.documentType: NSAttributedString.DocumentType.html],
                 documentAttributes: nil)
-            instruction.attributedText = attrStr
-            instruction.font = UIFont(name: "HelveticaNeue", size: 18.5)
-            Due.text = currAssign?.due
+            assTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
             assTitle.text = currAssign?.assignmentTitle
+            
+            Due.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            Due.text = currAssign?.due
+            
+            instruction.font = UIFont(name: "HelveticaNeue", size: 14)
+            instruction.attributedText = attrStr
         }
     }
     

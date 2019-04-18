@@ -41,195 +41,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DukeSakai/MoreTableViewController.swift"
-            timestampString = "575225527.612576"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DukeSakai/MoreTableViewController.swift"
-            timestampString = "575225527.612644"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "tableView(_:didSelectRowAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DukeSakai/RecourceTableViewController.swift"
-            timestampString = "575225527.612689"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "4"
-            endingLineNumber = "4"
-            landmarkName = "RecourceTableViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.__allocating_init(style: __C.UITableViewStyle) -&gt; DukeSakai.RecourceTableViewController"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.385064"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.init(style: __C.UITableViewStyle) -&gt; DukeSakai.RecourceTableViewController"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.387346"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
-                  offsetFromSymbolStart = "35">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DukeSakai.RecourceTableViewController"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.3897001"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DukeSakai.RecourceTableViewController"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.391772"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
-                  offsetFromSymbolStart = "57">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DukeSakai.RecourceTableViewController&gt;"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.394197"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "4">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DukeSakai.RecourceTableViewController&gt;"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.396349"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "6"
-                  endingLineNumber = "6"
-                  offsetFromSymbolStart = "50">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "DukeSakai.RecourceTableViewController.__deallocating_deinit"
-                  moduleName = "DukeSakai"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/RecourceTableViewController.swift"
-                  timestampString = "573676801.398021"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DukeSakai/RecourceTableViewController.swift"
-            timestampString = "575225527.612728"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "initialResourceItems()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DukeSakai/RecourceTableViewController.swift"
-            timestampString = "575225527.612764"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DukeSakai/TabBarViewController.swift"
-            timestampString = "574079980.065351"
+            timestampString = "577309166.244749"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "6"
@@ -307,7 +120,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DukeSakai/TabBarViewController.swift"
-            timestampString = "574079980.065586"
+            timestampString = "577309166.244841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "9"
@@ -323,7 +136,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DukeSakai/TabBarViewController.swift"
-            timestampString = "574079980.065634"
+            timestampString = "577309166.2449"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
@@ -339,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DukeSakai/MemberShipTableViewController.swift"
-            timestampString = "574079980.065695"
+            timestampString = "577309166.244953"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "9"
-            endingLineNumber = "9"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
             landmarkName = "MemberShipTableViewController"
             landmarkType = "3">
             <Locations>
@@ -423,22 +236,6 @@
                   offsetFromSymbolStart = "403">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DukeSakai/MemberShipTableViewController.swift"
-            timestampString = "574079980.066067"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "prepare(for:sender:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -1,10 +1,10 @@
 import UIKit
 
-class TermCell: UITableViewCell {
+class NewStatusCell: UITableViewCell {
+    var label1 = UILabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

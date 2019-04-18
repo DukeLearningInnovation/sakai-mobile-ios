@@ -10,7 +10,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.popToRootViewController(animated: true)
+        //navigationController?.popToRootViewController(animated: true)
         let destination1 = (self.viewControllers?[0] as! UINavigationController )
         let des1 =  destination1.topViewController as! AssignmentTableViewController
         des1.siteId = self.siteId

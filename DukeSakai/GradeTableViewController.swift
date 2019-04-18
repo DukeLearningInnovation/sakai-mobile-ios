@@ -21,6 +21,7 @@ class GradeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //swipeEnabled ()
+        self.tableView.register(NewGradeCell.self, forCellReuseIdentifier: "gradeCell")
         initialgradeItems()
         formGrade()
     }
@@ -116,21 +117,26 @@ class GradeTableViewController: UITableViewController {
         return 1
     }
 
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return currGrade.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "grade", for: indexPath) as! GradeCell
-        cell.grade?.text = currGrade[indexPath.row].grade + " / " + String(currGrade[indexPath.row].point)
-        cell.item?.text = currGrade[indexPath.row].item
+        let cell = tableView.dequeueReusableCell(withIdentifier: "gradeCell", for: indexPath) as! NewGradeCell
+        cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
+        cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+        cell.detailTextLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+        
+        cell.textLabel?.text = currGrade[indexPath.row].item
+        cell.detailTextLabel?.text = "Grade: " + currGrade[indexPath.row].grade + " / " + String(currGrade[indexPath.row].point)
 
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 74
+            return 62
     }
     
     @IBAction func unwindtoGrade(segue: UIStoryboardSegue) {

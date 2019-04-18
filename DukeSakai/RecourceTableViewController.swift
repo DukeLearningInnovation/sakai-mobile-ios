@@ -13,14 +13,13 @@ class RecourceTableViewController: UITableViewController {
     var tappedUrl = ""
     var tappedFlag = 0
     
-    //let moreVC = MoreTableViewController()
-    
     func button () {
         courses.layer.borderWidth = 1
         courses.layer.cornerRadius = courses.bounds.size.height / 2
         courses.clipsToBounds = true
         courses.contentMode = .scaleToFill
     }
+    
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
@@ -109,6 +108,7 @@ class RecourceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(NewResourceCell.self, forCellReuseIdentifier: "resource")
         swipeEnabled ()
        // button()
         print(self.siteId)
@@ -192,16 +192,16 @@ class RecourceTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resource", for: indexPath) as! ResourceCell
-        cell.resourceTitle?.text = curArray[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resource", for: indexPath) as! NewResourceCell
+        cell.textLabel?.text = curArray[indexPath.row].title
         if (curArray[indexPath.row].type == "collection"){
-            cell.resouce_icon.image = UIImage(named: "folder.png")
+            cell.imageView?.image = UIImage(named: "folder.png")
         }
         else if (curArray[indexPath.row].type == "text/url"){
-            cell.resouce_icon.image = UIImage(named: "URL.png")
+            cell.imageView?.image = UIImage(named: "URL.png")
         }
         else {
-            cell.resouce_icon.image = UIImage(named: "file.png")
+            cell.imageView?.image = UIImage(named: "file.png")
         }
         return cell
     }

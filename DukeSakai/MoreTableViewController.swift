@@ -17,10 +17,19 @@ class MoreTableViewController: UITableViewController {
     let feedbackEmail = FeedbackVC()
     var siteId : String = ""
     var resourceSiteId = ""
+    @IBOutlet weak var courses: UIButton!
+    
+    func button () {
+        courses.layer.borderWidth = 1
+        courses.layer.cornerRadius = courses.bounds.size.height / 2
+        courses.clipsToBounds = true
+        courses.contentMode = .scaleToFill
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //navigationController?.popToRootViewController(animated: true)
+        self.tableView.register(MoreCell.self, forCellReuseIdentifier: "MoreCell")
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -55,32 +64,31 @@ class MoreTableViewController: UITableViewController {
         return cell!
     }
     
+
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            let destination1 = (tabBarController?.viewControllers?[0] as! UINavigationController)
-            let des1 = destination1.topViewController as! AssignmentTableViewController
-            des1.siteId = membershipVC.tapSiteId
-            navigationController?.pushViewController(des1, animated: true)
+            let destination1 = AssignmentTableViewController()
+            destination1.siteId = tapSiteId
+            navigationController?.pushViewController(destination1, animated: true)
             
         case 1:
-            let destination2 = (tabBarController?.viewControllers?[1] as! UINavigationController)
-            let des2 = destination2.topViewController as! GradeTableViewController
-            des2.siteId = membershipVC.tapSiteId
-            navigationController?.pushViewController(des2, animated: true)
+            let destination2 = GradeTableViewController()
+            destination2.siteId = tapSiteId
+            navigationController?.pushViewController(destination2, animated: true)
             
         case 2:
-            let destination3 = (tabBarController?.viewControllers?[2] as! UINavigationController)
-            let des3 = destination3.topViewController as! AnnTableViewController
-            des3.siteId = membershipVC.tapSiteId
-            navigationController?.pushViewController(des3, animated: true)
+            let destination3 = AnnTableViewController()
+            destination3.siteId = tapSiteId
+            navigationController?.pushViewController(destination3, animated: true)
             
         case 3:
             // HERE I am trying a new way of calling the ResourceTableVC, this makes it so that the tab does
             // not go black, but I cannot get the siteID right, I have tried it in many ways.
             let destination4 = RecourceTableViewController()
-            //let des4 = destination4.topViewController as! RecourceTableViewController
-            destination4.siteId = resourceSiteId
+            destination4.siteId = tapSiteId
             self.navigationController!.pushViewController(destination4, animated: true)
             
         case 4:
