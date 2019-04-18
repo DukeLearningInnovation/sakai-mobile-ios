@@ -70,6 +70,21 @@ class Resource {
     }
 }
 
+class Lesson {
+    var numChildren : Int
+    var title : String
+    var type : String
+    var subView = [Lesson]()
+    var url : String
+    
+    init (numChildren : Int, title: String, type : String, url : String) {
+        self.numChildren = numChildren
+        self.title = title
+        self.type = type
+        self.url = url
+    }
+}
+
 class CalendarEvent {
     var title : String
     var siteId : String
@@ -187,6 +202,7 @@ func sortTerm(_ s1: String, _ s2: String) -> Bool {
 func getInitialItems(siteId: String, category: String) -> (urlRequest:NSMutableURLRequest, session:URLSession){
     let generalUrl = "https://sakai.duke.edu/direct/"
     var thisurl = generalUrl + category + "/site/" + siteId + ".json"
+    print(thisurl)
     if category == "announcement" {
         thisurl = thisurl + "?n=100&d=3000"
     }

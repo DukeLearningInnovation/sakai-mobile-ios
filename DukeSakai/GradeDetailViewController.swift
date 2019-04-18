@@ -26,10 +26,20 @@ class GradeDetailViewController: UIViewController {
         super.viewDidLoad()
         swipeEnabled ()
         initialComment()
-        commentHeader.text = "Additional instructor's comments about your submission"
-        comment.text = commentText
-        gradeView.text = grade + " / " + String(points)  + toPercent(grade: grade, points: points)
+        
+        GradeItem.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
         GradeItem.text = itemName
+        
+        gradeView.font = UIFont.init(name: "HelveticaNeue-Medium", size: 20)
+        gradeView.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+        gradeView.text = grade + " / " + String(points)  + toPercent(grade: grade, points: points)
+        
+        commentHeader.font = UIFont(name: "HelveticaNeue-Medium", size: 20)
+        commentHeader.numberOfLines = 2
+        commentHeader.text = "Additional instructor's comments about your submission:"
+        
+        comment.font = UIFont(name: "HelveticaNeue", size: 14)
+        comment.text = commentText
     }
     
     func toPercent(grade:String, points:Int)->String {

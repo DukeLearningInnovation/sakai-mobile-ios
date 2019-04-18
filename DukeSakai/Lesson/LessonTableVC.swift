@@ -1,17 +1,18 @@
-
 import UIKit
 
-class RecourceTableViewController: UITableViewController {
-
+class LessonTableVC: UITableViewController {
+    
     @IBOutlet weak var backLevel: UIBarButtonItem!
     @IBOutlet weak var courses: UIButton!
     var siteId : String = ""
-    var resourceArray = [Resource]()
-    var curArray = [Resource]()
-    var stackArray = [[Resource]]()
+    var lessonArray = [Lesson]()
+    var curArray = [Lesson]()
+    var stackArray = [[Lesson]]()
     let semaphore = DispatchSemaphore(value: 0)
     var tappedUrl = ""
     var tappedFlag = 0
+    
+    //let moreVC = MoreTableViewController()
     
     func button () {
         courses.layer.borderWidth = 1
@@ -19,10 +20,9 @@ class RecourceTableViewController: UITableViewController {
         courses.clipsToBounds = true
         courses.contentMode = .scaleToFill
     }
-    
     func swipeEnabled () {
-        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
-        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (LessonTableVC.handleSwipes(sender: )))
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (LessonTableVC.handleSwipes(sender: )))
         
         leftSwipe.direction = .left
         rightSwipe.direction = .right
@@ -46,22 +46,22 @@ class RecourceTableViewController: UITableViewController {
         return self.siteId
     }
     
-    func initialResourceItems() {
-        //let thisurl = "https://sakai.duke.edu/direct/content/site/" + siteId + ".json"
-        //let requestURL: NSURL = NSURL(string: thisurl)!
-        //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        //let session = URLSession.shared
+    func initialLessonItems() {
+        let thisurl = "https://sakai.duke.edu/direct/lessons/site/45f9032f-0538-41cf-9a2e-04c4355bd91e.json"
+        let requestURL: NSURL = NSURL(string: thisurl)!
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
+        let session = URLSession.shared
         
-        let URLinfo = getInitialItems(siteId: siteId, category: "content")
-        let urlRequest = URLinfo.urlRequest
-        let session = URLinfo.session
+        //let URLinfo = getInitialItems(siteId: siteId, category: "lessons")
+        //let urlRequest = URLinfo.urlRequest
+        //let session = URLinfo.session
         
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
             let httpResponse = response as? HTTPURLResponse
             if (httpResponse == nil) {
                 self.semaphore.signal()
-                self.resourceArray = []
+                self.lessonArray = []
                 return
             }
             
@@ -69,30 +69,30 @@ class RecourceTableViewController: UITableViewController {
             if (statusCode == 200) {
                 do{
                     let json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String: AnyObject]
-                
-                    if let content_collection = json["content_collection"] as? [[String: AnyObject]] {
-                        for resource in content_collection {
+                    
+                    if let lessons_collection = json["lessons_collection"] as? [[String: AnyObject]] {
+                        for lesson in lessons_collection {
                             var title:String = "Not Available"
                             var numChildren:Int = 0
                             var type : String = "Not Available"
                             var url : String = "Not Available"
                             
-                            if let mytitle = resource["title"] as? String {
+                            if let mytitle = lesson["title"] as? String {
                                 title = (mytitle == "" ? "Not Available" : mytitle)
                             }
-                            if let mynumChildren = resource["numChildren"] as? Int {
+                            if let mynumChildren = lesson["numChildren"] as? Int {
                                 numChildren = (mynumChildren == 0 ? 0: mynumChildren)
                             }
-                            if let mytype = resource["type"] as? String {
+                            if let mytype = lesson["type"] as? String {
                                 type = (mytype == "" ? "Not Available" : mytype)
                             }
-                            if let myurl = resource["url"] as? String {
+                            if let myurl = lesson["url"] as? String {
                                 url = (myurl == "" ? "Not Available" : myurl)
                             }
-                            let resource_item = Resource(numChildren: numChildren, title: title, type: type, url: url)
-                            self.resourceArray.append(resource_item)
+                            let lesson_item = Lesson(numChildren: numChildren, title: title, type: type, url: url)
+                            self.lessonArray.append(lesson_item)
                             
-                            if resource_item.type != "collection" {
+                            if lesson_item.type != "collection" {
                             }
                         }
                     }
@@ -108,17 +108,16 @@ class RecourceTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.register(NewResourceCell.self, forCellReuseIdentifier: "resource")
         swipeEnabled ()
-       // button()
+        // button()
         print(self.siteId)
-        initialResourceItems()
-        if (resourceArray.count > 0){
-            resourceArray.remove(at: 0)
+        initialLessonItems()
+        if (lessonArray.count > 0){
+            lessonArray.remove(at: 0)
         }
         var skip = 0;
         
-        for (index, item) in resourceArray.enumerated() {
+        for (index, item) in lessonArray.enumerated() {
             if(skip > 0){
                 skip = skip - 1
                 continue
@@ -131,7 +130,7 @@ class RecourceTableViewController: UITableViewController {
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
@@ -145,13 +144,13 @@ class RecourceTableViewController: UITableViewController {
         }
     }
     
-    func helper(input : Resource, index: Int) -> Int{
+    func helper(input : Lesson, index: Int) -> Int{
         if(input.numChildren == 0){
             return 0
         }
         var ret = 0
         var skip = 0
-        for (dex, item) in resourceArray.enumerated(){
+        for (dex, item) in lessonArray.enumerated(){
             if(dex <= index) {
                 continue
             }
@@ -179,29 +178,29 @@ class RecourceTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return curArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resource", for: indexPath) as! NewResourceCell
-        cell.textLabel?.text = curArray[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resource", for: indexPath) as! ResourceCell
+        cell.resourceTitle?.text = curArray[indexPath.row].title
         if (curArray[indexPath.row].type == "collection"){
-            cell.imageView?.image = UIImage(named: "folder.png")
+            cell.resouce_icon.image = UIImage(named: "folder.png")
         }
         else if (curArray[indexPath.row].type == "text/url"){
-            cell.imageView?.image = UIImage(named: "URL.png")
+            cell.resouce_icon.image = UIImage(named: "URL.png")
         }
         else {
-            cell.imageView?.image = UIImage(named: "file.png")
+            cell.resouce_icon.image = UIImage(named: "file.png")
         }
         return cell
     }
@@ -209,7 +208,7 @@ class RecourceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //push previous level of files into the stack
         if (curArray[indexPath.row].type == "collection") {
-            var temp = [Resource]()
+            var temp = [Lesson]()
             for item in curArray {
                 temp.append(item)
             }
@@ -243,39 +242,39 @@ class RecourceTableViewController: UITableViewController {
     @IBAction func unwindtoResource(segue: UIStoryboardSegue) {
         
     }
-
+    
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
     /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
     /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
 }
