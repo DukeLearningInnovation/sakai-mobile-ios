@@ -163,6 +163,7 @@ class LessonTableVC: UITableViewController {
                 ret = ret + item.numChildren
                 skip = item.numChildren + helper(input: item, index: dex)
             }
+                
             else{
                 input.subView.append(item)
             }
