@@ -119,11 +119,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		791555FE22492CBF002BA7F5 /* Lessons */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Lessons;
 		791555FF2249301D002BA7F5 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +189,6 @@
 		A1B8AE061E7C7DE300228E0B /* DukeSakai */ = {
 			isa = PBXGroup;
 			children = (
-				791555FE22492CBF002BA7F5 /* Lessons */,
 				791555FF2249301D002BA7F5 /* Lesson */,
 				A187694F1E9EF14D00E0E70D /* Segue */,
 				A4342F4E1E91C40A00939B9B /* Calendar */,
