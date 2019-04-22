@@ -1,4 +1,3 @@
-
 # DukeSakai Application
 [Sakai](https://www.sakailms.org/) is a very useful tool, both for students and 
 professors, in the classroom. This project seeks to leverage those tools, and 
@@ -55,9 +54,9 @@ be found in https://github.com/LitterL/CalendarDemo
 Refer to Document **User Guide**
 
 ## Contributors
-Andres Hernandez Guerra
-Niral Shah
-Zhe Mao
-Yuxiang Huang
-Chengzhang Ma
+Andres Hernandez Guerra<br/>
+Niral Shah<br/>
+Zhe Mao<br/>
+Yuxiang Huang<br/>
+Chengzhang Ma<br/>
 
