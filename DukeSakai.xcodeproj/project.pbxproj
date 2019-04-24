@@ -31,7 +31,6 @@
 		A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */; };
 		A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */; };
 		A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */; };
-		A1AD3AFA1E81BED700A44A02 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */; };
 		A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */; };
 		A1AD3AFE1E81BEFF00A44A02 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AFD1E81BEFF00A44A02 /* AssignmentCell.swift */; };
 		A1B8AE081E7C7DE300228E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8AE071E7C7DE300228E0B /* AppDelegate.swift */; };
@@ -81,7 +80,6 @@
 		A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberCell.swift; path = ../MemberCell.swift; sourceTree = "<group>"; };
 		A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
-		A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceCell.swift; sourceTree = "<group>"; };
 		A1AD3AFD1E81BEFF00A44A02 /* AssignmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
 		A1B8AE041E7C7DE300228E0B /* DukeSakai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeSakai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +252,6 @@
 			children = (
 				A1B8AE1D1E7C7EB300228E0B /* RecourceTableViewController.swift */,
 				A404FB781E8C48B700F9A585 /* UrlViewController.swift */,
-				A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */,
 				796E27592268D99700271C01 /* NewResourceCell.swift */,
 			);
 			name = Resource;
@@ -394,7 +391,6 @@
 				A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */,
 				A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */,
 				79CE3D2B222DC9280000BEA7 /* MoreCell.swift in Sources */,
-				A1AD3AFA1E81BED700A44A02 /* ResourceCell.swift in Sources */,
 				A404FB791E8C48B700F9A585 /* UrlViewController.swift in Sources */,
 				A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */,
 				A1B8AE221E7C7EB300228E0B /* RecourceTableViewController.swift in Sources */,
