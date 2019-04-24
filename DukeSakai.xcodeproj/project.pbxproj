@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		790FCA4221F68B820043D7C9 /* AssignmentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790FCA4121F68B820043D7C9 /* AssignmentDetailViewController.swift */; };
+		79155601224934EC002BA7F5 /* LessonTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79155600224934EC002BA7F5 /* LessonTableVC.swift */; };
+		79215EEC222075A900301B99 /* EmptyScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79215EEB222075A900301B99 /* EmptyScreenVC.swift */; };
+		796E27542267BB2400271C01 /* NewGradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E27532267BB2400271C01 /* NewGradeCell.swift */; };
+		796E27562267BBF700271C01 /* NewStatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E27552267BBF700271C01 /* NewStatusCell.swift */; };
+		796E27582267C4EF00271C01 /* NewAssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E27572267C4EF00271C01 /* NewAssignmentCell.swift */; };
+		796E275A2268D99700271C01 /* NewResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796E27592268D99700271C01 /* NewResourceCell.swift */; };
+		79CE3D222229F7730000BEA7 /* FeedbackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE3D212229F7730000BEA7 /* FeedbackVC.swift */; };
+		79CE3D29222DC3FC0000BEA7 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE3D28222DC3FC0000BEA7 /* MoreTableViewController.swift */; };
+		79CE3D2B222DC9280000BEA7 /* MoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CE3D2A222DC9280000BEA7 /* MoreCell.swift */; };
 		A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14A4FE31E8C54140019C7D0 /* StatusCell.swift */; };
 		A17435371E95CF4F002F9F1C /* Back Filled-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A17435361E95CF4F002F9F1C /* Back Filled-20.png */; };
 		A17435391E95D0CE002F9F1C /* Today-20.png in Resources */ = {isa = PBXBuildFile; fileRef = A17435381E95D0CE002F9F1C /* Today-20.png */; };
@@ -22,7 +31,6 @@
 		A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */; };
 		A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */; };
 		A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */; };
-		A1AD3AFA1E81BED700A44A02 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */; };
 		A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */; };
 		A1AD3AFE1E81BEFF00A44A02 /* AssignmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AFD1E81BEFF00A44A02 /* AssignmentCell.swift */; };
 		A1B8AE081E7C7DE300228E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B8AE071E7C7DE300228E0B /* AppDelegate.swift */; };
@@ -49,6 +57,15 @@
 
 /* Begin PBXFileReference section */
 		790FCA4121F68B820043D7C9 /* AssignmentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentDetailViewController.swift; sourceTree = "<group>"; };
+		79155600224934EC002BA7F5 /* LessonTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonTableVC.swift; sourceTree = "<group>"; };
+		79215EEB222075A900301B99 /* EmptyScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyScreenVC.swift; sourceTree = "<group>"; };
+		796E27532267BB2400271C01 /* NewGradeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGradeCell.swift; sourceTree = "<group>"; };
+		796E27552267BBF700271C01 /* NewStatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStatusCell.swift; sourceTree = "<group>"; };
+		796E27572267C4EF00271C01 /* NewAssignmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssignmentCell.swift; sourceTree = "<group>"; };
+		796E27592268D99700271C01 /* NewResourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewResourceCell.swift; sourceTree = "<group>"; };
+		79CE3D212229F7730000BEA7 /* FeedbackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackVC.swift; sourceTree = "<group>"; };
+		79CE3D28222DC3FC0000BEA7 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		79CE3D2A222DC9280000BEA7 /* MoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
 		A14A4FE31E8C54140019C7D0 /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		A17435361E95CF4F002F9F1C /* Back Filled-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Back Filled-20.png"; sourceTree = "<group>"; };
 		A17435381E95D0CE002F9F1C /* Today-20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Today-20.png"; sourceTree = "<group>"; };
@@ -63,7 +80,6 @@
 		A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberCell.swift; path = ../MemberCell.swift; sourceTree = "<group>"; };
 		A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
-		A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceCell.swift; sourceTree = "<group>"; };
 		A1AD3AFD1E81BEFF00A44A02 /* AssignmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentCell.swift; sourceTree = "<group>"; };
 		A1B8AE041E7C7DE300228E0B /* DukeSakai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DukeSakai.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,11 +117,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		791555FF2249301D002BA7F5 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				79155600224934EC002BA7F5 /* LessonTableVC.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
 		A14A4FDF1E89A5700019C7D0 /* Grade */ = {
 			isa = PBXGroup;
 			children = (
 				A1745DE81E8DD45600502F22 /* GradeDetailViewController.swift */,
 				A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */,
+				796E27532267BB2400271C01 /* NewGradeCell.swift */,
 				A1B8AE1B1E7C7EB300228E0B /* GradeTableViewController.swift */,
 			);
 			name = Grade;
@@ -118,6 +143,8 @@
 				790FCA4121F68B820043D7C9 /* AssignmentDetailViewController.swift */,
 				A1AD3AFD1E81BEFF00A44A02 /* AssignmentCell.swift */,
 				A14A4FE31E8C54140019C7D0 /* StatusCell.swift */,
+				796E27552267BBF700271C01 /* NewStatusCell.swift */,
+				796E27572267C4EF00271C01 /* NewAssignmentCell.swift */,
 			);
 			name = Assignment;
 			sourceTree = "<group>";
@@ -160,6 +187,7 @@
 		A1B8AE061E7C7DE300228E0B /* DukeSakai */ = {
 			isa = PBXGroup;
 			children = (
+				791555FF2249301D002BA7F5 /* Lesson */,
 				A187694F1E9EF14D00E0E70D /* Segue */,
 				A4342F4E1E91C40A00939B9B /* Calendar */,
 				A1745DEB1E8F367800502F22 /* Announce */,
@@ -184,6 +212,10 @@
 			isa = PBXGroup;
 			children = (
 				A404FB711E882A4000F9A585 /* TabBarViewController.swift */,
+				79215EEB222075A900301B99 /* EmptyScreenVC.swift */,
+				79CE3D28222DC3FC0000BEA7 /* MoreTableViewController.swift */,
+				79CE3D2A222DC9280000BEA7 /* MoreCell.swift */,
+				79CE3D212229F7730000BEA7 /* FeedbackVC.swift */,
 			);
 			name = TabBarView;
 			sourceTree = "<group>";
@@ -220,7 +252,7 @@
 			children = (
 				A1B8AE1D1E7C7EB300228E0B /* RecourceTableViewController.swift */,
 				A404FB781E8C48B700F9A585 /* UrlViewController.swift */,
-				A1AD3AF91E81BED700A44A02 /* ResourceCell.swift */,
+				796E27592268D99700271C01 /* NewResourceCell.swift */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -283,7 +315,8 @@
 				TargetAttributes = {
 					A1B8AE031E7C7DE300228E0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						LastSwiftMigration = 0920;
+						DevelopmentTeam = 8P937QU645;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -293,6 +326,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -332,25 +366,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				796E27542267BB2400271C01 /* NewGradeCell.swift in Sources */,
 				A4342F4D1E91C40300939B9B /* CalendarViewController.swift in Sources */,
 				A4FCBA9E1E942CDF00EA68B1 /* EventDetailViewController.swift in Sources */,
 				A404FB721E882A4000F9A585 /* TabBarViewController.swift in Sources */,
+				79155601224934EC002BA7F5 /* LessonTableVC.swift in Sources */,
 				A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */,
+				79CE3D29222DC3FC0000BEA7 /* MoreTableViewController.swift in Sources */,
 				A4342F4C1E91C40300939B9B /* CalendarView.swift in Sources */,
 				A174353D1E95D5F5002F9F1C /* AnnCell.swift in Sources */,
 				790FCA4221F68B820043D7C9 /* AssignmentDetailViewController.swift in Sources */,
 				A190D7521E876593008A0D96 /* TermCell.swift in Sources */,
 				A4342F4B1E91C40300939B9B /* CalendarTool.swift in Sources */,
+				796E27582267C4EF00271C01 /* NewAssignmentCell.swift in Sources */,
 				A19B7F991E9530DD00BBFBB4 /* Segue1.swift in Sources */,
+				79215EEC222075A900301B99 /* EmptyScreenVC.swift in Sources */,
 				E447C8631E86FE0E00BBB26E /* commonfunctions.swift in Sources */,
 				A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */,
 				A1B8AE201E7C7EB300228E0B /* GradeTableViewController.swift in Sources */,
+				79CE3D222229F7730000BEA7 /* FeedbackVC.swift in Sources */,
 				A1B8AE081E7C7DE300228E0B /* AppDelegate.swift in Sources */,
 				A1B8AE1F1E7C7EB300228E0B /* AssignmentTableViewController.swift in Sources */,
 				A174353B1E95D508002F9F1C /* AnnTableViewController.swift in Sources */,
 				A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */,
 				A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */,
-				A1AD3AFA1E81BED700A44A02 /* ResourceCell.swift in Sources */,
+				79CE3D2B222DC9280000BEA7 /* MoreCell.swift in Sources */,
 				A404FB791E8C48B700F9A585 /* UrlViewController.swift in Sources */,
 				A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */,
 				A1B8AE221E7C7EB300228E0B /* RecourceTableViewController.swift in Sources */,
@@ -358,6 +398,8 @@
 				A1B8AE211E7C7EB300228E0B /* MemberShipTableViewController.swift in Sources */,
 				A1745DED1E8F369B00502F22 /* AnnDetailViewController.swift in Sources */,
 				A190D7501E871640008A0D96 /* commonClass.swift in Sources */,
+				796E27562267BBF700271C01 /* NewStatusCell.swift in Sources */,
+				796E275A2268D99700271C01 /* NewResourceCell.swift in Sources */,
 				A1745DE91E8DD45600502F22 /* GradeDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,9 +455,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8P937QU645;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -471,9 +515,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8P937QU645;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -498,10 +544,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8P937QU645;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.zhemao.DukeSakai;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -514,10 +560,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 8P937QU645;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.zhemao.DukeSakai;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

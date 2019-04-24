@@ -20,7 +20,7 @@ Select the "See Detail" button to see the details of events
 
 ![Calendar](picture/calendar.png)
 
-Four functions:
+Four functions :
 select a specific course to view the four functions
 1. Assignment:
 select each assignment item to see details

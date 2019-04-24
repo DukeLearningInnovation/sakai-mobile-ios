@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/CalendarView.swift"
+            timestampString = "573435599.668481"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "commonInit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/CalendarView.swift"
+            timestampString = "573435599.668594"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "commonInit()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/TabBarViewController.swift"
+            timestampString = "577309166.244749"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "6"
+            endingLineNumber = "6"
+            landmarkName = "TabBarViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.TabBarViewController.siteId.getter : Swift.String"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/TabBarViewController.swift"
+                  timestampString = "573676801.416838"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "123">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.TabBarViewController.siteId.setter : Swift.String"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/TabBarViewController.swift"
+                  timestampString = "573676801.4190069"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.TabBarViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DukeSakai.TabBarViewController"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/TabBarViewController.swift"
+                  timestampString = "573676801.420662"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "62">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.TabBarViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DukeSakai.TabBarViewController&gt;"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/TabBarViewController.swift"
+                  timestampString = "573676801.422262"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "53">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/TabBarViewController.swift"
+            timestampString = "577309166.244841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "TabBarViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/TabBarViewController.swift"
+            timestampString = "577309166.2449"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DukeSakai/MemberShipTableViewController.swift"
+            timestampString = "577309166.244953"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "MemberShipTableViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.MemberShipTableViewController.tapSiteId.getter : Swift.String"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/MemberShipTableViewController.swift"
+                  timestampString = "573676801.437628"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
+                  offsetFromSymbolStart = "123">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.MemberShipTableViewController.tapSiteId.setter : Swift.String"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/MemberShipTableViewController.swift"
+                  timestampString = "573676801.439484"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
+                  offsetFromSymbolStart = "137">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.MemberShipTableViewController.init(style: __C.UITableViewStyle) -&gt; DukeSakai.MemberShipTableViewController"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/MemberShipTableViewController.swift"
+                  timestampString = "573676801.441507"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
+                  offsetFromSymbolStart = "446">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.MemberShipTableViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; DukeSakai.MemberShipTableViewController"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/MemberShipTableViewController.swift"
+                  timestampString = "573676801.443576"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
+                  offsetFromSymbolStart = "425">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DukeSakai.MemberShipTableViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;DukeSakai.MemberShipTableViewController&gt;"
+                  moduleName = "DukeSakai"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/a.hernandez/Center_For_Mobile_Development/Kaga/DukeSakai/MemberShipTableViewController.swift"
+                  timestampString = "573676801.445266"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "9"
+                  endingLineNumber = "9"
+                  offsetFromSymbolStart = "403">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

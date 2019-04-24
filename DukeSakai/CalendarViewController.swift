@@ -10,6 +10,8 @@ var year : Int = 2017
 //var selectedEvent : CalendarEvent = CalendarEvent(title: "default", siteId: "default", eventId: "default", time: NSDate(), ft_display: "default")
 var selectedEvents = [CalendarEvent]()
 
+var MyCalendarView: CalendarView = CalendarView()
+
 class CalenderViewController: UIViewController {
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (CalenderViewController.handleSwipes(sender: )))
@@ -40,10 +42,12 @@ class CalenderViewController: UIViewController {
     }
     
     func setbutton() {
+        Cbutton.frame = CGRect(x: UIScreen.main.bounds.minX + 15, y: UIScreen.main.bounds.maxY - 60, width: 150, height: 50)
         Cbutton.layer.borderWidth = 0.0
         Cbutton.layer.cornerRadius = 10
         Cbutton.clipsToBounds = true
         Cbutton.contentMode = .scaleToFill
+        
         
     }
 
@@ -80,6 +84,19 @@ class CalenderViewController: UIViewController {
             }
         }
         calendar.EventList = presentMonthEvent
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+            MyCalendarView.commonInit()
+        } else {
+            print("Portrait")
+            CalendarView().commonInit()
+            self.viewDidLoad()
+            self.viewWillAppear(true)
+        }
     }
     
     override func didReceiveMemoryWarning() {

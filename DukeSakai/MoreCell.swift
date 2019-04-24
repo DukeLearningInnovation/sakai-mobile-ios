@@ -1,11 +1,15 @@
+//
+//  MoreCell.swift
+//  DukeSakai
+//
+//  Created by Andres S. Hernandez G. on 3/4/19.
+//  Copyright © 2019 Zhe Mao. All rights reserved.
+//
 
 import UIKit
 
-class ResourceCell: UITableViewCell {
+class MoreCell: UITableViewCell {
 
-    @IBOutlet weak var resouce_icon: UIImageView!
-    @IBOutlet weak var resourceTitle: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -13,6 +17,8 @@ class ResourceCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
         // Configure the view for the selected state
     }
+
 }

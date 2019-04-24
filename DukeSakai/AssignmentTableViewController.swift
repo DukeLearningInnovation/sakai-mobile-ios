@@ -19,6 +19,8 @@ class AssignmentTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(NewStatusCell.self, forCellReuseIdentifier: "statusCell")
+        self.tableView.register(NewAssignmentCell.self, forCellReuseIdentifier: "assignment")
         swipeEnabled ()
         initialassignmentItems()
         formAssignment()
@@ -38,10 +40,11 @@ class AssignmentTableViewController: UITableViewController {
     }
     
     func initialassignmentItems() {
-        let thisurl = "https://sakai.duke.edu/direct/assignment/site/" + siteId + ".json"
-        let requestURL: NSURL = NSURL(string: thisurl)!
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
-        let session = URLSession.shared
+
+        let URLinfo = getInitialItems(siteId: siteId, category: "assignment")
+        let urlRequest = URLinfo.urlRequest
+        let session = URLinfo.session
+        
         let task = session.dataTask(with: urlRequest as URLRequest) {
             (data, response, error) -> Void in
             let httpResponse = response as? HTTPURLResponse
@@ -136,28 +139,47 @@ class AssignmentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! StatusCell
-                cell.status.text = "Open"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! NewStatusCell
+                cell.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+                cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+                cell.textLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+
+                cell.textLabel?.text = "Open"
+                
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
-                cell.assignmentTitle?.text  = openAssignment[indexPath.row - 1].assignmentTitle
-                cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                cell.due?.text  = openAssignment[indexPath.row - 1].due
-                cell.scale?.text  = openAssignment[indexPath.row - 1].scale
+                let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! NewAssignmentCell
+                cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
+                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
+                cell.textLabel?.numberOfLines = 2
+                cell.textLabel?.text  = openAssignment[indexPath.row - 1].assignmentTitle
+
+                cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+                cell.detailTextLabel?.numberOfLines = 2
+                cell.detailTextLabel?.text  = "GradeScale: " + openAssignment[indexPath.row - 1].scale + "\nDue Time: " + openAssignment[indexPath.row - 1].due
+
                 return cell
             }
         } else {
             if (indexPath.row == 0) {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! StatusCell
-                cell.status.text = "Closed"
+                let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! NewStatusCell
+                cell.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+                cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+                cell.textLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+
+                cell.textLabel?.text = "Closed"
+                
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! AssignmentCell
-                cell.assignmentTitle?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
-                cell.assignmentTitle?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
-                cell.due?.text  = closeAssignment[indexPath.row - 1].due
-                cell.scale?.text  = closeAssignment[indexPath.row - 1].scale
+                let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! NewAssignmentCell
+                cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
+                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
+                cell.textLabel?.numberOfLines = 2
+                cell.textLabel?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
+                
+                cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+                cell.detailTextLabel?.numberOfLines = 2
+                cell.detailTextLabel?.text  = "GradeScale: " + closeAssignment[indexPath.row - 1].scale + "\nDue Time: " + closeAssignment[indexPath.row - 1].due
                 return cell
             }
         }
@@ -230,9 +252,9 @@ class AssignmentTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if (indexPath.row == 0) {
-            return 50;
+            return 32;
         } else {
-            return 120;
+            return 95;
         }
     }
 }

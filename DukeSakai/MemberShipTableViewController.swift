@@ -1,12 +1,13 @@
 
 import UIKit
 
+public var tapSiteId : String = ""
 
 class MemberShipTableViewController: UITableViewController {
     var currentCourse = [Membership] ()
     var uniqueTerm = [String] ()
     var termArray = [Term]()
-    var tapSiteId : String = ""
+    
     @IBOutlet weak var logout: UIButton!
     @IBOutlet weak var calendar: UIButton!
     
@@ -24,6 +25,8 @@ class MemberShipTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(MemberCell.self, forCellReuseIdentifier: "courseCell")
+        self.tableView.register(TermCell.self, forCellReuseIdentifier: "termCell")
         //start to opreate
         self.formCourseArray();
         self.uniqueTerm = getUniqueTerm(coursesArray: self.currentCourse)
@@ -57,20 +60,29 @@ class MemberShipTableViewController: UITableViewController {
    //assign info for each cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "TermCell", for: indexPath) as! TermCell
-           cell.termName?.text = uniqueTerm[indexPath.section]
+         let cell = tableView.dequeueReusableCell(withIdentifier: "termCell", for: indexPath) as! TermCell
+            cell.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
+            cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
+            cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
+            
+            cell.textLabel?.text = uniqueTerm[indexPath.section]
+            
            return cell
         } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! MemberCell
-            cell.courseTitle?.text = termArray[indexPath.section].courses[indexPath.row - 1].name
-            cell.instructor?.text = termArray[indexPath.section].courses[indexPath.row - 1].instructor
+            cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
+            cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+            cell.detailTextLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+
+            cell.textLabel?.text = termArray[indexPath.section].courses[indexPath.row - 1].name
+            cell.detailTextLabel?.text = "Instructor: " + termArray[indexPath.section].courses[indexPath.row - 1].instructor
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(indexPath.row > 0){
-            self.tapSiteId = termArray[indexPath.section].courses[indexPath.row-1].siteId
+            tapSiteId = termArray[indexPath.section].courses[indexPath.row-1].siteId
             self.performSegue(withIdentifier: "toTabBar", sender: self)
         }
     }
@@ -102,9 +114,9 @@ class MemberShipTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
         if (indexPath.row == 0) {
-            return 50;
+            return 32;
         } else {
-            return 85;
+            return 67;
         }
     }
 

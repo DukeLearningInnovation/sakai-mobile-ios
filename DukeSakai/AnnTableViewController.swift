@@ -13,6 +13,7 @@ class AnnTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(AnnounceCell.self, forCellReuseIdentifier: "announcement")
         //        self.title = "Annoucenments"
         //        self.navigationItem.title = "Annoucenments"
         //        self.navigationController?.navigationBar.topItem?.title = "Annoucenments";
@@ -38,7 +39,7 @@ class AnnTableViewController: UITableViewController {
         //let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         //let session = URLSession.shared
         
-        let URLinfo = getInitialItems(siteId: siteId)
+        let URLinfo = getInitialItems(siteId: siteId, category: "announcement")
         let urlRequest = URLinfo.urlRequest
         let session = URLinfo.session
         let task = session.dataTask(with: urlRequest as URLRequest) {
@@ -105,10 +106,13 @@ class AnnTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "AnnCell", for: indexPath) as! AnnCell
-        cell.announce?.text = currAnnouncement[indexPath.row].title
-        //cell.time?.text = String(currAnnouncement[indexPath.row].createdOn)
-        cell.author?.text = currAnnouncement[indexPath.row].author
+        let cell = tableView.dequeueReusableCell(withIdentifier: "announcement", for: indexPath) as! AnnounceCell
+        cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
+        cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+        cell.detailTextLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+        
+        cell.textLabel?.text = currAnnouncement[indexPath.row].title
+        cell.detailTextLabel?.text = "Posted By: " + currAnnouncement[indexPath.row].author
         
         return cell
     }
@@ -140,6 +144,7 @@ class AnnTableViewController: UITableViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
+    
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             self.tabBarController?.selectedIndex = 1
@@ -151,6 +156,9 @@ class AnnTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 62
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
