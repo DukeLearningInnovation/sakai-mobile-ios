@@ -275,7 +275,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mya-20-Jtz">
-                                <rect key="frame" x="24" y="180" width="271" height="383"/>
+                                <rect key="frame" x="7" y="180" width="305" height="383"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -378,7 +378,7 @@
                                     <fragment content="Due is here">
                                         <attributes>
                                             <color key="NSColor" red="0.67843137254901964" green="0.090196078431372548" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="24" name="HelveticaNeue-Medium"/>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Medium"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -671,7 +671,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="szj-DW-lhd">
-                                <rect key="frame" x="77" y="177" width="166" height="38"/>
+                                <rect key="frame" x="77" y="177" width="218" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="tintColor" red="0.36307564377784729" green="0.55357885360717773" blue="0.77649450302124023" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

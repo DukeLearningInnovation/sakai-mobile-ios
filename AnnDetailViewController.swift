@@ -14,9 +14,11 @@ class AnnDetailViewController: UIViewController {
             options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil)
 
-         detail.attributedText = attrStr
-         detail.font = UIFont(name: "HelveticaNeue", size: 18.5)
-         annTitle.text = currAnn?.title
+        annTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+        annTitle.text = currAnn?.title
+        
+        detail.attributedText = attrStr
+        detail.font = UIFont(name: "HelveticaNeue", size: 15)
         }
         // Do any additional setup after loading the view.
         swipeEnabled ()

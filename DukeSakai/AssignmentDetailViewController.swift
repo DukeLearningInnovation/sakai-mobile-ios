@@ -27,7 +27,7 @@ class AssignmentDetailViewController: UIViewController {
             assTitle.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
             assTitle.text = currAssign?.assignmentTitle
             
-            Due.font = UIFont(name: "HelveticaNeue-Bold", size: 20)
+            Due.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
             Due.text = currAssign?.due
             
             instruction.font = UIFont(name: "HelveticaNeue", size: 14)

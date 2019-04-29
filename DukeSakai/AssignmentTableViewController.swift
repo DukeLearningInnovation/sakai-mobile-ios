@@ -78,6 +78,7 @@ class AssignmentTableViewController: UITableViewController {
                             }
                             if let tempDue = assignment["dueTime"]  {
                                 dueTime = (tempDue["epochSecond"] as? Int64) ?? 0
+                                dueTimeString = self.ReadableDate(date: NSDate(timeIntervalSince1970: TimeInterval(dueTime)))
                             }
                             if let mygradeScaleMaxPoints = assignment["gradeScaleMaxPoints"] as? String {
                                 gradeScaleMaxPoints = (mygradeScaleMaxPoints == "" ? "Not Available" : mygradeScaleMaxPoints)
@@ -97,6 +98,15 @@ class AssignmentTableViewController: UITableViewController {
         }
         task.resume()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+    }
+    
+    func ReadableDate(date: NSDate) -> String{
+        let dayTimePeriodFormatter = DateFormatter()
+        dayTimePeriodFormatter.dateFormat = "MMM dd, YYYY 'at' hh:mm a"
+        
+        let dateString = dayTimePeriodFormatter.string(from: date as Date)
+        
+        return(dateString)
     }
     
     func swipeEnabled () {
@@ -142,7 +152,7 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! NewStatusCell
                 cell.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
                 cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
-                cell.textLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
 
                 cell.textLabel?.text = "Open"
                 
@@ -150,11 +160,11 @@ class AssignmentTableViewController: UITableViewController {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! NewAssignmentCell
                 cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
-                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
                 cell.textLabel?.numberOfLines = 2
                 cell.textLabel?.text  = openAssignment[indexPath.row - 1].assignmentTitle
 
                 cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+                cell.detailTextLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.86, alpha:1.0)
                 cell.detailTextLabel?.numberOfLines = 2
                 cell.detailTextLabel?.text  = "GradeScale: " + openAssignment[indexPath.row - 1].scale + "\nDue Time: " + openAssignment[indexPath.row - 1].due
 
@@ -165,7 +175,7 @@ class AssignmentTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "statusCell", for: indexPath) as! NewStatusCell
                 cell.backgroundColor = UIColor(red:0.90, green:0.90, blue:0.90, alpha:1.0)
                 cell.textLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 23)
-                cell.textLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.94, alpha:1.0)
+                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
 
                 cell.textLabel?.text = "Closed"
                 
@@ -173,11 +183,11 @@ class AssignmentTableViewController: UITableViewController {
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "assignment", for: indexPath) as! NewAssignmentCell
                 cell.textLabel?.font = UIFont.init(name: "HelveticaNeue-Bold", size: 20)
-                cell.textLabel?.textColor = UIColor(red:0.00, green:0.10, blue:0.34, alpha:1.0)
                 cell.textLabel?.numberOfLines = 2
                 cell.textLabel?.text  = closeAssignment[indexPath.row - 1].assignmentTitle
                 
                 cell.detailTextLabel?.font = UIFont.init(name: "HelveticaNeue-Medium", size: 15)
+                cell.detailTextLabel?.textColor = UIColor(red:0.31, green:0.55, blue:0.86, alpha:1.0)
                 cell.detailTextLabel?.numberOfLines = 2
                 cell.detailTextLabel?.text  = "GradeScale: " + closeAssignment[indexPath.row - 1].scale + "\nDue Time: " + closeAssignment[indexPath.row - 1].due
                 return cell
