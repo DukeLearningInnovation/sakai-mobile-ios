@@ -17,7 +17,10 @@ class RecourceTableViewController: UITableViewController {
         
         backLevel = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.reply, target: self, action: #selector(backLevel(_:)))
         backLevel.tintColor = .white
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = backLevel
+        
+        DispatchQueue.main.async {
+            self.navigationController?.navigationBar.topItem?.rightBarButtonItem = self.backLevel
+        }
         
         self.tableView.register(NewResourceCell.self, forCellReuseIdentifier: "resource")
         swipeEnabled ()
