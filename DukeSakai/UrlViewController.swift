@@ -4,8 +4,29 @@ import UIKit
 class UrlViewController: UIViewController {
     var url = ""
     var flag = 2
-    @IBOutlet weak var urlWebView: UIWebView!
     @IBOutlet weak var back: UIButton!
+    var urlWebView = UIWebView()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        urlWebView.frame = CGRect(x: 0, y: 64, width: self.view.frame.width, height: self.view.frame.height)
+        switch flag {
+        case 0 :
+            let url = URL(string : self.url)!
+            urlWebView.loadRequest(URLRequest(url: url))
+        case 1:
+            //let path = URL(fileURLWithPath: url)
+            let url = URL(string : self.url)!
+            urlWebView.loadRequest(URLRequest(url: url))
+            //let request = URLRequest(url: path as URL)
+            //urlWebView.loadRequest(request as URLRequest)
+        default:
+            break
+        }
+        // Do any additional setup after loading the view.
+        self.view.addSubview(urlWebView)
+    }
     
     func button () {
         back.layer.borderWidth = 1
@@ -27,24 +48,6 @@ class UrlViewController: UIViewController {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipeToResource", sender: self)
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        switch flag {
-        case 0 :
-            let url = URL(string : self.url)!
-            urlWebView.loadRequest(URLRequest(url: url))
-        case 1:
-            //let path = URL(fileURLWithPath: url)
-            let url = URL(string : self.url)!
-            urlWebView.loadRequest(URLRequest(url: url))
-            //let request = URLRequest(url: path as URL)
-            //urlWebView.loadRequest(request as URLRequest)
-        default:
-            break
-        }
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

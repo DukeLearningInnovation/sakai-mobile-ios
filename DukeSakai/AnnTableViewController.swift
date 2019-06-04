@@ -10,7 +10,7 @@ class AnnTableViewController: UITableViewController {
     var currAnnouncement = [Announce]()
     let semaphore = DispatchSemaphore(value: 0)
     var tapAnn: Announce? = nil
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(AnnounceCell.self, forCellReuseIdentifier: "announcement")
@@ -119,8 +119,11 @@ class AnnTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tapAnn = currAnnouncement[indexPath.row]
-        performSegue(withIdentifier: "toAnnDetail1", sender: (Any).self)
         
+        let annVC : AnnDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "annVC") as! AnnDetailViewController
+        annVC.currAnn = self.tapAnn
+        
+        self.navigationController?.pushViewController(annVC, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -11,6 +11,7 @@ protocol CalendarDelegate{
 }
 
 class CalendarView: UIView {
+    
     var delegate: CalendarDelegate?
     //data to draw
     var EventList = [CalendarEvent](){
@@ -64,7 +65,7 @@ class CalendarView: UIView {
         didSet{
             for btn in contentWrapperView.subviews{
                 let bt = btn as! UIButton
-                bt.setTitleColor(componentTextColor, for: UIControlState())
+                bt.setTitleColor(componentTextColor, for: UIControl.State())
             }
         }
     }
@@ -178,17 +179,17 @@ extension CalendarView{
         navigationBar.addSubview(textLabel)
         //layout
         self.addConstraint(NSLayoutConstraint(item: textLabel,
-                                              attribute: NSLayoutAttribute.centerX,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.centerX,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.centerX,
+                                              attribute: NSLayoutConstraint.Attribute.centerX,
                                               multiplier: 1.0,
                                               constant: 0))
         self.addConstraint(NSLayoutConstraint(item: textLabel,
-                                              attribute: NSLayoutAttribute.centerY,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.centerY,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
                                               multiplier: 1.0,
                                               constant: 0))
         let presentMonth = CalendarTool.Month(Nowdate)
@@ -202,36 +203,36 @@ extension CalendarView{
         let prevBtn = UIButton(type: .custom)
         prevBtn.translatesAutoresizingMaskIntoConstraints = false
         prevBtn.tintColor = UIColor.gray
-        prevBtn.setBackgroundImage(UIImage(named: "prev")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState())
+        prevBtn.setBackgroundImage(UIImage(named: "prev")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: UIControl.State())
         prevBtn.addTarget(self, action: #selector(CalendarView.prevButtonDidTap(_:)), for: .touchUpInside)
         navigationBar.addSubview(prevBtn)
         //layout
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
-                                              attribute: NSLayoutAttribute.centerY,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.centerY,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
                                               multiplier: 1.0,
                                               constant: 0))
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
-                                              attribute: NSLayoutAttribute.leading,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.leading,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.leading,
+                                              attribute: NSLayoutConstraint.Attribute.leading,
                                               multiplier: 1.0,
                                               constant:16))
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
-                                              attribute: NSLayoutAttribute.width,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.width,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: nil,
-                                              attribute: NSLayoutAttribute.notAnAttribute,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
         self.addConstraint(NSLayoutConstraint(item: prevBtn,
-                                              attribute: NSLayoutAttribute.height,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.height,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: nil,
-                                              attribute: NSLayoutAttribute.notAnAttribute,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
         
@@ -239,36 +240,36 @@ extension CalendarView{
         let nextBtn = UIButton(type: .custom)
         nextBtn.translatesAutoresizingMaskIntoConstraints = false
         nextBtn.tintColor = UIColor.gray
-        nextBtn.setBackgroundImage(UIImage(named: "next")?.withRenderingMode(UIImageRenderingMode.alwaysTemplate), for: UIControlState())
+        nextBtn.setBackgroundImage(UIImage(named: "next")?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate), for: UIControl.State())
         nextBtn.addTarget(self, action: #selector(CalendarView.nextButtonDidTap(_:)), for: .touchUpInside)
         navigationBar.addSubview(nextBtn)
         //layout
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
-                                              attribute: NSLayoutAttribute.centerY,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.centerY,
+                                              attribute: NSLayoutConstraint.Attribute.centerY,
                                               multiplier: 1.0,
                                               constant: 0))
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
-                                              attribute: NSLayoutAttribute.trailing,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.trailing,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: navigationBar,
-                                              attribute: NSLayoutAttribute.trailing,
+                                              attribute: NSLayoutConstraint.Attribute.trailing,
                                               multiplier: 1.0,
                                               constant:-16))
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
-                                              attribute: NSLayoutAttribute.width,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.width,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: nil,
-                                              attribute: NSLayoutAttribute.notAnAttribute,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
         self.addConstraint(NSLayoutConstraint(item: nextBtn,
-                                              attribute: NSLayoutAttribute.height,
-                                              relatedBy: NSLayoutRelation.equal,
+                                              attribute: NSLayoutConstraint.Attribute.height,
+                                              relatedBy: NSLayoutConstraint.Relation.equal,
                                               toItem: nil,
-                                              attribute: NSLayoutAttribute.notAnAttribute,
+                                              attribute: NSLayoutConstraint.Attribute.notAnAttribute,
                                               multiplier: 1.0,
                                               constant:30))
     }
@@ -385,7 +386,7 @@ extension CalendarView{
             let spacew = CGFloat(i % 7) * wid + wid
             let btn = UIButton(frame: CGRect(x: x + spacew,  y: y  ,width: itemWH ,height: itemWH))
             btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-            btn.setTitleColor(componentTextColor, for: UIControlState())
+            btn.setTitleColor(componentTextColor, for: UIControl.State())
             btn.layer.cornerRadius = itemWH / 2
             
             if (i < Weekday) {
@@ -404,7 +405,7 @@ extension CalendarView{
                 btn.addTarget(self, action: #selector(CalendarView.selectDate(_:)), for: .touchUpInside)
             }
             contentWrapperView.addSubview(btn)
-            btn.setTitle("\(day)", for: UIControlState())
+            btn.setTitle("\(day)", for: UIControl.State())
         }
     }
     

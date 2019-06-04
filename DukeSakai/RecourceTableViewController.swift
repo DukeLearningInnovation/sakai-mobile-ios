@@ -2,8 +2,8 @@
 import UIKit
 
 class RecourceTableViewController: UITableViewController {
-    @IBOutlet weak var backLevel: UIBarButtonItem!
-    @IBOutlet weak var courses: UIButton!
+
+    var backLevel = UIBarButtonItem()
     var siteId : String = ""
     var resourceArray = [Resource]()
     var curArray = [Resource]()
@@ -12,12 +12,41 @@ class RecourceTableViewController: UITableViewController {
     var tappedUrl = ""
     var tappedFlag = 0
     
-    func button () {
-        courses.layer.borderWidth = 1
-        courses.layer.cornerRadius = courses.bounds.size.height / 2
-        courses.clipsToBounds = true
-        courses.contentMode = .scaleToFill
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        backLevel = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.reply, target: self, action: #selector(backLevel(_:)))
+        backLevel.tintColor = .white
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = backLevel
+        
+        self.tableView.register(NewResourceCell.self, forCellReuseIdentifier: "resource")
+        swipeEnabled ()
+        // button()
+        print(self.siteId)
+        initialResourceItems()
+        if (resourceArray.count > 0){
+            resourceArray.remove(at: 0)
+        }
+        var skip = 0;
+        
+        for (index, item) in resourceArray.enumerated() {
+            if(skip > 0){
+                skip = skip - 1
+                continue
+            }
+            curArray.append(item)
+            if (item.type == "collection"){
+                skip = item.numChildren + helper(input: item, index: index)
+            }
+        }
+        
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+        
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
     
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (RecourceTableViewController.handleSwipes(sender: )))
@@ -105,35 +134,6 @@ class RecourceTableViewController: UITableViewController {
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.register(NewResourceCell.self, forCellReuseIdentifier: "resource")
-        swipeEnabled ()
-        // button()
-        print(self.siteId)
-        initialResourceItems()
-        if (resourceArray.count > 0){
-            resourceArray.remove(at: 0)
-        }
-        var skip = 0;
-        
-        for (index, item) in resourceArray.enumerated() {
-            if(skip > 0){
-                skip = skip - 1
-                continue
-            }
-            curArray.append(item)
-            if (item.type == "collection"){
-                skip = item.numChildren + helper(input: item, index: index)
-            }
-        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
     
     //back to uplevel of file system
     @IBAction func backLevel(_ sender: Any) {
@@ -207,6 +207,8 @@ class RecourceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //push previous level of files into the stack
+        let urlVC : UrlViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "urlVC") as! UrlViewController
+        
         if (curArray[indexPath.row].type == "collection") {
             var temp = [Resource]()
             for item in curArray {
@@ -220,29 +222,20 @@ class RecourceTableViewController: UITableViewController {
         if (curArray[indexPath.row].type == "text/url") {
             tappedUrl = curArray[indexPath.row].url
             tappedFlag = 0
-            performSegue(withIdentifier: "toUrlDetail", sender: Any.self)
+            urlVC.url = self.tappedUrl
+            urlVC.flag = tappedFlag
+            self.navigationController?.pushViewController(urlVC, animated: true)
+            
         }
         else {
             tappedUrl = curArray[indexPath.row].url
             tappedFlag = 1
-            performSegue(withIdentifier: "toUrlDetail", sender: Any.self)
+            urlVC.url = self.tappedUrl
+            urlVC.flag = tappedFlag
+            self.navigationController?.pushViewController(urlVC, animated: true)
         }
     }
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toUrlDetail") {
-            let destination = segue.destination as! UINavigationController
-            let des = destination.topViewController as! UrlViewController
-            des.url = self.tappedUrl
-            des.flag = tappedFlag
-        }
-    }
-    
-    @IBAction func unwindtoResource(segue: UIStoryboardSegue) {
-        
-    }
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

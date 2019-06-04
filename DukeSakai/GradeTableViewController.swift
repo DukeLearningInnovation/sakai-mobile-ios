@@ -158,7 +158,15 @@ class GradeTableViewController: UITableViewController {
         self.tapItem = gradeItems[indexPath.row].itemName
         self.tapPoints = gradeItems[indexPath.row].points
         self.tapGrade = gradeItems[indexPath.row].grade
-        self.performSegue(withIdentifier: "toGradeDetail", sender: self)
+        
+        let gradeDetailVC : GradeDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "gradeDetailVC") as! GradeDetailViewController
+        
+        gradeDetailVC.itemName = self.tapItem
+        gradeDetailVC.siteId = self.siteId
+        gradeDetailVC.points = self.tapPoints
+        gradeDetailVC.grade = self.tapGrade
+        
+        self.navigationController?.pushViewController(gradeDetailVC, animated: true)
     }
 
     /*

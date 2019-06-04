@@ -244,6 +244,9 @@ class AssignmentTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let assnVC : AssignmentDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "assnVC") as! AssignmentDetailViewController
+        
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
                 return
@@ -257,7 +260,8 @@ class AssignmentTableViewController: UITableViewController {
             self.tapAssignment = closeAssignment[indexPath.row - 1]
             }
         }
-        self.performSegue(withIdentifier: "toAssignmentDetail", sender: self)
+        assnVC.currAssign = tapAssignment
+    self.navigationController?.pushViewController(assnVC, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
