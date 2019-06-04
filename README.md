@@ -89,6 +89,23 @@ the events registered on Sakai in the user's account.
 More in-depth information about these views and navigation inside the app can be
 found in the [user guide](#user-guide) section.
 
+## Deployment
+This app has been published to the Duke University App Store, and can be 
+downloaded by Duke affiliated users from there. If you wish to upload it to a 
+similar App Store, you will need the `.app` file for DukeSakai. This file can be
+generated following these steps:
+ 1. Open the terminal.
+ 
+ 3. Use the `cd` command to change to your project directory.
+ 4. Use the `ls` command, and verify that the folder contains `DukeSakai` 
+    (folder) and `DukeSakai.xcodeproj`, now you are in the right place.
+ 5. Type and run the following command.
+	```
+	xcodebuild clean build CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED="NO"
+	```
+ 6. Once this finishes compiling, you can find the `.app` file by going to 
+    `build/Release-iphoneos/` folder.
+ 7. Upload the resulting  `.app`  file.
 
 ## Sakai API Reference
 
@@ -120,8 +137,8 @@ be found in https://github.com/LitterL/CalendarDemo
 Refer to Document **User Guide**
 
 ## Contributors
-Andres Hernandez Guerra
-Niral Shah
-Zhe Mao
-Yuxiang Huang
-Chengzhang Ma
+* Andres Hernandez Guerra
+* Niral Shah
+* Zhe Mao
+* Yuxiang Huang
+* Chengzhang Ma
