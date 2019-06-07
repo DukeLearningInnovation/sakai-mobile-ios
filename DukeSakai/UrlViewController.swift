@@ -4,7 +4,6 @@ import UIKit
 class UrlViewController: UIViewController {
     var url = ""
     var flag = 2
-    @IBOutlet weak var back: UIButton!
     var urlWebView = UIWebView()
 
     override func viewDidLoad() {
@@ -28,13 +27,6 @@ class UrlViewController: UIViewController {
         self.view.addSubview(urlWebView)
     }
     
-    func button () {
-        back.layer.borderWidth = 1
-        back.layer.cornerRadius = back.bounds.size.height / 2
-        back.clipsToBounds = true
-        back.contentMode = .scaleToFill
-    }
-    
     func swipeEnabled () {
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector (UrlViewController.handleSwipes(sender: )))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector (UrlViewController.handleSwipes(sender: )))
@@ -44,6 +36,7 @@ class UrlViewController: UIViewController {
         view.addGestureRecognizer(leftSwipe)
         view.addGestureRecognizer(rightSwipe)
     }
+    
     @objc func handleSwipes (sender: UISwipeGestureRecognizer) {
         if (sender.direction == .right) {
             performSegue(withIdentifier: "swipeToResource", sender: self)
