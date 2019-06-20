@@ -28,7 +28,6 @@
 		A190D7501E871640008A0D96 /* commonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190D74F1E871640008A0D96 /* commonClass.swift */; };
 		A190D7521E876593008A0D96 /* TermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A190D7511E876593008A0D96 /* TermCell.swift */; };
 		A19B7F991E9530DD00BBFBB4 /* Segue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19B7F981E9530DD00BBFBB4 /* Segue1.swift */; };
-		A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */; };
 		A1AD3AF61E81BB7D00A44A02 /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */; };
 		A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */; };
 		A1AD3AFC1E81BEEE00A44A02 /* AnnounceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */; };
@@ -47,6 +46,9 @@
 		A4342F4C1E91C40300939B9B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4342F491E91C40300939B9B /* CalendarView.swift */; };
 		A4342F4D1E91C40300939B9B /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4342F4A1E91C40300939B9B /* CalendarViewController.swift */; };
 		A4FCBA9E1E942CDF00EA68B1 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4FCBA9D1E942CDF00EA68B1 /* EventDetailViewController.swift */; };
+		D42C0B9822BC1CFB002BBA89 /* loginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C0B9722BC1CFB002BBA89 /* loginPage.swift */; };
+		D42C0B9A22BC1DC7002BBA89 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C0B9922BC1DC7002BBA89 /* LogInViewController.swift */; };
+		D42C0B9C22BC2207002BBA89 /* firstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42C0B9B22BC2207002BBA89 /* firstPage.swift */; };
 		E32C527E1E81A6E2007E9356 /* dukeLogo.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = E32C527D1E81A6E2007E9356 /* dukeLogo.jpeg */; };
 		E32C52931E81B0B4007E9356 /* Book Stack-30.png in Resources */ = {isa = PBXBuildFile; fileRef = E32C52921E81B0B4007E9356 /* Book Stack-30.png */; };
 		E32C52951E81B0B8007E9356 /* Page Overview -30.png in Resources */ = {isa = PBXBuildFile; fileRef = E32C52941E81B0B8007E9356 /* Page Overview -30.png */; };
@@ -77,7 +79,6 @@
 		A190D74F1E871640008A0D96 /* commonClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = commonClass.swift; sourceTree = "<group>"; };
 		A190D7511E876593008A0D96 /* TermCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermCell.swift; sourceTree = "<group>"; };
 		A19B7F981E9530DD00BBFBB4 /* Segue1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue1.swift; sourceTree = "<group>"; };
-		A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A1AD3AF51E81BB7D00A44A02 /* MemberCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemberCell.swift; path = ../MemberCell.swift; sourceTree = "<group>"; };
 		A1AD3AF71E81BECA00A44A02 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		A1AD3AFB1E81BEEE00A44A02 /* AnnounceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnounceCell.swift; sourceTree = "<group>"; };
@@ -98,6 +99,9 @@
 		A4342F491E91C40300939B9B /* CalendarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		A4342F4A1E91C40300939B9B /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		A4FCBA9D1E942CDF00EA68B1 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		D42C0B9722BC1CFB002BBA89 /* loginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginPage.swift; sourceTree = "<group>"; };
+		D42C0B9922BC1DC7002BBA89 /* LogInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		D42C0B9B22BC2207002BBA89 /* firstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstPage.swift; sourceTree = "<group>"; };
 		E32C527D1E81A6E2007E9356 /* dukeLogo.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dukeLogo.jpeg; sourceTree = "<group>"; };
 		E32C52921E81B0B4007E9356 /* Book Stack-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Book Stack-30.png"; sourceTree = "<group>"; };
 		E32C52941E81B0B8007E9356 /* Page Overview -30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Page Overview -30.png"; sourceTree = "<group>"; };
@@ -196,10 +200,12 @@
 				A14A4FDF1E89A5700019C7D0 /* Grade */,
 				A404FB701E8829D200F9A585 /* CommonClass&Func */,
 				A404FB6F1E8829B900F9A585 /* Membership */,
-				A404FB6E1E8829A800F9A585 /* LogIn */,
+				D42C0B9622BC1CFB002BBA89 /* SakaiWebLogin */,
+				A404FB6E1E8829A800F9A585 /* DeprecatedFiles */,
 				A404FB6D1E88293E00F9A585 /* TabBarView */,
 				E32C527F1E81A6E8007E9356 /* material */,
 				A1B8AE071E7C7DE300228E0B /* AppDelegate.swift */,
+				D42C0B9B22BC2207002BBA89 /* firstPage.swift */,
 				A1B8AE0B1E7C7DE300228E0B /* Main.storyboard */,
 				A1B8AE0E1E7C7DE300228E0B /* Assets.xcassets */,
 				A1B8AE101E7C7DE300228E0B /* LaunchScreen.storyboard */,
@@ -220,12 +226,12 @@
 			name = TabBarView;
 			sourceTree = "<group>";
 		};
-		A404FB6E1E8829A800F9A585 /* LogIn */ = {
+		A404FB6E1E8829A800F9A585 /* DeprecatedFiles */ = {
 			isa = PBXGroup;
 			children = (
-				A1AD3AF11E81B9C700A44A02 /* LogInViewController.swift */,
+				D42C0B9922BC1DC7002BBA89 /* LogInViewController.swift */,
 			);
-			name = LogIn;
+			name = DeprecatedFiles;
 			sourceTree = "<group>";
 		};
 		A404FB6F1E8829B900F9A585 /* Membership */ = {
@@ -266,6 +272,14 @@
 				A4342F4A1E91C40300939B9B /* CalendarViewController.swift */,
 			);
 			name = Calendar;
+			sourceTree = "<group>";
+		};
+		D42C0B9622BC1CFB002BBA89 /* SakaiWebLogin */ = {
+			isa = PBXGroup;
+			children = (
+				D42C0B9722BC1CFB002BBA89 /* loginPage.swift */,
+			);
+			path = SakaiWebLogin;
 			sourceTree = "<group>";
 		};
 		E32C527F1E81A6E8007E9356 /* material */ = {
@@ -315,7 +329,7 @@
 				TargetAttributes = {
 					A1B8AE031E7C7DE300228E0B = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 8P937QU645;
+						DevelopmentTeam = U6J58C8CJT;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -385,15 +399,17 @@
 				A1B8AE201E7C7EB300228E0B /* GradeTableViewController.swift in Sources */,
 				79CE3D222229F7730000BEA7 /* FeedbackVC.swift in Sources */,
 				A1B8AE081E7C7DE300228E0B /* AppDelegate.swift in Sources */,
+				D42C0B9A22BC1DC7002BBA89 /* LogInViewController.swift in Sources */,
+				D42C0B9822BC1CFB002BBA89 /* loginPage.swift in Sources */,
 				A1B8AE1F1E7C7EB300228E0B /* AssignmentTableViewController.swift in Sources */,
 				A174353B1E95D508002F9F1C /* AnnTableViewController.swift in Sources */,
 				A1AD3AF81E81BECA00A44A02 /* GradeCell.swift in Sources */,
-				A1AD3AF21E81B9C700A44A02 /* LogInViewController.swift in Sources */,
 				79CE3D2B222DC9280000BEA7 /* MoreCell.swift in Sources */,
 				A404FB791E8C48B700F9A585 /* UrlViewController.swift in Sources */,
 				A14A4FE41E8C54140019C7D0 /* StatusCell.swift in Sources */,
 				A1B8AE221E7C7EB300228E0B /* RecourceTableViewController.swift in Sources */,
 				A1AD3AFE1E81BEFF00A44A02 /* AssignmentCell.swift in Sources */,
+				D42C0B9C22BC2207002BBA89 /* firstPage.swift in Sources */,
 				A1B8AE211E7C7EB300228E0B /* MemberShipTableViewController.swift in Sources */,
 				A1745DED1E8F369B00502F22 /* AnnDetailViewController.swift in Sources */,
 				A190D7501E871640008A0D96 /* commonClass.swift in Sources */,
@@ -547,10 +563,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8P937QU645;
+				DEVELOPMENT_TEAM = U6J58C8CJT;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.mobilecenter.DukeSakaiBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -565,10 +582,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8P937QU645;
+				DEVELOPMENT_TEAM = U6J58C8CJT;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.mobilecenter.DukeSakaiBeta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

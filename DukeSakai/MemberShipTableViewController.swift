@@ -31,7 +31,7 @@ class MemberShipTableViewController: UITableViewController {
         self.formCourseArray();
         self.uniqueTerm = getUniqueTerm(coursesArray: self.currentCourse)
         self.uniqueTerm = self.uniqueTerm.sorted(by: sortTerm)
-        self.termArray = getTermArray (uniqueTerm: self.uniqueTerm, courseArray: self.currentCourse)
+        self.termArray = getTermArray(uniqueTerm: self.uniqueTerm, courseArray: self.currentCourse)
     }
     
     func formCourseArray () {
