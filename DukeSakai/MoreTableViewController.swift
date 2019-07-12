@@ -27,7 +27,7 @@ class MoreTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        allViews = ["Assignments", "Grades", "Announcements", "Resources", "Feedback"]
+        allViews = ["Assignments", "Grades", "Announcements", "Resources", "Feedback", "Empty", "Lessons"]
         resourceSiteId = self.siteId
         // siteId = tabBarVC.siteId
         
