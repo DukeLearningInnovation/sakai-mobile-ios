@@ -6,7 +6,7 @@ var userId : String = ""
 var sites = [String]()
 var courses:[(name: String, siteId: String, term: String,  instructor: String, lastModified: Int64)] = []
 
-class LogInViewController: UIViewController {
+class LogInViewController: UIViewController, UIWebViewDelegate {
     
     let semaphore = DispatchSemaphore(value: 0)
     let semaphore1 = DispatchSemaphore(value: 0)
@@ -16,20 +16,11 @@ class LogInViewController: UIViewController {
         loginWebView.loadRequest(URLRequest(url: url))
     }
     
-    @IBOutlet weak var enter: UIButton!
-    
-    func setbutton() {
-        enter.layer.borderWidth = 1
-        enter.layer.cornerRadius = 7 //enter.bounds.size.height / 2
-        enter.clipsToBounds = true
-        enter.contentMode = .scaleToFill
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setbutton()
         let url = URL(string:"https://sakai.duke.edu")!
         loginWebView.loadRequest(URLRequest(url: url))
+        loginWebView.delegate = self
         
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogInViewController.dismissKeyBoard))
@@ -95,9 +86,12 @@ class LogInViewController: UIViewController {
         if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
+        
+        loginWebView.isHidden = true
+        enterSakai(nil)
     }
     
-    @IBAction func enterButton(_ sender: Any) {
+    func enterSakai(_ sender: Any?) {
         if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
