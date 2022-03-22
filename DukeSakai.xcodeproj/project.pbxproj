@@ -549,6 +549,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8P937QU645;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -567,6 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8P937QU645;
 				INFOPLIST_FILE = DukeSakai/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.duke.ash79.DukeSakai;
 				PRODUCT_NAME = "$(TARGET_NAME)";

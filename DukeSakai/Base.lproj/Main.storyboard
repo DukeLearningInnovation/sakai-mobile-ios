@@ -18,20 +18,7 @@
                     <view key="view" contentMode="scaleToFill" id="xQ9-74-6Xv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-oW-RqN">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" red="0.99194461107254028" green="0.99615627527236938" blue="0.99600595235824585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="0.99194461107254028" green="0.99615627527236938" blue="0.99600595235824585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.078431372549019607" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="uUb-oW-RqN" firstAttribute="bottom" secondItem="xQ9-74-6Xv" secondAttribute="bottomMargin" id="7cU-ag-GVA"/>
-                            <constraint firstItem="uUb-oW-RqN" firstAttribute="leading" secondItem="xQ9-74-6Xv" secondAttribute="leading" id="HPb-q0-YH7"/>
-                            <constraint firstItem="uUb-oW-RqN" firstAttribute="top" secondItem="FWk-Qj-1QT" secondAttribute="bottom" id="MvE-8d-Hyv"/>
-                            <constraint firstAttribute="trailing" secondItem="uUb-oW-RqN" secondAttribute="trailing" id="quW-H0-0jW"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="b7v-CL-0jX">
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="d6N-Nu-j3f">
@@ -41,7 +28,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="loginWebView" destination="uUb-oW-RqN" id="QJf-Y4-4th"/>
                         <segue destination="1Wd-gq-ei3" kind="presentation" identifier="logIn" modalPresentationStyle="fullScreen" id="Ndd-0T-DaW"/>
                     </connections>
                 </viewController>

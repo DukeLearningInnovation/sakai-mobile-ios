@@ -1,32 +1,90 @@
 
 import UIKit
+import WebKit
 
 var task : URLSessionTask!
 var userId : String = ""
 var sites = [String]()
 var courses:[(name: String, siteId: String, term: String,  instructor: String, lastModified: Int64)] = []
 
-class LogInViewController: UIViewController, UIWebViewDelegate {
+class LogInViewController: UIViewController, WKNavigationDelegate, WKUIDelegate {
     
     let semaphore = DispatchSemaphore(value: 0)
     let semaphore1 = DispatchSemaphore(value: 0)
-    @IBOutlet weak var loginWebView: UIWebView!
+    var loginWebView: WKWebView!
     @IBAction func webviewRefresh(_ sender: Any) {
         let url = URL(string:"https://sakai.duke.edu")!
-        loginWebView.loadRequest(URLRequest(url: url))
+        loginWebView.load(URLRequest(url: url))
     }
     
+    let group = DispatchGroup()
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string:"https://sakai.duke.edu")!
-        loginWebView.loadRequest(URLRequest(url: url))
-        loginWebView.delegate = self
+
+        self.configurationForWebView { config in
+            self.loginWebView = WKWebView(frame: CGRect.zero, configuration: config)
+            self.loginWebView.navigationDelegate = self
+            self.loginWebView.uiDelegate = self
+            self.loginWebView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(self.loginWebView)
+            NSLayoutConstraint.activate([
+                self.loginWebView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+                self.loginWebView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+                self.loginWebView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+                self.loginWebView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)])
+            self.loginWebView.load(URLRequest(url: url))
+        }
         
         // Do any additional setup after loading the view.
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LogInViewController.dismissKeyBoard))
         view.addGestureRecognizer(tap)
     }
     
+    // MARK: Helpers for WKWebView cookies persistent storage (ref: https://stackoverflow.com/a/52109021/2672265)
+    private func configurationForWebView(_ completion: @escaping (WKWebViewConfiguration) -> Void) {
+        let configuration = WKWebViewConfiguration()
+        let processPool: WKProcessPool
+
+        if let pool: WKProcessPool = self.getData(key: "pool")  {
+            processPool = pool
+        } else {
+            processPool = WKProcessPool()
+            self.setData(processPool, key: "pool")
+        }
+
+        configuration.processPool = processPool
+
+        if let cookies: [HTTPCookie] = self.getData(key: "cookies") {
+            for cookie in cookies {
+                group.enter()
+                configuration.websiteDataStore.httpCookieStore.setCookie(cookie) {
+                    self.group.leave()
+                }
+            }
+        }
+
+        group.notify(queue: DispatchQueue.main) {
+            completion(configuration)
+        }
+    }
+
+    func setData(_ value: Any, key: String) {
+        let ud = UserDefaults.standard
+        let archivedPool = try! NSKeyedArchiver.archivedData(withRootObject: value, requiringSecureCoding: false)
+        ud.set(archivedPool, forKey: key)
+    }
+
+    func getData<T>(key: String) -> T? {
+        let ud = UserDefaults.standard
+        if let val = ud.value(forKey: key) as? Data,
+            let obj = try! NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(val) as? T {
+            return obj
+        }
+
+        return nil
+    }
+
     func initialCourses() {
         courses = []
         for site in sites {
@@ -82,23 +140,36 @@ class LogInViewController: UIViewController, UIWebViewDelegate {
         }
     }
 
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if !((loginWebView.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
-        
+
         loginWebView.isHidden = true
-        enterSakai(nil)
+
+        // Save cookies to disk manually to reuse in the next session
+        loginWebView.configuration.websiteDataStore.httpCookieStore.getAllCookies { cookies in
+            self.setData(cookies, key: "cookies")
+        }
+        loginWebView.configuration.websiteDataStore.httpCookieStore.getAllCookies({cookies in
+            self.enterSakai(nil, cookies)
+        })
     }
     
-    func enterSakai(_ sender: Any?) {
-        if !((loginWebView.request?.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
+    func enterSakai(_ sender: Any?, _ cookies: [HTTPCookie]) {
+        if !((loginWebView.url?.absoluteString.hasPrefix("https://sakai.duke.edu/portal"))! ){
             return
         }
         sites = [String]()
         let requestURL: NSURL = NSURL(string: "https://sakai.duke.edu/direct/membership.json?_limit=100")!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         let session = URLSession.shared
+
+        // Unlike UIWebView, WKWebView doesn't share cookies with URLSession
+        // Need to do that manually:
+        cookies.forEach { cookie in
+            session.configuration.httpCookieStorage?.setCookie(cookie)
+        }
         let targetString = "site:"
 
         let task = session.dataTask(with: urlRequest as URLRequest) {
